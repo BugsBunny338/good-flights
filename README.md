@@ -14,4 +14,16 @@ yarn install
  HTTPS=true yarn start
 ```
 
+# Development
 
+Add the arc/.gdcatalogrc file with following content
+
+```$json
+{
+    "hostname": "https://secure.gooddata.com",
+    "username": "your-gd-username@gooddata.com",
+    "password": "your-gd-password",
+    "projectId": "ljh2d3as9i2uw2jqrgcdgu3sl69j5wf0",
+    "output": "catalog.json"
+}
+```
