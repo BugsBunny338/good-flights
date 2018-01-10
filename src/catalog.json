@@ -1,0 +1,849 @@
+{
+  "metrics": {
+    "Actual Elapsed Time (minutes)": {
+      "identifier": "fact.dataset_name.actualelapsedtimeminutes",
+      "tags": ""
+    },
+    "Air Time (minutes)": {
+      "identifier": "fact.dataset_name.airtimeminutes",
+      "tags": ""
+    },
+    "Arrival Delay (minutes)": {
+      "identifier": "fact.dataset_name.arrivaldelayminutes",
+      "tags": ""
+    },
+    "Carrier Delay (minutes)": {
+      "identifier": "fact.dataset_name.carrierdelayminutes",
+      "tags": ""
+    },
+    "CRS Elapsed Time (minutes)": {
+      "identifier": "fact.dataset_name.crselapsedtimeminutes",
+      "tags": ""
+    },
+    "Departure Delay (minutes)": {
+      "identifier": "fact.dataset_name.departuredelayminutes",
+      "tags": ""
+    },
+    "Destination Carriers": {
+      "identifier": "fact.dataset_name.destinationcarriers",
+      "tags": ""
+    },
+    "Destination Direct Flights": {
+      "identifier": "fact.dataset_name.destinationdirectflights",
+      "tags": ""
+    },
+    "Destination Elevation": {
+      "identifier": "fact.dataset_name.destinationelevation",
+      "tags": ""
+    },
+    "Destination Runway Length": {
+      "identifier": "fact.dataset_name.destinationrunwaylength",
+      "tags": ""
+    },
+    "Distance (miles)": {
+      "identifier": "fact.dataset_name.distancemiles",
+      "tags": ""
+    },
+    "Late Aircraft Delay (minutes)": {
+      "identifier": "fact.dataset_name.lateaircraftdelayminutes",
+      "tags": ""
+    },
+    "National Air System Delay (minutes)": {
+      "identifier": "fact.dataset_name.nationalairsystemdelayminutes",
+      "tags": ""
+    },
+    "Number of Flights": {
+      "identifier": "fact.dataset_name.numberofflights",
+      "tags": ""
+    },
+    "Number of Flights [Sum]": {
+      "identifier": "aaerfuyXgU7S",
+      "tags": ""
+    },
+    "Origin Carriers": {
+      "identifier": "fact.dataset_name.origincarriers",
+      "tags": ""
+    },
+    "Origin Direct Flights": {
+      "identifier": "fact.dataset_name.origindirectflights",
+      "tags": ""
+    },
+    "Origin Elevation": {
+      "identifier": "fact.dataset_name.originelevation",
+      "tags": ""
+    },
+    "Origin Runway Length": {
+      "identifier": "fact.dataset_name.originrunwaylength",
+      "tags": ""
+    },
+    "Security Delay (minutes)": {
+      "identifier": "fact.dataset_name.securitydelayminutes",
+      "tags": ""
+    },
+    "Taxi In Time (minutes)": {
+      "identifier": "fact.dataset_name.taxiintimeminutes",
+      "tags": ""
+    },
+    "Taxi Out Time (minutes)": {
+      "identifier": "fact.dataset_name.taxiouttimeminutes",
+      "tags": ""
+    },
+    "Weather Delay (minutes)": {
+      "identifier": "fact.dataset_name.weatherdelayminutes",
+      "tags": ""
+    }
+  },
+  "attributes": {
+    "Actual Arrival Time": {
+      "identifier": "attr.dataset_name.actualarrivaltime",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.actualarrivaltime",
+        "tags": ""
+      },
+      "displayForms": {
+        "Actual Arrival Time": {
+          "dfIdentifier": "label.flights.actualarrivaltime",
+          "dfTags": ""
+        }
+      }
+    },
+    "Actual Departure Time": {
+      "identifier": "attr.dataset_name.actualdeparturetime",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.actualdeparturetime",
+        "tags": ""
+      },
+      "displayForms": {
+        "Actual Departure Time": {
+          "dfIdentifier": "label.flights.actualdeparturetime",
+          "dfTags": ""
+        }
+      }
+    },
+    "Cancellation Code": {
+      "identifier": "attr.dataset_name.cancellationcode",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.cancellationcode",
+        "tags": ""
+      },
+      "displayForms": {
+        "Cancellation Code": {
+          "dfIdentifier": "label.flights.cancellationcode",
+          "dfTags": ""
+        }
+      }
+    },
+    "Carrier": {
+      "identifier": "attr.dataset_name.carrier",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.carrier",
+        "tags": ""
+      },
+      "displayForms": {
+        "Carrier": {
+          "dfIdentifier": "label.flights.carrier",
+          "dfTags": ""
+        }
+      }
+    },
+    "CRS Arrival Time": {
+      "identifier": "attr.dataset_name.crsarrivaltime",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.crsarrivaltime",
+        "tags": ""
+      },
+      "displayForms": {
+        "CRS Arrival Time": {
+          "dfIdentifier": "label.flights.crsarrivaltime",
+          "dfTags": ""
+        }
+      }
+    },
+    "CRS Departure Time": {
+      "identifier": "attr.dataset_name.crsdeparturetime",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.crsdeparturetime",
+        "tags": ""
+      },
+      "displayForms": {
+        "CRS Departure Time": {
+          "dfIdentifier": "label.flights.crsdeparturetime",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination City": {
+      "identifier": "attr.dataset_name.destinationcity",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationcity",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination City": {
+          "dfIdentifier": "label.destinations.destinationcity",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination Country": {
+      "identifier": "attr.dataset_name.destinationcountry",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationcountry",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination Country": {
+          "dfIdentifier": "label.destinations.destinationcountry",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination GPS Latitude": {
+      "identifier": "attr.dataset_name.destinationgpslatitude",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationgpslatitude",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination GPS Latitude": {
+          "dfIdentifier": "label.destinations.destinationgpslatitude",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination GPS Longitude": {
+      "identifier": "attr.dataset_name.destinationgpslongitude",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationgpslongitude",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination GPS Longitude": {
+          "dfIdentifier": "label.destinations.destinationgpslongitude",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination IATA Code": {
+      "identifier": "attr.dataset_name.destinationiatacode",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationiatacode",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination IATA Code": {
+          "dfIdentifier": "label.destinations.destinationiatacode",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination Name": {
+      "identifier": "attr.dataset_name.destinationname",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationname",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination Name": {
+          "dfIdentifier": "label.destinations.destinationname",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination State": {
+      "identifier": "attr.dataset_name.destinationstate",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationstate",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination State": {
+          "dfIdentifier": "label.destinations.destinationstate",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination Timezone": {
+      "identifier": "attr.dataset_name.destinationtimezone",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationtimezone",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination Timezone": {
+          "dfIdentifier": "label.destinations.destinationtimezone",
+          "dfTags": ""
+        }
+      }
+    },
+    "Destination Type": {
+      "identifier": "attr.dataset_name.destinationtype",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.destinations.destinationtype",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination Type": {
+          "dfIdentifier": "label.destinations.destinationtype",
+          "dfTags": ""
+        }
+      }
+    },
+    "Flight Cancelled": {
+      "identifier": "attr.dataset_name.flightcancelled",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.flightcancelled",
+        "tags": ""
+      },
+      "displayForms": {
+        "Flight Cancelled": {
+          "dfIdentifier": "label.flights.flightcancelled",
+          "dfTags": ""
+        }
+      }
+    },
+    "Flight Diverted": {
+      "identifier": "attr.dataset_name.flightdiverted",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.flightdiverted",
+        "tags": ""
+      },
+      "displayForms": {
+        "Flight Diverted": {
+          "dfIdentifier": "label.flights.flightdiverted",
+          "dfTags": ""
+        }
+      }
+    },
+    "Flight Number": {
+      "identifier": "attr.dataset_name.flightnumber",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.flightnumber",
+        "tags": ""
+      },
+      "displayForms": {
+        "Flight Number": {
+          "dfIdentifier": "label.flights.flightnumber",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin City": {
+      "identifier": "attr.dataset_name.origincity",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.origincity",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin City": {
+          "dfIdentifier": "label.origins.origincity",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin Country": {
+      "identifier": "attr.dataset_name.origincountry",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.origincountry",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin Country": {
+          "dfIdentifier": "label.origins.origincountry",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin GPS Latitude": {
+      "identifier": "attr.dataset_name.origingpslatitude",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.origingpslatitude",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin GPS Latitude": {
+          "dfIdentifier": "label.origins.origingpslatitude",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin GPS Longitude": {
+      "identifier": "attr.dataset_name.origingpslongitude",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.origingpslongitude",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin GPS Longitude": {
+          "dfIdentifier": "label.origins.origingpslongitude",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin IATA Code": {
+      "identifier": "attr.dataset_name.originiatacode",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.originiatacode",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin IATA Code": {
+          "dfIdentifier": "label.origins.originiatacode",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin Name": {
+      "identifier": "attr.dataset_name.originname",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.originname",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin Name": {
+          "dfIdentifier": "label.origins.originname",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin State": {
+      "identifier": "attr.dataset_name.originstate",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.originstate",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin State": {
+          "dfIdentifier": "label.origins.originstate",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin Timezone": {
+      "identifier": "attr.dataset_name.origintimezone",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.origintimezone",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin Timezone": {
+          "dfIdentifier": "label.origins.origintimezone",
+          "dfTags": ""
+        }
+      }
+    },
+    "Origin Type": {
+      "identifier": "attr.dataset_name.origintype",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.origins.origintype",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin Type": {
+          "dfIdentifier": "label.origins.origintype",
+          "dfTags": ""
+        }
+      }
+    },
+    "Tail Number": {
+      "identifier": "attr.dataset_name.tailnumber",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.tailnumber",
+        "tags": ""
+      },
+      "displayForms": {
+        "Tail Number": {
+          "dfIdentifier": "label.flights.tailnumber",
+          "dfTags": ""
+        }
+      }
+    },
+    "Wheels Off Time": {
+      "identifier": "attr.dataset_name.wheelsofftime",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.wheelsofftime",
+        "tags": ""
+      },
+      "displayForms": {
+        "Wheels Off Time": {
+          "dfIdentifier": "label.flights.wheelsofftime",
+          "dfTags": ""
+        }
+      }
+    }
+  },
+  "visualizations": {},
+  "dateDataSets": {
+    "Date (Flight)": {
+      "identifier": "flight.dataset.dt",
+      "tags": "",
+      "attributes": {
+        "Year (Flight)": {
+          "identifier": "flight.year",
+          "tags": "date year",
+          "defaultDisplayForm": {
+            "identifier": "flight.aag81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Year (Flight)": {
+              "identifier": "flight.aag81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Quarter (Flight)": {
+          "identifier": "flight.quarter.in.year",
+          "tags": "date quarter year",
+          "defaultDisplayForm": {
+            "identifier": "flight.aam81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "default (Flight)": {
+              "identifier": "flight.aam81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Week (Sun-Sat)/Year (Flight)": {
+          "identifier": "flight.week",
+          "tags": "date week",
+          "defaultDisplayForm": {
+            "identifier": "flight.aaA81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Flight)": {
+              "identifier": "flight.aaA81lMifn6q",
+              "tags": ""
+            },
+            "Week Starting (Flight)": {
+              "identifier": "flight.aaw81lMifn6q",
+              "tags": ""
+            },
+            "From - To (Flight)": {
+              "identifier": "flight.aau81lMifn6q",
+              "tags": ""
+            },
+            "Week #/Year (Cont.) (Flight)": {
+              "identifier": "flight.aay81lMifn6q",
+              "tags": ""
+            },
+            "Wk/Qtr/Year (Cont.) (Flight)": {
+              "identifier": "flight.aaC81lMifn6q",
+              "tags": ""
+            },
+            "Wk/Qtr/Year (Flight)": {
+              "identifier": "flight.aas81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Week (Sun-Sat) (Flight)": {
+          "identifier": "flight.week.in.year",
+          "tags": "date week year",
+          "defaultDisplayForm": {
+            "identifier": "flight.aaI81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Number US (Flight)": {
+              "identifier": "flight.aaI81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Week (Sun-Sat) of Qtr (Flight)": {
+          "identifier": "flight.week.in.quarter",
+          "tags": "date quarter week",
+          "defaultDisplayForm": {
+            "identifier": "flight.aaO81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Number US (Flight)": {
+              "identifier": "flight.aaO81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Week (Mon-Sun)/Year (Flight)": {
+          "identifier": "flight.euweek",
+          "tags": "date eu week",
+          "defaultDisplayForm": {
+            "identifier": "flight.aa281lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Week #/Year (W1/2010) (Flight)": {
+              "identifier": "flight.aa281lMifn6q",
+              "tags": ""
+            },
+            "Week Starting (Flight)": {
+              "identifier": "flight.aaY81lMifn6q",
+              "tags": ""
+            },
+            "From - To (Flight)": {
+              "identifier": "flight.aaW81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Week (Mon-Sun) (Flight)": {
+          "identifier": "flight.euweek.in.year",
+          "tags": "date eu week year",
+          "defaultDisplayForm": {
+            "identifier": "flight.aba81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Number EU (Flight)": {
+              "identifier": "flight.aba81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Week (Mon-Sun) of Qtr (Flight)": {
+          "identifier": "flight.euweek.in.quarter",
+          "tags": "date eu quarter week",
+          "defaultDisplayForm": {
+            "identifier": "flight.abg81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Number EU (Flight)": {
+              "identifier": "flight.abg81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Month (Flight)": {
+          "identifier": "flight.month.in.year",
+          "tags": "date month year",
+          "defaultDisplayForm": {
+            "identifier": "flight.abm81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Short (Jan) (Flight)": {
+              "identifier": "flight.abm81lMifn6q",
+              "tags": ""
+            },
+            "Long (January) (Flight)": {
+              "identifier": "flight.abs81lMifn6q",
+              "tags": ""
+            },
+            "Number (M1) (Flight)": {
+              "identifier": "flight.abq81lMifn6q",
+              "tags": ""
+            },
+            "M/Q (M1/Q1) (Flight)": {
+              "identifier": "flight.abo81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Month of Quarter (Flight)": {
+          "identifier": "flight.month.in.quarter",
+          "tags": "date month quarter",
+          "defaultDisplayForm": {
+            "identifier": "flight.aby81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Number (Flight)": {
+              "identifier": "flight.aby81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Day of Year (Flight)": {
+          "identifier": "flight.day.in.year",
+          "tags": "date day year",
+          "defaultDisplayForm": {
+            "identifier": "flight.abE81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "default (Flight)": {
+              "identifier": "flight.abE81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Day of Week (Sun-Sat) (Flight)": {
+          "identifier": "flight.day.in.week",
+          "tags": "date day week",
+          "defaultDisplayForm": {
+            "identifier": "flight.abK81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Short (Sun) (Flight)": {
+              "identifier": "flight.abK81lMifn6q",
+              "tags": ""
+            },
+            "Long (Sunday) (Flight)": {
+              "identifier": "flight.abO81lMifn6q",
+              "tags": ""
+            },
+            "Number (1=Sunday) (Flight)": {
+              "identifier": "flight.abM81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Day of Week (Mon-Sun) (Flight)": {
+          "identifier": "flight.day.in.euweek",
+          "tags": "date day eu week",
+          "defaultDisplayForm": {
+            "identifier": "flight.abU81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Short (Mon) (Flight)": {
+              "identifier": "flight.abU81lMifn6q",
+              "tags": ""
+            },
+            "Long (Monday) (Flight)": {
+              "identifier": "flight.abY81lMifn6q",
+              "tags": ""
+            },
+            "Number (1=Monday) (Flight)": {
+              "identifier": "flight.abW81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Day of Quarter (Flight)": {
+          "identifier": "flight.day.in.quarter",
+          "tags": "date day quarter",
+          "defaultDisplayForm": {
+            "identifier": "flight.ab481lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "default (Flight)": {
+              "identifier": "flight.ab481lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Day of Month (Flight)": {
+          "identifier": "flight.day.in.month",
+          "tags": "date day month",
+          "defaultDisplayForm": {
+            "identifier": "flight.aca81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "default (Flight)": {
+              "identifier": "flight.aca81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Quarter/Year (Flight)": {
+          "identifier": "flight.quarter",
+          "tags": "date quarter",
+          "defaultDisplayForm": {
+            "identifier": "flight.aci81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "US Short (Flight)": {
+              "identifier": "flight.aci81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Month/Year (Flight)": {
+          "identifier": "flight.month",
+          "tags": "date month",
+          "defaultDisplayForm": {
+            "identifier": "flight.act81lMifn6q",
+            "tags": ""
+          },
+          "displayForms": {
+            "Short (Jan 2010) (Flight)": {
+              "identifier": "flight.act81lMifn6q",
+              "tags": ""
+            },
+            "Long (January 2010) (Flight)": {
+              "identifier": "flight.acx81lMifn6q",
+              "tags": ""
+            },
+            "Number (1/2010) (Flight)": {
+              "identifier": "flight.acv81lMifn6q",
+              "tags": ""
+            }
+          }
+        },
+        "Date (Flight)": {
+          "identifier": "flight.date",
+          "tags": "date",
+          "defaultDisplayForm": {
+            "identifier": "flight.date.mmddyyyy",
+            "tags": ""
+          },
+          "displayForms": {
+            "mm/dd/yyyy (Flight)": {
+              "identifier": "flight.date.mmddyyyy",
+              "tags": ""
+            },
+            "yyyy-mm-dd (Flight)": {
+              "identifier": "flight.date.yyyymmdd",
+              "tags": ""
+            },
+            "m/d/yy (no leading zeroes) (Flight)": {
+              "identifier": "flight.date.mdyy",
+              "tags": ""
+            },
+            "Long (Mon, Jan 1, 2010) (Flight)": {
+              "identifier": "flight.date.long",
+              "tags": ""
+            },
+            "dd/mm/yyyy (Flight)": {
+              "identifier": "flight.date.ddmmyyyy",
+              "tags": ""
+            },
+            "dd-mm-yyyy (Flight)": {
+              "identifier": "flight.date.eddmmyyyy",
+              "tags": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

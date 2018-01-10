@@ -1,0 +1,32 @@
+{
+  "name": "flights-map",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.17"
+  },
+  "dependencies": {
+    "@gooddata/react-components": "^2.9.2",
+    "react": "15",
+    "react-dom": "15",
+    "react-google-maps": "^9.2.2"
+  },
+  "proxy": {
+    "/gdc": {
+      "changeOrigin": true,
+      "cookieDomainRewrite": "localhost",
+      "target": "https://secure.gooddata.com/"
+    },
+    "/*.html": {
+      "changeOrigin": true,
+      "secure": false,
+      "target": "https://secure.gooddata.com/"
+    }
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
