@@ -1,10 +1,9 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Polyline } from "react-google-maps"
-const googleMapStyle = require("./google-map.json");
 
-const MyMapComponent = withScriptjs(withGoogleMap((props) =>
+const Map = withScriptjs(withGoogleMap((props) =>
               
-              <GoogleMap
+              <GoogleMap style = {{height:'600px', margin: '20px'}}
                 defaultZoom={3}
                 defaultCenter={{ lat: props.flights[0].originLat, lng: props.flights[0].originLng }} 
                 defaultOptions={{ mapTypeControl: false, fullscreenControl: false, streetViewControl: false }}
@@ -38,4 +37,4 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
               </GoogleMap>
 ))
     
-export default MyMapComponent;
+export default Map;

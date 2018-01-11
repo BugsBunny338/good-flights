@@ -30,5 +30,6 @@
 
 /* Google Maps */
 .MapLoadingElement, .MapContainerElement, .MapElement {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 140px);
+    border: 1px solid lightgray;
 }
