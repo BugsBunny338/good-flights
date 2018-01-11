@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "@gooddata/react-components": "^2.9.2",
+    "babel-preset-es2015": "^6.24.1",
+    "jsftp": "^2.1.2",
     "react": "15",
     "react-dom": "15",
     "react-google-maps": "^9.2.2"
