@@ -138,29 +138,44 @@ class MapPanel extends Component {
                           (executionResult) => {
 
                               return (
-                                  <Map
-                                      flights={
-                                          executionResult.result.rawData.map(function(flight, index) {
-                                              const singleRoute = {
-                                                  flightId: flight[0].name+flight[3].name,
-                                                  originIata: flight[0].name,
-                                                  originLat: parseFloat(flight[1].name),
-                                                  originLng: parseFloat(flight[2].name),
-                                                  destIata: flight[3].name,
-                                                  destLat: parseFloat(flight[4].name),
-                                                  destLng: parseFloat(flight[5].name),
-                                                  numOfFlights: parseFloat(flight[6])
-                                              }
+                                  <Container fluid={true}>
+                                      <Row>
+                                          <Col xs={12}>
+                                              <Map
+                                                  flights={
+                                                      executionResult.result.rawData.map(function(flight, index) {
+                                                          const singleRoute = {
+                                                              flightId: flight[0].name+flight[3].name,
+                                                              originIata: flight[0].name,
+                                                              originLat: parseFloat(flight[1].name),
+                                                              originLng: parseFloat(flight[2].name),
+                                                              destIata: flight[3].name,
+                                                              destLat: parseFloat(flight[4].name),
+                                                              destLng: parseFloat(flight[5].name),
+                                                              numOfFlights: parseFloat(flight[6])
+                                                          }
 
-                                              return singleRoute;
-                                          })
-                                      }
+                                                          return singleRoute;
+                                                      })
+                                                  }
 
-                                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Vo7Rv1C80cQ05W2w8qjMAlA5IBpiufE&v=3.exp&libraries=geometry,drawing,places"
-                                      loadingElement={<div className="MapLoadingElement" />}
-                                      containerElement={<div className="MapContainerElement" />}
-                                      mapElement={<div className="MapElement" />}
-                                  />
+                                                  googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Vo7Rv1C80cQ05W2w8qjMAlA5IBpiufE&v=3.exp&libraries=geometry,drawing,places"
+                                                  loadingElement={<div className="MapLoadingElement" style={{ height: 350,
+                                                      width: '100%',
+                                                      display: 'flex',
+                                                      flexFlow: 'row nowrap',
+                                                      justifyContent: 'center',
+                                                      padding: 0 }}/>}
+                                                  containerElement={<div className="MapContainerElement" style={{
+                                                      width: "100%",
+                                                      marginLeft: 0
+                                                  }}/>}
+                                                  mapElement={<div className="MapElement" />}
+                                              />
+                                          </Col>
+                                      </Row>
+                                  </Container>
+
                               );
                           }
                       }

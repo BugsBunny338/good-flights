@@ -40,11 +40,11 @@ export default class App extends React.Component {
                                 </NavbarBrand>
                                 <Nav>
                                     <Col md={10}/>
-                                    <NavItem md={1}>
+                                    <NavItem>
                                         <NavLink onClick={(() => this.setState({...this.state, content: 'Map'}))}
                                                  style={{color:'white', textDecoration: 'underline'}}>Map Panel</NavLink>
                                     </NavItem>
-                                    <NavItem md={1}>
+                                    <NavItem>
                                         <NavLink onClick={(() => this.setState({...this.state, content: 'Estimator'}))}
                                                  style={{color:'white', textDecoration: 'underline'}}>Estimator</NavLink>
                                     </NavItem>
