@@ -28,3 +28,9 @@ Add the arc/.gdcatalogrc file with following content
     "output": "catalog.json"
 }
 ```
+
+Refresh the catalog 
+
+```$bash
+gdc-catalog-export
+```

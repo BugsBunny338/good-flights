@@ -12,6 +12,14 @@
       "identifier": "fact.dataset_name.arrivaldelayminutes",
       "tags": ""
     },
+    "Bottom 10 destinations (# of flights)": {
+      "identifier": "aa2t7lg9dAQb",
+      "tags": ""
+    },
+    "Cancelled Flights": {
+      "identifier": "aagrjfW4fFaK",
+      "tags": ""
+    },
     "Carrier Delay (minutes)": {
       "identifier": "fact.dataset_name.carrierdelayminutes",
       "tags": ""
@@ -20,12 +28,32 @@
       "identifier": "fact.dataset_name.crselapsedtimeminutes",
       "tags": ""
     },
+    "Delayed Flights": {
+      "identifier": "aazrlLTmfs9F",
+      "tags": ""
+    },
+    "Delayed Flights (15min+)": {
+      "identifier": "aaktYmiYefHX",
+      "tags": ""
+    },
     "Departure Delay (minutes)": {
       "identifier": "fact.dataset_name.departuredelayminutes",
       "tags": ""
     },
+    "Destination Air Pressure": {
+      "identifier": "attr.dataset_name.destpressure",
+      "tags": ""
+    },
+    "Destination Air Temperature": {
+      "identifier": "attr.dataset_name.destairtemp",
+      "tags": ""
+    },
     "Destination Carriers": {
       "identifier": "fact.dataset_name.destinationcarriers",
+      "tags": ""
+    },
+    "Destination Dew Point": {
+      "identifier": "attr.dataset_name.destdewpoint",
       "tags": ""
     },
     "Destination Direct Flights": {
@@ -36,12 +64,52 @@
       "identifier": "fact.dataset_name.destinationelevation",
       "tags": ""
     },
+    "Destination Precipitation 1hr": {
+      "identifier": "attr.dataset_name.destprec1",
+      "tags": ""
+    },
+    "Destination Precipitation 6hr": {
+      "identifier": "attr.dataset_name.destprec6",
+      "tags": ""
+    },
     "Destination Runway Length": {
       "identifier": "fact.dataset_name.destinationrunwaylength",
       "tags": ""
     },
+    "Destination Wind Direction": {
+      "identifier": "attr.dataset_name.destwinddir",
+      "tags": ""
+    },
+    "Destination Wind Speed": {
+      "identifier": "attr.dataset_name.destwindspeed",
+      "tags": ""
+    },
     "Distance (miles)": {
       "identifier": "fact.dataset_name.distancemiles",
+      "tags": ""
+    },
+    "Distance (Min)": {
+      "identifier": "aamtfWFXfns2",
+      "tags": ""
+    },
+    "Distance Travelled (miles)": {
+      "identifier": "acctYC5xbZvZ",
+      "tags": ""
+    },
+    "Diverts Carriers": {
+      "identifier": "fact.dataset_name.divertcarriers",
+      "tags": ""
+    },
+    "Diverts Direct Flights": {
+      "identifier": "fact.dataset_name.divertdirectflights",
+      "tags": ""
+    },
+    "Diverts Elevation": {
+      "identifier": "fact.dataset_name.divertelevation",
+      "tags": ""
+    },
+    "Diverts Runway Length": {
+      "identifier": "fact.dataset_name.divertrunwaylength",
       "tags": ""
     },
     "Late Aircraft Delay (minutes)": {
@@ -52,16 +120,36 @@
       "identifier": "fact.dataset_name.nationalairsystemdelayminutes",
       "tags": ""
     },
+    "Number of Diverted Flights": {
+      "identifier": "aanzXKkqeZ0O",
+      "tags": ""
+    },
     "Number of Flights": {
       "identifier": "fact.dataset_name.numberofflights",
       "tags": ""
     },
-    "Number of Flights [Sum]": {
+    "Number of Flights(1)": {
       "identifier": "aaerfuyXgU7S",
+      "tags": ""
+    },
+    "On Time Flights": {
+      "identifier": "aanrnmcQfT6C",
+      "tags": ""
+    },
+    "Origin Air Pressure": {
+      "identifier": "attr.dataset_name.originpressure",
+      "tags": ""
+    },
+    "Origin Air Temperature": {
+      "identifier": "attr.dataset_name.originairtemp",
       "tags": ""
     },
     "Origin Carriers": {
       "identifier": "fact.dataset_name.origincarriers",
+      "tags": ""
+    },
+    "Origin Dew Point": {
+      "identifier": "attr.dataset_name.origindewpoint",
       "tags": ""
     },
     "Origin Direct Flights": {
@@ -72,8 +160,24 @@
       "identifier": "fact.dataset_name.originelevation",
       "tags": ""
     },
+    "Origin Precipitation 1hr": {
+      "identifier": "attr.dataset_name.originprec1",
+      "tags": ""
+    },
+    "Origin Precipitation 6hr": {
+      "identifier": "attr.dataset_name.originprec6",
+      "tags": ""
+    },
     "Origin Runway Length": {
       "identifier": "fact.dataset_name.originrunwaylength",
+      "tags": ""
+    },
+    "Origin Wind Direction": {
+      "identifier": "attr.dataset_name.originwinddir",
+      "tags": ""
+    },
+    "Origin Wind Speed": {
+      "identifier": "attr.dataset_name.originwindspeed",
       "tags": ""
     },
     "Security Delay (minutes)": {
@@ -86,6 +190,10 @@
     },
     "Taxi Out Time (minutes)": {
       "identifier": "fact.dataset_name.taxiouttimeminutes",
+      "tags": ""
+    },
+    "Top 10 destinations (# of flights)": {
+      "identifier": "aart6y5YedFO",
       "tags": ""
     },
     "Weather Delay (minutes)": {
@@ -146,6 +254,20 @@
       "displayForms": {
         "Carrier": {
           "dfIdentifier": "label.flights.carrier",
+          "dfTags": ""
+        }
+      }
+    },
+    "Carrier Name": {
+      "identifier": "attr.dataset_name.carriername",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.carriername",
+        "tags": ""
+      },
+      "displayForms": {
+        "Carrier Name": {
+          "dfIdentifier": "label.flights.carriername",
           "dfTags": ""
         }
       }
@@ -304,6 +426,146 @@
         }
       }
     },
+    "Destination Weather Condition": {
+      "identifier": "attr.dataset_name.destcondition",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.destinationweathercondition",
+        "tags": ""
+      },
+      "displayForms": {
+        "Destination Weather Condition": {
+          "dfIdentifier": "label.flights.destinationweathercondition",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts City": {
+      "identifier": "attr.dataset_name.divertcity",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertscity",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts City": {
+          "dfIdentifier": "label.diverts.divertscity",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts Country": {
+      "identifier": "attr.dataset_name.divertcountry",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertscountry",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts Country": {
+          "dfIdentifier": "label.diverts.divertscountry",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts GPS Latitude": {
+      "identifier": "attr.dataset_name.divertgpslatitude",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertsgpslatitude",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts GPS Latitude": {
+          "dfIdentifier": "label.diverts.divertsgpslatitude",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts GPS Longitude": {
+      "identifier": "attr.dataset_name.divertgpslongitude",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertsgpslongitude",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts GPS Longitude": {
+          "dfIdentifier": "label.diverts.divertsgpslongitude",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts IATA Code": {
+      "identifier": "attr.dataset_name.divertiatacode",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertsiatacode",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts IATA Code": {
+          "dfIdentifier": "label.diverts.divertsiatacode",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts Name": {
+      "identifier": "attr.dataset_name.divertname",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertsname",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts Name": {
+          "dfIdentifier": "label.diverts.divertsname",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts State": {
+      "identifier": "attr.dataset_name.divertstate",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertsstate",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts State": {
+          "dfIdentifier": "label.diverts.divertsstate",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts Timezone": {
+      "identifier": "attr.dataset_name.diverttimezone",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertstimezone",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts Timezone": {
+          "dfIdentifier": "label.diverts.divertstimezone",
+          "dfTags": ""
+        }
+      }
+    },
+    "Diverts Type": {
+      "identifier": "attr.dataset_name.diverttype",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.diverts.divertstype",
+        "tags": ""
+      },
+      "displayForms": {
+        "Diverts Type": {
+          "dfIdentifier": "label.diverts.divertstype",
+          "dfTags": ""
+        }
+      }
+    },
     "Flight Cancelled": {
       "identifier": "attr.dataset_name.flightcancelled",
       "tags": "",
@@ -314,6 +576,34 @@
       "displayForms": {
         "Flight Cancelled": {
           "dfIdentifier": "label.flights.flightcancelled",
+          "dfTags": ""
+        }
+      }
+    },
+    "Flight Delayed": {
+      "identifier": "attr.dataset_name.flightdelayed",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.flightdelayed",
+        "tags": ""
+      },
+      "displayForms": {
+        "Flight Delayed": {
+          "dfIdentifier": "label.flights.flightdelayed",
+          "dfTags": ""
+        }
+      }
+    },
+    "Flight Delayed 15+": {
+      "identifier": "attr.dataset_name.flightsigdelayed",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.flightdelayed15",
+        "tags": ""
+      },
+      "displayForms": {
+        "Flight Delayed 15+": {
+          "dfIdentifier": "label.flights.flightdelayed15",
           "dfTags": ""
         }
       }
@@ -472,6 +762,20 @@
         }
       }
     },
+    "Origin Weather Condition": {
+      "identifier": "attr.dataset_name.origincondition",
+      "tags": "",
+      "defaultDisplayForm": {
+        "identifier": "label.flights.originweathercondition",
+        "tags": ""
+      },
+      "displayForms": {
+        "Origin Weather Condition": {
+          "dfIdentifier": "label.flights.originweathercondition",
+          "dfTags": ""
+        }
+      }
+    },
     "Tail Number": {
       "identifier": "attr.dataset_name.tailnumber",
       "tags": "",
@@ -501,7 +805,72 @@
       }
     }
   },
-  "visualizations": {},
+  "visualizations": {
+    "Flight Delays & Cancellations": {
+      "identifier": "aafroeEZc82w",
+      "tags": ""
+    },
+    "Carrier Stats": {
+      "identifier": "aaArqoVgbuPp",
+      "tags": ""
+    },
+    "Flights by Carrier": {
+      "identifier": "aastNsBsdunT",
+      "tags": ""
+    },
+    "Flight Delays by Carrier": {
+      "identifier": "aattYkJJguqP",
+      "tags": ""
+    },
+    "Flight Cancellations by Carrier": {
+      "identifier": "aact0dz0ckHi",
+      "tags": ""
+    },
+    "Top 10 US destinations (2017)": {
+      "identifier": "aaruqr5Naodo",
+      "tags": ""
+    },
+    "Frequent flies cancelled by Carrier": {
+      "identifier": "aaruQwm9chjw",
+      "tags": ""
+    },
+    "Frequent flying aircrafts": {
+      "identifier": "aaHuRcuNbCYY",
+      "tags": ""
+    },
+    "Most frequent routes": {
+      "identifier": "aa4u4k6AeZ1I",
+      "tags": ""
+    },
+    "Most Frequent Diverts": {
+      "identifier": "aaEu5u1oitEv",
+      "tags": ""
+    },
+    "Diverts by Carrier": {
+      "identifier": "aaOu5Ntygirc",
+      "tags": ""
+    },
+    "Diverted Flights": {
+      "identifier": "aanvaraoecru",
+      "tags": ""
+    },
+    "Cancelled Flights": {
+      "identifier": "aaCFs8ykir0B",
+      "tags": ""
+    },
+    "Worst Diverts": {
+      "identifier": "aapFxMb4alzp",
+      "tags": ""
+    },
+    "Cancelled YoY comparison": {
+      "identifier": "aahFC3ZDhOVa",
+      "tags": ""
+    },
+    "Cancelled Flights (Fault: Carrier)": {
+      "identifier": "aazFGODRgbOf",
+      "tags": ""
+    }
+  },
   "dateDataSets": {
     "Date (Flight)": {
       "identifier": "flight.dataset.dt",

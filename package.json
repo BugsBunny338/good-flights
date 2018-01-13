@@ -24,6 +24,11 @@
       "cookieDomainRewrite": "localhost",
       "target": "https://secure.gooddata.com/"
     },
+    "/json": {
+      "changeOrigin": true,
+      "cookieDomainRewrite": "localhost",
+      "target": "https://flightxml.flightaware.com/"
+    },
     "/*.html": {
       "changeOrigin": true,
       "secure": false,

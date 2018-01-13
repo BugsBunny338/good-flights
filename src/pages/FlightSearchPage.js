@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Container, Row, Col} from 'reactstrap';
-import MapPanel from "./Map/MapPanel";
-import FlightDetailPanel from "./FlightDetailPanel/FlightDetailPanel";
-import FlightSearchPanel from "./FlightSearchPanel/FlightSearchPanel";
+import MapPanel from "../components/Map/MapPanel";
+import FlightDetailPanel from "../components/FlightDetailPanel/FlightDetailPanel";
+import FlightSearchPanel from "../components/FlightSearchPanel/FlightSearchPanel";
 
 class FlightSearchPage extends Component {
     constructor(props) {

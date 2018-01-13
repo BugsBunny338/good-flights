@@ -5,7 +5,7 @@ function FlightAware(username,apiKey) {
     this.apiKey = apiKey;
 }
 
-FlightAware.host = "flightxml.flightaware.com";
+FlightAware.host = "localhost:3000";//"flightxml.flightaware.com";
 FlightAware.baseURI = "/json/FlightXML2/";
 FlightAware.URL = "https://" + FlightAware.host + FlightAware.baseURI;
 FlightAware.maxRecords = 15;
@@ -1771,4 +1771,4 @@ FlightAware.prototype.ZipcodeInfo = function(zipcode, callback) {
     this._request("ZipcodeInfo", query, callback)
 };
 
-module.exports = FlightAware;
+export default  FlightAware;

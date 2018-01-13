@@ -17,10 +17,11 @@ class MapPanel extends Component {
         this.state = {};
 
         this.generateMapAfm = this.generateMapAfm.bind(this);
+        this.getFilters = this.getFilters.bind(this);
     }
 
     generateMapAfm() {
-        return {
+        let ret = {
             attributes: [
                 {
                     id: C.attributeDisplayForm('Origin IATA Code'),
@@ -47,26 +48,43 @@ class MapPanel extends Component {
                     type: 'attribute'
                 }
             ],
-            filters: [
+            filters: this.getFilters()
+        };
+        return ret;
+    }
+
+    // if origin is provided,
+    // show all flights from origin, if destination is also provided, show all flights between origin
+    // and destination
+    getFilters() {
+        if(this.props.data.scheduledOrigin) {
+            return [
                 {
                     id: C.attributeDisplayForm('Origin IATA Code'),
                     type: 'attribute',
-                    in: [this.props.data.origin ? this.props.data.origin.value : undefined]
+                    in: [this.props.data.scheduledOrigin.value]
                 }
-            ],
-            measures: [
+            ];
+        }
+        else if(this.props.data.origin) {
+            let filters = [
                 {
-                    id: 'number_of_flights',
-                    definition: {
-                        baseObject: {
-                            id: C.metric('Number of Flights [Sum]')
-                        }
-                    }
+                    id: C.attributeDisplayForm('Origin IATA Code'),
+                    type: 'attribute',
+                    in: [this.props.data.origin.value]
                 }
-            ],
-        };
+            ];
+            if(this.props.data.destination) {
+                filters.push({
+                    id: C.attributeDisplayForm('Destination IATA Code'),
+                    type: 'attribute',
+                    in: [this.props.data.destination.value]
+                });
+            }
+            return filters;
+        }
+        return [];
     }
-
 
     render() {
         return (

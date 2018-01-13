@@ -6,7 +6,9 @@ import './App.css';
 import logo from './logo.png';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import FlightSearchPage from '../components/FlightSearchPage';
+import FlightSearchPage from '../pages/FlightSearchPage';
+import ScheduledFlightSearchPage from '../pages/ScheduledFlightSearchPage';
+
 import actions from "../store/actions";
 
 class App extends React.Component {
@@ -37,6 +39,11 @@ class App extends React.Component {
                             <NavItem>
                                 <NavLink style={{color: 'white', textDecoration: 'underline'}}>
                                     <div onClick={() => this.setPage(<FlightSearchPage/>)}>Flights</div>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink style={{color: 'white', textDecoration: 'underline'}}>
+                                    <div onClick={() => this.setPage(<ScheduledFlightSearchPage/>)}>Scheduled</div>
                                 </NavLink>
                             </NavItem>
                         </Nav>

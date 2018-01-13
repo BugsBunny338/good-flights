@@ -45,16 +45,6 @@ class FlightSearchResults extends Component {
                     type: 'attribute',
                     in: [destination]
                 }
-            ],
-            measures: [
-                {
-                    id: 'number_of_flights',
-                    definition: {
-                        baseObject: {
-                            id: C.metric('Number of Flights [Sum]')
-                        }
-                    }
-                }
             ]
         });
     }
@@ -71,7 +61,7 @@ class FlightSearchResults extends Component {
                          onLoadingChanged={
                              e => {
                                  //TODO HOW TO SHOW A "NO FLIGHTS" MESSAGE?
-                                console.log(`No flights `);
+                                console.log('No flights');
                              }
                          }
                          onError={
@@ -107,7 +97,7 @@ class FlightSearchResults extends Component {
                 </Execute>
                 <Row>
                     <Col xs={12}>&nbsp;</Col>
-                    <Col xs={12}><h3>{_c.noFlights ? "No flights found ..." : ''}</h3></Col>
+                    <Col xs={12}><h3>{false ? "No flights found ..." : ''}</h3></Col>
                 </Row>
             </Container>
 
