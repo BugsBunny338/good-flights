@@ -1,12 +1,12 @@
-var request = require('request');
+import request from 'request';
 
 function FlightAware(username,apiKey) {
     this.username = username;
     this.apiKey = apiKey;
 }
 
-FlightAware.host = "localhost:3000";
-FlightAware.baseURI = "/";
+FlightAware.host = "flightxml.flightaware.com";
+FlightAware.baseURI = "/json/FlightXML2/";
 FlightAware.URL = "https://" + FlightAware.host + FlightAware.baseURI;
 FlightAware.maxRecords = 15;
 FlightAware.maxRetries = 3;
@@ -27,9 +27,9 @@ FlightAware.prototype.setCredentials = function(username, apiKey) {
 };
 
 FlightAware.prototype._request = function(method, data, callback) {
-    request.post({
+    request.get({
         uri : FlightAware.URL + method,
-        form : data,
+        qs : data,
         auth : {
             user : this.username,
             pass : this.apiKey,

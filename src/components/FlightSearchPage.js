@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Container, Row, Col, Input} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import MapPanel from "./Map/MapPanel";
 import FlightDetailPanel from "./FlightDetailPanel/FlightDetailPanel";
 import FlightSearchPanel from "./FlightSearchPanel/FlightSearchPanel";

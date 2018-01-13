@@ -58,14 +58,14 @@ class FlightSearchPanel extends Component {
                             return (
                                 <Row>
                                     <Col xs={6}>
-                                        <Label labelFor="origin">From:</Label>
+                                        <Label>From:</Label>
                                         <Select id="origin" style={{margin: '5px'}}
                                                 value={_c.props.data.origin}
                                                 options={options}
                                                 onChange={(selectedValue) => _c.setOrigin(selectedValue)}/>
                                     </Col>
                                     <Col xs={6}>
-                                        <Label labelFor="dest">To:</Label>
+                                        <Label>To:</Label>
                                         <Select id="dest" style={{margin: '5px'}}
                                                 value={_c.props.data.destination}
                                                 options={options}

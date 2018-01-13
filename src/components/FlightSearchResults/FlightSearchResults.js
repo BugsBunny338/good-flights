@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Row, Col, Label} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import {CatalogHelper} from '@gooddata/react-components';
@@ -68,7 +68,17 @@ class FlightSearchResults extends Component {
         return (
             <Container fluid={true}>
                 <Execute afm={this.getResultsAfm(this.props.data.origin.value, this.props.data.destination.value)} projectId={cfg.projectId}
-                         onLoadingChanged={e => <h1>NO FLIGHTS</h1>} onError={e => <h1>ERROR</h1>}>
+                         onLoadingChanged={
+                             e => {
+                                 //TODO HOW TO SHOW A "NO FLIGHTS" MESSAGE?
+                                console.log(`No flights `);
+                             }
+                         }
+                         onError={
+                             e => {
+                                 console.log(`FlightSearchResults: Error retrieving flights: ${JSON.stringify(e)} .`);
+                             }
+                         }>
                     {
                         (executionResult) => {
                             let data = executionResult.result.rawData.map((row) => {
@@ -86,6 +96,7 @@ class FlightSearchResults extends Component {
                                                 }
                                             ]}
                                             defaultPageSize={10}
+                                            showPageSizeOptions={false}
                                             className="-striped -highlight"
                                         />
                                     </Col>
@@ -94,6 +105,10 @@ class FlightSearchResults extends Component {
                         }
                     }
                 </Execute>
+                <Row>
+                    <Col xs={12}>&nbsp;</Col>
+                    <Col xs={12}><h3>{_c.noFlights ? "No flights found ..." : ''}</h3></Col>
+                </Row>
             </Container>
 
         );

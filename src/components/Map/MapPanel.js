@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Row, Col, Label} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 import {Execute} from '@gooddata/react-components';
 
@@ -69,7 +69,6 @@ class MapPanel extends Component {
 
 
     render() {
-        let _c= this;
         return (
             <Container fluid={true}>
                 <Row>
