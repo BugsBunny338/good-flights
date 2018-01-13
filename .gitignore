@@ -5,7 +5,7 @@
 
 # gooddata
 /src/.gdcatalogrc
-/src/.passwd
+/src/passwd.js
 
 # testing
 /coverage
