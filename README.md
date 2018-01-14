@@ -8,6 +8,15 @@ This is GoodFlight demo. This code requires the
 ```$bash
 yarn install
 ```
+Add OpenWeather and FlightAware API tokens to ```good-flights/src/passwd.js```
+```$javascript
+let passwd = {
+    flightAwareApiUser : "flightaware-user",
+    flightAwareApiKey : "flightaware-api-token",
+    openWeatherKey: "openweather-api-token"
+};
+export default passwd;
+```
 
 # Running
 
@@ -17,7 +26,7 @@ yarn install
 
 # Development
 
-Add the arc/.gdcatalogrc file with following content
+Add the ```src/.gdcatalogrc``` file with following content
 
 ```$json
 {
