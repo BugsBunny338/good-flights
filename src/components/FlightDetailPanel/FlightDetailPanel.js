@@ -18,7 +18,7 @@ class FlightDetailPanel extends Component {
                 !this.props.data.flight ||
                 nextProps.data.destination.value !== this.props.data.destination.value ||
                 nextProps.data.origin.value !== this.props.data.origin.value ||
-                nextProps.data.flight.id !== this.data.flight.id )) {
+                nextProps.data.flight.id !== this.props.data.flight.id )) {
 
             // perform computation or enrichment and set it to state
         }

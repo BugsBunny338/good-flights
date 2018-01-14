@@ -35,18 +35,18 @@ class ScheduledFlightDetailPanel extends Component {
 
     }
 
-    getWeather() {
+    getWeather(props) {
         let _c = this;
-        if(_c.props.data && _c.props.data.schedule && _c.props.data.schedule.origin &&
-            this.props.data.schedule.destination) {
-            let origin = airports[_c.props.data.schedule.origin];
-            this.retrieveForecast(origin.lat, origin.lon, _c.props.data.schedule.filed_departuretime, (or, oe)  => {
-                let destination = airports[_c.props.data.schedule.destination];
+        if(props.data && props.data.schedule && props.data.schedule.origin &&
+            props.data.schedule.destination) {
+            let origin = airports[props.data.schedule.origin];
+            this.retrieveForecast(origin.lat, origin.lon, props.data.schedule.filed_departuretime, (or, oe)  => {
+                let destination = airports[props.data.schedule.destination];
                 this.retrieveForecast(destination.lat, destination.lon, _c.props.data.schedule.estimatedarrivaltime, (dr, de) => {
                    // or dr
-                   //console.log(`Origin = ${_c.props.data.schedule.origin} forecast = ${JSON.stringify(or, null,2)}`);
+                   //console.log(`Origin = ${props.data.schedule.origin} forecast = ${JSON.stringify(or, null,2)}`);
                     _c.setState({destinationWeather: dr, originWeather: or, origin, destination});
-                   //console.log(`Destination = ${_c.props.data.schedule.destination} forecast = ${JSON.stringify(dr, null,2)}`);
+                   //console.log(`Destination = ${props.data.schedule.destination} forecast = ${JSON.stringify(dr, null,2)}`);
                });
             });
         }
@@ -58,16 +58,14 @@ class ScheduledFlightDetailPanel extends Component {
                 !this.props.data.schedule.destination ||
                 nextProps.data.schedule.origin !== this.props.data.schedule.origin ||
                 nextProps.data.schedule.destination !== this.props.data.schedule.destination )) {
-
-                this.getWeather();
+                this.getWeather(nextProps);
         }
     }
 
     componentDidMount() {
         if (this.props.data && this.props.data.schedule && this.props.data.schedule.origin &&
             this.props.data.schedule.destination ) {
-
-            this.getWeather();
+            this.getWeather(this.props);
         }
     }
 
@@ -76,6 +74,7 @@ class ScheduledFlightDetailPanel extends Component {
             <Container fluid={true}>
                 <Row>
                     <Col xs={12}>
+                        <p>Flight detail: {JSON.stringify(this.props.data.schedule,null,2)}</p>
                         <p>{this.props.data.schedule.origin} Weather: {JSON.stringify(this.state.originWeather,null,2)}</p>
                         <p>{this.props.data.schedule.destination} Weather: {JSON.stringify(this.state.destinationWeather, null, 2)}</p>
                     </Col>

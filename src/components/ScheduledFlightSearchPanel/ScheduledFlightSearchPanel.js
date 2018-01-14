@@ -66,7 +66,7 @@ class ScheduledFlightSearchPanel extends Component {
                 </Execute>
                 <Row>
                     <Col xs={12}>
-                        <ScheduledFlightSearchResults />
+                        {_c.props.data.scheduledOrigin && <ScheduledFlightSearchResults />}
                     </Col>
                 </Row>
 

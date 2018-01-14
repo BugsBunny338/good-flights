@@ -16,10 +16,10 @@ class MapPanel extends Component {
         let routes = [];
         if(this.props.data && this.props.data.scheduledOrigin && this.props.data.destinations) {
             routes = this.props.data.destinations.map( d => {
-                let destination = airports[d];
+                let destination = airports[d.destination];
                 let origin = airports[this.props.data.scheduledOrigin.label];
                 return {
-                    flightId: `${origin.name}=>${destination.name}`,
+                    flightId: d.ident,
                     originIata: this.props.data.scheduledOrigin.label,
                     originLat: origin.lat,
                     originLng: origin.lon,

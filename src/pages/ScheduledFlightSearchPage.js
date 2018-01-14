@@ -17,12 +17,10 @@ class ScheduledFlightSearchPage extends Component {
                         <ScheduledFlightSearchPanel/>
                     </Col>
                     <Col xs={6} md={8}>
-                        <Col xs={6} md={8}>
                             {this.props.navigation.pages && Array.isArray(this.props.navigation.pages) &&
                             this.props.navigation.pages.length > 1 &&
                             this.props.navigation.pages[this.props.navigation.pages.length - 1] &&
                             this.props.navigation.pages[this.props.navigation.pages.length - 1].page}
-                        </Col>
                     </Col>
                 </Row>
             </Container>

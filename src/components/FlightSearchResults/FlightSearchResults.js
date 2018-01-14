@@ -68,11 +68,13 @@ class FlightSearchResults extends Component {
                              e => {
                                  //TODO HOW TO SHOW A "NO FLIGHTS" MESSAGE?
                                 console.log('No flights');
+                                 return new Error('No flights');
                              }
                          }
                          onError={
                              e => {
                                  console.log(`FlightSearchResults: Error retrieving flights: ${JSON.stringify(e)} .`);
+                                 return new Error(`FlightSearchResults: Error retrieving flights: ${JSON.stringify(e)} .`);
                              }
                          }>
                     {
