@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Container, Row, Col} from 'reactstrap';
-import MapPanel from "../components/MapPanel/MapPanel";
-import FlightDetailPanel from "../components/FlightDetailPanel/FlightDetailPanel";
 import FlightSearchPanel from "../components/FlightSearchPanel/FlightSearchPanel";
 
 class FlightSearchPage extends Component {
@@ -12,7 +10,6 @@ class FlightSearchPage extends Component {
     }
 
     render() {
-        let component = this.props.data.flight ? <FlightDetailPanel/> : <MapPanel/>;
         return (
             <Container fluid={true}>
                 <Row>
@@ -20,7 +17,10 @@ class FlightSearchPage extends Component {
                         <FlightSearchPanel/>
                     </Col>
                     <Col xs={6} md={8}>
-                        {component}
+                        {this.props.navigation.pages && Array.isArray(this.props.navigation.pages) &&
+                        this.props.navigation.pages.length > 1 &&
+                        this.props.navigation.pages[this.props.navigation.pages.length - 1] &&
+                        this.props.navigation.pages[this.props.navigation.pages.length - 1].page}
                     </Col>
                 </Row>
             </Container>
@@ -35,7 +35,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        navigation: state.navigation
     }
 }
 

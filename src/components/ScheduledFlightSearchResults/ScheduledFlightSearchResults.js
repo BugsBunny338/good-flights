@@ -4,6 +4,8 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import {connect} from 'react-redux';
 
+import ScheduledFlightDetailPanel from '../ScheduledFlightDetailPanel/ScheduledFlightDetailPanel';
+
 import FlightAware from '../../flightapi/FlightAware';
 import passwd from '../../passwd';
 import actions from "../../store/actions";
@@ -21,8 +23,11 @@ class ScheduledFlightSearchResults extends Component {
         this.retrieveScheduledFlights = this.retrieveScheduledFlights.bind(this);
     }
 
-    scheduleSelected(schedule) {
+    scheduleSelected(e,schedule) {
+        this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], this.props.navigation.pages[1],
+                {page: <ScheduledFlightDetailPanel/>, breadcrumb: 'Detail'}]});
         this.props.onScheduleSubmit({schedule});
+        e.preventDefault();
     }
 
     retrieveScheduledFlights(origin, callback) {
@@ -46,7 +51,7 @@ class ScheduledFlightSearchResults extends Component {
                     let filtered = data.filter(d => airports[d.destination.substring(1)]).map( d =>
                     { return {...d, destination: d.destination.substring(1), origin: d.origin.substring(1)} });
                     _c.setState({data: filtered.map(d => {
-                        return {...d, ident:<div onClick={(e) => _c.scheduleSelected(d)}>{d.ident}</div>}
+                        return {...d, ident:<a href="" onClick={(e) => _c.scheduleSelected(e,d)}>{d.ident}</a>}
                     })});
                     this.props.onDestinationsSubmit({destinations: filtered.map( r => r.destination)});
                 }
@@ -97,16 +102,18 @@ function mapDispatchToProps(dispatch) {
         },
         onDestinationsSubmit: (state) => {
             dispatch({type: actions.SET_DESTINATIONS, destinations: state.destinations})
+        },
+        onPagesSubmit: (state) => {
+            dispatch({type: actions.SET_PAGES, pages: state.pages})
         }
     }
 }
 
 
-function
-
-mapStateToProps(state) {
+function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        navigation: state.navigation
     }
 }
 

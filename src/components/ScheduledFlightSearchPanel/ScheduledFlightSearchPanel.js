@@ -9,7 +9,8 @@ import catalogJson from '../../catalog.json';
 import cfg from '../../config';
 import actions from '../../store/actions';
 
-import ScheduledFlightSearchResults from '../ScheduledFlightSearchResults/ScheduledFlightSearchResults'
+import ScheduledFlightSearchResults from '../ScheduledFlightSearchResults/ScheduledFlightSearchResults';
+import ScheduledMapPanel from '../ScheduledMapPanel/ScheduledMapPanel';
 
 const C = new CatalogHelper(catalogJson);
 
@@ -23,6 +24,7 @@ class ScheduledFlightSearchPanel extends Component {
     }
 
     setOrigin(selection) {
+        this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], {page: <ScheduledMapPanel/>, breadcrumb: 'Map'}]});
         this.props.onOriginSubmit({scheduledOrigin:selection});
     }
 
@@ -79,6 +81,9 @@ function mapDispatchToProps(dispatch) {
     return {
         onOriginSubmit: (state) => {
             dispatch({type: actions.SET_SCHEDULED_ORIGIN, scheduledOrigin: state.scheduledOrigin})
+        },
+        onPagesSubmit: (state) => {
+            dispatch({type: actions.SET_PAGES, pages: state.pages})
         }
     }
 }
@@ -86,7 +91,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        navigation: state.navigation
     }
 }
 

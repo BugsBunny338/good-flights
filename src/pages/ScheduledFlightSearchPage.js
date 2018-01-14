@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Container, Row, Col} from 'reactstrap';
-import ScheduledMapPanel from "../components/ScheduledMapPanel/ScheduledMapPanel";
 import ScheduledFlightSearchPanel from "../components/ScheduledFlightSearchPanel/ScheduledFlightSearchPanel";
-import ScheduledFlightDetailPanel from "../components/ScheduledFlightDetailPanel/ScheduledFlightDetailPanel";
 
 class ScheduledFlightSearchPage extends Component {
     constructor(props) {
@@ -12,7 +10,6 @@ class ScheduledFlightSearchPage extends Component {
     }
 
     render() {
-        let component = this.props.data.schedule ? <ScheduledFlightDetailPanel/> : <ScheduledMapPanel/>;
         return (
             <Container fluid={true}>
                 <Row>
@@ -20,7 +17,12 @@ class ScheduledFlightSearchPage extends Component {
                         <ScheduledFlightSearchPanel/>
                     </Col>
                     <Col xs={6} md={8}>
-                        {component}
+                        <Col xs={6} md={8}>
+                            {this.props.navigation.pages && Array.isArray(this.props.navigation.pages) &&
+                            this.props.navigation.pages.length > 1 &&
+                            this.props.navigation.pages[this.props.navigation.pages.length - 1] &&
+                            this.props.navigation.pages[this.props.navigation.pages.length - 1].page}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -35,7 +37,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        navigation: state.navigation
     }
 }
 

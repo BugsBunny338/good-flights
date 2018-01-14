@@ -9,7 +9,8 @@ import catalogJson from '../../catalog.json';
 import cfg from '../../config';
 import actions from '../../store/actions';
 
-import FlightSearchResults from '../FlightSearchResults/FlightSearchResults'
+import FlightSearchResults from '../FlightSearchResults/FlightSearchResults';
+import MapPanel from '../MapPanel/MapPanel';
 
 const C = new CatalogHelper(catalogJson);
 
@@ -25,10 +26,12 @@ class FlightSearchPanel extends Component {
     }
 
     setOrigin(selection) {
+        this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], {page: <MapPanel/>, breadcrumb: 'Map'}]});
         this.props.onOriginSubmit({origin:selection});
     }
 
     setDestination(selection) {
+        this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], {page: <MapPanel/>, breadcrumb: 'Map'}]});
         this.props.onDestinationSubmit({destination:selection});
     }
 
@@ -96,6 +99,9 @@ function mapDispatchToProps(dispatch) {
         },
         onDestinationSubmit: (state) => {
             dispatch({type: actions.SET_DESTINATION, destination: state.destination})
+        },
+        onPagesSubmit: (state) => {
+            dispatch({type: actions.SET_PAGES, pages: state.pages})
         }
     }
 }
@@ -103,7 +109,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        navigation: state.navigation
     }
 }
 

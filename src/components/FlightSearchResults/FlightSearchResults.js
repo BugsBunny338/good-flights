@@ -6,6 +6,9 @@ import {CatalogHelper} from '@gooddata/react-components';
 import {Execute} from '@gooddata/react-components';
 import {connect} from 'react-redux';
 
+
+import FlightDetailPanel from '../FlightDetailPanel/FlightDetailPanel';
+
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
 import actions from "../../store/actions";
@@ -49,8 +52,11 @@ class FlightSearchResults extends Component {
         });
     }
 
-    flightSelected(flight) {
+    flightSelected(e, flight) {
+        this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], this.props.navigation.pages[1],
+                {page: <FlightDetailPanel/>, breadcrumb: 'Detail'}]});
         this.props.onFlightSubmit({ flight: flight });
+        e.preventDefault();
     }
 
     render() {
@@ -72,7 +78,7 @@ class FlightSearchResults extends Component {
                     {
                         (executionResult) => {
                             let data = executionResult.result.rawData.map((row) => {
-                                return {flightNum: <div onClick={(d) => _c.flightSelected(row[1])}>{row[0].name}{row[1].name}</div>}
+                                return {flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[1])}>{row[0].name}{row[1].name}</a>}
                             });
                             return (
                                 <Row>
@@ -110,6 +116,9 @@ function mapDispatchToProps(dispatch) {
     return {
         onFlightSubmit: (state) => {
             dispatch({type: actions.SET_FLIGHT, flight: state.flight})
+        },
+        onPagesSubmit: (state) => {
+            dispatch({type: actions.SET_PAGES, pages: state.pages})
         }
     }
 }
@@ -117,7 +126,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        data: state.data
+        data: state.data,
+        navigation: state.navigation
     }
 }
 
