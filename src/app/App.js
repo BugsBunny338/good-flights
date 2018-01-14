@@ -21,6 +21,7 @@ class App extends React.Component {
     }
 
     setPage(page) {
+        this.props.onResetData();
         this.props.onPageSubmit({page:page});
     }
 
@@ -65,6 +66,9 @@ function mapDispatchToProps(dispatch) {
         },
         onDestinationSubmit: (state) => {
             dispatch({type: actions.SET_DESTINATION, destination: state.destination})
+        },
+        onResetData: () => {
+            dispatch({type: actions.RESET_DATA})
         }
     }
 }

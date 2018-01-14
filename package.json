@@ -29,6 +29,11 @@
       "cookieDomainRewrite": "localhost",
       "target": "https://flightxml.flightaware.com/"
     },
+    "/data": {
+      "changeOrigin": true,
+      "cookieDomainRewrite": "localhost",
+      "target": "https://api.openweathermap.org/"
+    },
     "/*.html": {
       "changeOrigin": true,
       "secure": false,

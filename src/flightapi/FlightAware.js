@@ -42,7 +42,7 @@ FlightAware.prototype._request = function(method, data, callback) {
         }
         else {
             var code = res.statusCode;
-            if(code != 200) {
+            if(code !== 200) {
                 switch(code) {
                     case 401:
                         callback({ error: "unauthorized", code: code, text: body });
@@ -57,14 +57,14 @@ FlightAware.prototype._request = function(method, data, callback) {
             }
             else {
                 var results = null;
-                var err = null;
+                var error = null;
                 try {
                     var json = JSON.parse(body);
                     results = json[method + 'Result'];
                 } catch(e) {
-                    err = { error: e, text: body };
+                    error = { error: e, text: body };
                 }
-                callback(err, results);
+                callback(error, results);
             }
         }
     });

@@ -3,6 +3,7 @@ require 'zlib'
 require 'fileutils'
 require 'tempfile'
 
+// ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/2018
 usaf = [
  '726390',
 '725070',

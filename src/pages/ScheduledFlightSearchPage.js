@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Container, Row, Col} from 'reactstrap';
-import MapPanel from "../components/Map/MapPanel";
-import FlightDetailPanel from "../components/FlightDetailPanel/FlightDetailPanel";
+import ScheduledMapPanel from "../components/ScheduledMapPanel/ScheduledMapPanel";
 import ScheduledFlightSearchPanel from "../components/ScheduledFlightSearchPanel/ScheduledFlightSearchPanel";
+import ScheduledFlightDetailPanel from "../components/ScheduledFlightDetailPanel/ScheduledFlightDetailPanel";
 
-class FlightSearchPage extends Component {
+class ScheduledFlightSearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
 
     render() {
-        let component = this.props.data.flight ? <FlightDetailPanel/> : <MapPanel/>;
+        let component = this.props.data.schedule ? <ScheduledFlightDetailPanel/> : <ScheduledMapPanel/>;
         return (
             <Container fluid={true}>
                 <Row>
@@ -39,4 +39,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FlightSearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ScheduledFlightSearchPage);

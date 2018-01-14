@@ -3,7 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 import {Execute} from '@gooddata/react-components';
 
-import Map from './Map';
+import Map from '../Map/Map';
 import { CatalogHelper } from '@gooddata/react-components';
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
@@ -57,16 +57,7 @@ class MapPanel extends Component {
     // show all flights from origin, if destination is also provided, show all flights between origin
     // and destination
     getFilters() {
-        if(this.props.data.scheduledOrigin) {
-            return [
-                {
-                    id: C.attributeDisplayForm('Origin IATA Code'),
-                    type: 'attribute',
-                    in: [this.props.data.scheduledOrigin.value]
-                }
-            ];
-        }
-        else if(this.props.data.origin) {
+        if(this.props.data.origin) {
             let filters = [
                 {
                     id: C.attributeDisplayForm('Origin IATA Code'),
@@ -93,29 +84,27 @@ class MapPanel extends Component {
                     <Col xs={12}>
                         {this.props.data.origin && <Execute afm={this.generateMapAfm()} projectId={cfg.projectId} onLoadingChanged={e=>{}} onError={e=>{}}>
                             {
+
                                 (executionResult) => {
+                                    let routes = executionResult.result.rawData.map(function(flight, index) {
+                                        return  {
+                                            flightId: flight[0].name+flight[3].name,
+                                            originIata: flight[0].name,
+                                            originLat: parseFloat(flight[1].name),
+                                            originLng: parseFloat(flight[2].name),
+                                            destIata: flight[3].name,
+                                            destLat: parseFloat(flight[4].name),
+                                            destLng: parseFloat(flight[5].name),
+                                            numOfFlights: parseFloat(flight[6])
+                                        }
+                                    });
 
                                     return (
                                         <Container fluid={true}>
                                             <Row>
                                                 <Col xs={12}>
                                                     <Map
-                                                        flights={
-                                                            executionResult.result.rawData.map(function(flight, index) {
-                                                                const singleRoute = {
-                                                                    flightId: flight[0].name+flight[3].name,
-                                                                    originIata: flight[0].name,
-                                                                    originLat: parseFloat(flight[1].name),
-                                                                    originLng: parseFloat(flight[2].name),
-                                                                    destIata: flight[3].name,
-                                                                    destLat: parseFloat(flight[4].name),
-                                                                    destLng: parseFloat(flight[5].name),
-                                                                    numOfFlights: parseFloat(flight[6])
-                                                                }
-
-                                                                return singleRoute;
-                                                            })
-                                                        }
+                                                        flights={routes}
 
                                                         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Vo7Rv1C80cQ05W2w8qjMAlA5IBpiufE&v=3.exp&libraries=geometry,drawing,places"
                                                         loadingElement={<div className="MapLoadingElement" style={{ height: 350,

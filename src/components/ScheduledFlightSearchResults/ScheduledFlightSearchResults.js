@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import FlightAware from '../../flightapi/FlightAware';
 import passwd from '../../passwd';
 import actions from "../../store/actions";
+import airports from "../../flightapi/airports";
+
 
 
 class ScheduledFlightSearchResults extends Component {
@@ -15,12 +17,12 @@ class ScheduledFlightSearchResults extends Component {
         super(props);
         this.state = {};
 
-        this.flightSelected = this.flightSelected.bind(this);
+        this.scheduleSelected = this.scheduleSelected.bind(this);
         this.retrieveScheduledFlights = this.retrieveScheduledFlights.bind(this);
     }
 
-    flightSelected(flight) {
-        this.props.onFlightSubmit({flight: flight});
+    scheduleSelected(schedule) {
+        this.props.onScheduleSubmit({schedule});
     }
 
     retrieveScheduledFlights(origin, callback) {
@@ -41,7 +43,12 @@ class ScheduledFlightSearchResults extends Component {
                     console.log(`ScheduledFlightSearchResults: FLight API ERROR: '${JSON.stringify(err, null, 2)}'`);
                 }
                 else {
-                    _c.setState({data});
+                    let filtered = data.filter(d => airports[d.destination.substring(1)]).map( d =>
+                    { return {...d, destination: d.destination.substring(1), origin: d.origin.substring(1)} });
+                    _c.setState({data: filtered.map(d => {
+                        return {...d, ident:<div onClick={(e) => _c.scheduleSelected(d)}>{d.ident}</div>}
+                    })});
+                    this.props.onDestinationsSubmit({destinations: filtered.map( r => r.destination)});
                 }
             });
         }
@@ -85,8 +92,11 @@ class ScheduledFlightSearchResults extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onFlightSubmit: (state) => {
-            dispatch({type: actions.SET_FLIGHT, flight: state.flight})
+        onScheduleSubmit: (state) => {
+            dispatch({type: actions.SET_SCHEDULE, schedule: state.schedule})
+        },
+        onDestinationsSubmit: (state) => {
+            dispatch({type: actions.SET_DESTINATIONS, destinations: state.destinations})
         }
     }
 }
@@ -100,9 +110,4 @@ mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)
-
-(
-    ScheduledFlightSearchResults
-)
-;
+export default connect(mapStateToProps, mapDispatchToProps) (ScheduledFlightSearchResults);
