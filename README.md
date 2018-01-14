@@ -8,7 +8,7 @@ This is GoodFlight demo. This code requires the
 ```$bash
 yarn install
 ```
-Add OpenWeather and FlightAware API tokens to ```good-flights/src/passwd.js```
+Add OpenWeather and FlightAware API tokens to ```src/passwd.js```
 ```$javascript
 let passwd = {
     flightAwareApiUser : "flightaware-user",
