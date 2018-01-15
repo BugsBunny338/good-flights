@@ -14,10 +14,14 @@
     "react-dom": "15",
     "react-google-maps": "^9.2.2",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.9",
     "react-select": "^2.0.0-alpha.1",
     "react-table": "^6.7.6",
     "react-transition-group": "^2.2.1",
-    "reactstrap": "^4.8.0"
+    "reactstrap": "^4.8.0",
+    "recharts": "^1.0.0-beta.9",
+    "redux-devtools-extension": "^2.13.2"
   },
   "proxy": {
     "/gdc": {
