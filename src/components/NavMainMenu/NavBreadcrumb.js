@@ -28,8 +28,8 @@ class NavBreadCrumb extends Component {
         if(this.props.navigation.pages) {
             breadcrumbs = this.props.navigation.pages.reduce( (a,b) => {
                 let index = a.length / 2;
-                a.push(<div style={{display:'inline-block'}} key={Math.random()}>&nbsp;&gt;&nbsp;</div>);
                 a.push(<a href="" key={b.breadcrumb} onClick={(e) => this.setPages(e, index)}>{b.breadcrumb}</a>);
+                a.push(<div style={{display:'inline-block'}} key={Math.random()}>&nbsp;&gt;&nbsp;</div>);
                 return a;
             }, []);
         }

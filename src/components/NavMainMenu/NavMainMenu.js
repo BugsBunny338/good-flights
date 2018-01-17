@@ -7,6 +7,9 @@ import ScheduledFlightSearchPage from '../../pages/ScheduledFlightSearchPage';
 import { setPages, resetData } from "../../store/actions";
 
 import logo from './logo.png';
+import user_photo from './user_photo.png';
+import user_logout from './user_logout.png';
+
 
 
 class NavMainMenu extends Component {
@@ -31,34 +34,37 @@ class NavMainMenu extends Component {
 
     render() {
         return (
-            <Container fluid={true}>
                 <Row>
-                    <Col xs={12}>
-                        <Navbar className="navbar-dark bg-dark .navbar-expand-sm">
+                    <Col xs={12} className="nopadding">
+                        <Navbar className="navbar-dark bg-dark .navbar-expand-sm Navbar">
                             <NavbarBrand href="/">
-                                <h5 style={{color: 'white', verticalAlign: 'middle'}}>
-                                    <img src={logo} style={{width: '20px', height: '20px', marginRight: '15px'}}
-                                         className=".navbar-brand" alt="GoodData"/>GoodData Flight Center</h5>
+                                <h5 className="Logo">
+                                    <img className=".navbar-brand LogoImage" src={logo} alt="GoodData"/>
+                                    <span className="LogoThick">GoodData</span> <span className="LogoThin">Flight Center</span>
+                                </h5>
                             </NavbarBrand>
                             <Nav>
-                                <Col md={10}/>
-                                <NavItem>
+                                <NavItem className="NavItem">
                                     <NavLink href=""
                                              onClick={(e) => this.setPages(e,[{ page:<FlightSearchPage/>, breadcrumb:'Routes'}])}>
                                         Routes
                                     </NavLink>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem className="NavItem">
                                     <NavLink href=""
                                              onClick={(e) => this.setPages(e, [{page: <ScheduledFlightSearchPage/>, breadcrumb:'Flights' }])}>
                                         Flights
                                     </NavLink>
                                 </NavItem>
                             </Nav>
+                            <div className="UserPanel">
+                                <img className="UserPanelImage" src={user_photo} />
+                                <span className="UserName">Alan Smith</span>
+                                <img className="UserPanelLogout" src={user_logout} />
+                            </div> 
                         </Navbar>
                     </Col>
                 </Row>
-            </Container>
 
         );
     }
