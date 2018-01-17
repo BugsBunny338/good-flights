@@ -30,6 +30,9 @@ FlightAware.prototype._request = function(method, data, callback) {
     request.get({
         uri : FlightAware.URL + method,
         qs : data,
+        headers: {
+            Authorization: "Basic " + new Buffer(this.username + ":" + this.apiKey).toString("base64")
+        },
         auth : {
             user : this.username,
             pass : this.apiKey,

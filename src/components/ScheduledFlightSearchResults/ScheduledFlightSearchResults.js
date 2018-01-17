@@ -10,7 +10,7 @@ import ScheduledFlightDetailPanel from '../ScheduledFlightDetailPanel/ScheduledF
 
 import FlightAware from '../../flightapi/FlightAware';
 import passwd from '../../passwd';
-import { setOrigin, setDestinations, setPages } from "../../store/actions";
+import {setOrigin, setDestinations, setPages, setSchedule} from "../../store/actions";
 import airports from "../../flightapi/airports";
 
 class ScheduledFlightSearchResults extends Component {
@@ -117,6 +117,7 @@ class ScheduledFlightSearchResults extends Component {
 const mapDispatchToProps = {
     onOriginSubmit: setOrigin,
     onDestinationsSubmit: setDestinations,
+    onScheduleSubmit: setSchedule,
     onPagesSubmit: setPages
 }
 

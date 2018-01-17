@@ -10,6 +10,14 @@
     lodash "4.17.4"
     rxjs "5.4.3"
 
+"@gooddata/data-layer@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@gooddata/data-layer/-/data-layer-5.0.1.tgz#9a18294ed5f677da22266fb66c81b24ef3d3872b"
+  dependencies:
+    json-stable-stringify "1.0.1"
+    lodash "4.17.4"
+    rxjs "5.4.3"
+
 "@gooddata/goodstrap@53.0.1":
   version "53.0.1"
   resolved "https://registry.yarnpkg.com/@gooddata/goodstrap/-/goodstrap-53.0.1.tgz#ec63334c3005d16ff2b29ea17beac74f54bdafe4"
@@ -90,6 +98,10 @@
     react-intl "2.2.3"
     rxjs "5.4.3"
     uuid "3.0.1"
+
+"@gooddata/typings@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@gooddata/typings/-/typings-0.0.4.tgz#cc2a625010a15ee2dbe698caaa35b518dd33f1fd"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -3059,6 +3071,19 @@ gooddata@4.3.1:
     isomorphic-fetch "2.2.1"
     lodash "4.17.4"
     md5 "2.2.1"
+
+gooddata@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/gooddata/-/gooddata-4.5.1.tgz#3cb018496e1d6e2d9f613680822471cd679030b4"
+  dependencies:
+    "@gooddata/typings" "0.0.4"
+    es6-promise "3.0.2"
+    fetch-cookie "0.4.0"
+    invariant "2.2.2"
+    isomorphic-fetch "2.2.1"
+    lodash "4.17.4"
+    md5 "2.2.1"
+    qs "6.5.1"
 
 google-maps-infobox@^2.0.0:
   version "2.0.0"
