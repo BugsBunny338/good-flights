@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:600|Lato:300,400,700');
+
 .App {
   text-align: center;
 }
 
 .App-header {
   background-color: #222;
-  padding: 5px;
+  padding: 0px;
   color: white;
   height: 60px;
 }
@@ -27,9 +29,51 @@
 
 }
 
-
 /* Google Maps */
 .MapLoadingElement, .MapContainerElement, .MapElement {
     height: calc(100vh - 140px);
     border: 1px solid lightgray;
 }
+
+
+/* Header */
+.Navbar {
+    height: 60px;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+/* Logo section styling */
+.LogoImage {
+    width: 26px;
+    height: 25px;
+    margin: 2px 20px 2px 15px;
+}
+
+.Logo {
+    color: white;
+    vertical-align: middle;
+    font-family: Lato, sans-serif;
+    margin-bottom: 0px;
+}
+
+.LogoThin {
+    font-weight: 300;
+}
+
+.LogoThick {
+    font-weight: 700;
+}
+
+
+.NavItem {
+    font-size: 15px;
+    font-family: Cabin, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
