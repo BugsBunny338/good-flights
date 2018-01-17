@@ -46,9 +46,23 @@ class MapPanel extends Component {
                 {
                     id: C.attributeDisplayForm('Destination GPS Longitude'),
                     type: 'attribute'
+                },
+                {
+                    id: C.attributeDisplayForm('Carrier Name'),
+                    type: 'attribute'
                 }
             ],
-            filters: this.getFilters()
+            filters: this.getFilters(),
+            measures: [
+                {
+                    id: 'flight_quality_score', 
+                    definition: {
+                        baseObject: {
+                            id: C.metric('Flight Quality Score')
+                        }
+                    }
+                }
+            ]
         };
         return ret;
     }
@@ -85,17 +99,18 @@ class MapPanel extends Component {
                         {this.props.data.origin && <Execute afm={this.generateMapAfm()} projectId={cfg.projectId} onLoadingChanged={e=>{}} onError={e=>{}}>
                             {
 
-                                (executionResult) => {
-                                    let routes = executionResult.result.rawData.map(function(flight, index) {
+                                (executionResult) => {                                    
+                                    let routes = executionResult.result.rawData.map(function(flight, index) {                             
                                         return  {
-                                            flightId: flight[0].name+flight[3].name,
+                                            flightId: flight[0].name+flight[3].name+Math.random(),
                                             originIata: flight[0].name,
                                             originLat: parseFloat(flight[1].name),
                                             originLng: parseFloat(flight[2].name),
                                             destIata: flight[3].name,
                                             destLat: parseFloat(flight[4].name),
                                             destLng: parseFloat(flight[5].name),
-                                            numOfFlights: parseFloat(flight[6])
+                                            carrier: flight[6].name,
+                                            flightQuality: parseFloat(flight[7])
                                         }
                                     });
 

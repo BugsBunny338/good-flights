@@ -1,5 +1,17 @@
 {
   "metrics": {
+    "% Cancelled Flights": {
+      "identifier": "acsOmOxzc49Q",
+      "tags": ""
+    },
+    "% Delayed Flights": {
+      "identifier": "actOmNkjfAAM",
+      "tags": ""
+    },
+    "% Diverted Flights": {
+      "identifier": "afga0Cs3aIx3",
+      "tags": ""
+    },
     "Actual Elapsed Time (minutes)": {
       "identifier": "fact.dataset_name.actualelapsedtimeminutes",
       "tags": ""
@@ -22,6 +34,22 @@
     },
     "Carrier Delay (minutes)": {
       "identifier": "fact.dataset_name.carrierdelayminutes",
+      "tags": ""
+    },
+    "Carrier Delay Score": {
+      "identifier": "abebm1Zmav2r",
+      "tags": ""
+    },
+    "Carrier Delay Variability": {
+      "identifier": "abIa7bAWeZRb",
+      "tags": ""
+    },
+    "Carrier Delayed Flights": {
+      "identifier": "afqa3rXuhCIh",
+      "tags": ""
+    },
+    "Carrier Delayed Flights (15min+)": {
+      "identifier": "abaa7Mwshbv9",
       "tags": ""
     },
     "CRS Elapsed Time (minutes)": {
@@ -112,12 +140,28 @@
       "identifier": "fact.dataset_name.divertrunwaylength",
       "tags": ""
     },
+    "Flight Quality Score": {
+      "identifier": "acRbmlocfEzE",
+      "tags": ""
+    },
     "Late Aircraft Delay (minutes)": {
       "identifier": "fact.dataset_name.lateaircraftdelayminutes",
       "tags": ""
     },
     "National Air System Delay (minutes)": {
       "identifier": "fact.dataset_name.nationalairsystemdelayminutes",
+      "tags": ""
+    },
+    "Normalised Carrier Delay Variability - Denominator": {
+      "identifier": "aerbbfy5idTT",
+      "tags": ""
+    },
+    "Normalised Carrier Delay Variability - Numerator": {
+      "identifier": "acrbeYe7b5gx",
+      "tags": ""
+    },
+    "Normalised Carrier Delay Variability Score": {
+      "identifier": "aeUba3lAibsM",
       "tags": ""
     },
     "Number of Diverted Flights": {

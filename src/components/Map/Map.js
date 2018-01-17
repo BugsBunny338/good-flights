@@ -22,7 +22,21 @@ import {Container, Row, Col} from 'reactstrap';
             window.removeEventListener('resize', this.setMapCenter);
         }
 
-        render() {
+        getColor(score) {
+            let colorScale = ['black','#1dc111','#ed9509','#e00b20'];
+                
+            if(score > 80) {
+                return colorScale[1];
+            } else if(score > 60) {
+                return colorScale[2];
+            } else {
+                return colorScale[3];
+            }
+        }
+
+        render() {    
+            const self = this
+
             return (
 
                 <Container fluid={true}>
@@ -42,24 +56,26 @@ import {Container, Row, Col} from 'reactstrap';
                         >
                             {
                                 this.props.flights.map(function (flight, index) {
+                                    let offset = (Math.random() - 0.5) / 25;
+                                    
                                     return (
                                         <div key={flight.flightId}>
                                             <Polyline
                                                 key={flight.flightId}
                                                 path={[
                                                     {
-                                                        lat: flight.originLat,
+                                                        lat: flight.originLat + offset,
                                                         lng: flight.originLng
                                                     },
                                                     {
-                                                        lat: flight.destLat,
+                                                        lat: flight.destLat + offset,
                                                         lng: flight.destLng
                                                     }
                                                 ]}
                                                 options={{
-                                                    strokeColor: 'red',
+                                                    strokeColor: self.getColor(flight.flightQuality),
                                                     strokeWeight: 3,
-                                                    strokeOpacity: 0.6,
+                                                    strokeOpacity: 0.5,
                                                     geodesic: true
                                                 }}
                                             />
