@@ -7,6 +7,9 @@ import ScheduledFlightSearchPage from '../../pages/ScheduledFlightSearchPage';
 import actions from "../../store/actions";
 
 import logo from './logo.png';
+import user_photo from './user_photo.png';
+import user_logout from './user_logout.png';
+
 
 
 class NavMainMenu extends Component {
@@ -41,7 +44,6 @@ class NavMainMenu extends Component {
                                 </h5>
                             </NavbarBrand>
                             <Nav>
-                                <Col xs={10}/>
                                 <NavItem className="NavItem">
                                     <NavLink href=""
                                              onClick={(e) => this.setPages(e,[{ page:<FlightSearchPage/>, breadcrumb:'Routes'}])}>
@@ -55,6 +57,11 @@ class NavMainMenu extends Component {
                                     </NavLink>
                                 </NavItem>
                             </Nav>
+                            <div className="UserPanel">
+                                <img className="UserPanelImage" src={user_photo} />
+                                <span className="UserName">Alan Smith</span>
+                                <img className="UserPanelLogout" src={user_logout} />
+                            </div> 
                         </Navbar>
                     </Col>
                 </Row>

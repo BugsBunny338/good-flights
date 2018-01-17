@@ -68,12 +68,34 @@
     font-weight: 700;
 }
 
-
 .NavItem {
     font-size: 15px;
     font-family: Cabin, sans-serif;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.UserPanel {
+    
+}
+
+.UserPanelImage {
+    width: 30px;
+    height: 31px;
+    margin: 2px 15px;
+}
+
+.UserName {
+    color: white;
+    font-family: Lato, sans-serif;
+ 
+}
+
+.UserPanelLogout {
+    width: 11px;
+    height: 7px;
+    margin: 2px 15px;
+
 }
 
 
