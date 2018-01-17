@@ -16,6 +16,8 @@ import App from './app/App';
 import Flights from './app/Flights'
 import FlightDetail from './app/FlightDetail'
 
+import setupVoice from './voice'
+
 import registerServiceWorker from './registerServiceWorker';
 
 const history = createHistory()
@@ -27,6 +29,8 @@ const store = createStore(
         applyMiddleware(middleware)
     )
 );
+
+setupVoice(store)
 
 ReactDOM.render(
     <Provider store = {store}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import actions from './actions';
+import actions from './actionTypes';
 import FlightSearchPage from '../pages/FlightSearchPage';
 
 /**

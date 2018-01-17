@@ -11,7 +11,7 @@ import FlightDetailPanel from '../FlightDetailPanel/FlightDetailPanel';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
-import actions from "../../store/actions";
+import { setFlight, setPages } from "../../store/actions";
 
 const C = new CatalogHelper(catalogJson);
 
@@ -114,15 +114,9 @@ class FlightSearchResults extends Component {
 
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onFlightSubmit: (state) => {
-            dispatch({type: actions.SET_FLIGHT, flight: state.flight})
-        },
-        onPagesSubmit: (state) => {
-            dispatch({type: actions.SET_PAGES, pages: state.pages})
-        }
-    }
+const mapDispatchToProps = {
+    onFlightSubmit: setFlight,
+    onPagesSubmit: setPages
 }
 
 
