@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
-import actions from '../../store/actions';
+import { setOrigin, setDestination, setPages } from '../../store/actions';
 
 import FlightSearchResults from '../FlightSearchResults/FlightSearchResults';
 import MapPanel from '../MapPanel/MapPanel';
@@ -92,18 +92,10 @@ class FlightSearchPanel extends Component {
 
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onOriginSubmit: (state) => {
-            dispatch({type: actions.SET_ORIGIN, origin: state.origin})
-        },
-        onDestinationSubmit: (state) => {
-            dispatch({type: actions.SET_DESTINATION, destination: state.destination})
-        },
-        onPagesSubmit: (state) => {
-            dispatch({type: actions.SET_PAGES, pages: state.pages})
-        }
-    }
+const mapDispatchToProps = {
+    onOriginSubmit: setOrigin,
+    onDestinationSubmit: setDestination,
+    onPagesSubmit: setPages
 }
 
 

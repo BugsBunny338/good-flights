@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
-import actions from '../../store/actions';
+import { setScheduledOrigin, setPages } from '../../store/actions';
 
 import ScheduledFlightSearchResults from '../ScheduledFlightSearchResults/ScheduledFlightSearchResults';
 import ScheduledMapPanel from '../ScheduledMapPanel/ScheduledMapPanel';
@@ -77,15 +77,9 @@ class ScheduledFlightSearchPanel extends Component {
 
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onOriginSubmit: (state) => {
-            dispatch({type: actions.SET_SCHEDULED_ORIGIN, scheduledOrigin: state.scheduledOrigin})
-        },
-        onPagesSubmit: (state) => {
-            dispatch({type: actions.SET_PAGES, pages: state.pages})
-        }
-    }
+const mapDispatchToProps = {
+    onOriginSubmit: setScheduledOrigin,
+    onPagesSubmit: setPages,
 }
 
 

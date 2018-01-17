@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 import FlightSearchPage from '../../pages/FlightSearchPage';
 import ScheduledFlightSearchPage from '../../pages/ScheduledFlightSearchPage';
-import actions from "../../store/actions";
+import { setPages, resetData } from "../../store/actions";
 
 import logo from './logo.png';
 
@@ -65,15 +65,9 @@ class NavMainMenu extends Component {
 
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onPagesSubmit: (state) => {
-            dispatch({type: actions.SET_PAGES, pages: state.pages})
-        },
-        onResetData: () => {
-            dispatch({type: actions.RESET_DATA})
-        }
-    }
+const mapDispatchToProps = {
+    onPagesSubmit: setPages,
+    onResetData: resetData
 }
 
 function mapStateToProps(state) {

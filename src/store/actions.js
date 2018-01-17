@@ -1,12 +1,40 @@
-const actions = {
-    SET_ORIGIN: 'SET_ORIGIN',
-    SET_SCHEDULED_ORIGIN: 'SET_SCHEDULED_ORIGIN',
-    SET_DESTINATION: 'SET_DESTINATION',
-    SET_FLIGHT: 'SET_FLIGHT',
-    SET_SCHEDULE: 'SET_SCHEDULE',
-    SET_PAGES: 'SET_PAGES',
-    SET_DESTINATIONS: 'SET_DESTINATIONS',
-    RESET_DATA: 'RESET_DATA'
-};
+import t from './actionTypes'
 
-export default actions;
+export const setOrigin = (origin) => ({
+    type: t.SET_ORIGIN,
+    ...origin
+})
+
+export const setDestination = (destination) => ({
+    type: t.SET_DESTINATION,
+    ...destination
+})
+
+export const setScheduledOrigin = (scheduledOrigin) => ({
+    type: t.SET_SCHEDULED_ORIGIN,
+    ...scheduledOrigin
+})
+
+export const setFlight = (flight) => ({
+    type: t.SET_FLIGHT,
+    ...flight
+})
+
+export const setSchedule = (schedule) => ({
+    type: t.SET_SCHEDULE,
+    ...schedule
+})
+
+export const setPages = (pages) => ({
+    type: t.SET_PAGES,
+    ...pages
+})
+
+export const setDestinations = (destinations) => ({
+    type: t.SET_DESTINATIONS,
+    ...destinations
+})
+
+export const resetData = () => ({
+    type: t.RESET_DATA
+})

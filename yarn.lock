@@ -4557,6 +4557,10 @@ multicast-dns@^6.0.1:
     dns-packet "^1.0.1"
     thunky "^0.1.0"
 
+mumble-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mumble-js/-/mumble-js-1.0.1.tgz#721cc723068b455dcd9650ff366259e87002369e"
+
 mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"

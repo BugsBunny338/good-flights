@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 
-import actions from "../../store/actions";
+import { setPages, resetData } from "../../store/actions";
 
 class NavBreadCrumb extends Component {
 
@@ -47,15 +47,9 @@ class NavBreadCrumb extends Component {
 
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onPagesSubmit: (state) => {
-            dispatch({type: actions.SET_PAGES, pages: state.pages})
-        },
-        onResetData: () => {
-            dispatch({type: actions.RESET_DATA})
-        }
-    }
+const mapDispatchToProps = {
+    onPagesSubmit: setPages,
+    onResetData: resetData
 }
 
 function mapStateToProps(state) {
