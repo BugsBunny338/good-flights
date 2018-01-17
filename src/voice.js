@@ -43,7 +43,7 @@ export default function setupVoice(store) {
       // define some commands using regex or a simple string for exact matching
       commands: [{
           name: 'routes_from_to',
-          command: /^find routes from (...) to (...)$/,
+          command: /find routes from (...) to (...)$/,
    
           action: (origin, destination) => {
             console.log('routes from %s to %s', origin, destination)
@@ -53,7 +53,7 @@ export default function setupVoice(store) {
           }
       }, /* I'm not risking this with the Redux state based navigation {
           name: 'find_flights_from',
-          command: /^find flights from (...)$/,
+          command: /find flights from (...)$/,
    
           action: (origin) => {
               console.log('flights from %s', origin);
