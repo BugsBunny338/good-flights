@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
-import { setOrigin, setDestination, setPages } from '../../store/actions';
+import { setOrigin, setDestination, setPages, setAttributeElements } from '../../store/actions';
 
 import FlightSearchResults from '../FlightSearchResults/FlightSearchResults';
 import MapPanel from '../MapPanel/MapPanel';
@@ -58,6 +58,8 @@ class FlightSearchPanel extends Component {
                         (executionResult) => {
                             let options = executionResult.result.rawData.map((row) => {
                                 return {value: row[0].id, label: row[0].name}});
+                            console.log('setAttributeElements')
+                            this.props.setAttributeElements(C.attributeDisplayForm('Origin IATA Code'), options)
                             return (
                                 <Row>
                                     <Col xs={6}>
@@ -95,7 +97,8 @@ class FlightSearchPanel extends Component {
 const mapDispatchToProps = {
     onOriginSubmit: setOrigin,
     onDestinationSubmit: setDestination,
-    onPagesSubmit: setPages
+    onPagesSubmit: setPages,
+    setAttributeElements
 }
 
 

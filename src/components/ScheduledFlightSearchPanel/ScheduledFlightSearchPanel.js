@@ -7,13 +7,14 @@ import {connect} from 'react-redux';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
-import { setScheduledOrigin, setPages } from '../../store/actions';
+import { setScheduledOrigin, setPages, setAttributeElements } from '../../store/actions';
 
 import ScheduledFlightSearchResults from '../ScheduledFlightSearchResults/ScheduledFlightSearchResults';
 import ScheduledMapPanel from '../ScheduledMapPanel/ScheduledMapPanel';
 
 const C = new CatalogHelper(catalogJson);
 
+const ORIGIN_IATA_CODE = 'Origin IATA Code'
 
 class ScheduledFlightSearchPanel extends Component {
 
@@ -28,7 +29,7 @@ class ScheduledFlightSearchPanel extends Component {
         this.props.onOriginSubmit({scheduledOrigin:selection});
     }
 
-    getLookupAfm(attribute = 'Origin IATA Code') {
+    getLookupAfm(attribute = ORIGIN_IATA_CODE) {
         return ({
             attributes: [
                 {
@@ -50,6 +51,7 @@ class ScheduledFlightSearchPanel extends Component {
                         (executionResult) => {
                             let options = executionResult.result.rawData.map((row) => {
                                 return {value: row[0].id, label: row[0].name}});
+                            this.props.setAttributeElements(C.attributeDisplayForm(ORIGIN_IATA_CODE), options)
                             return (
                                 <Row>
                                     <Col xs={12}>
@@ -80,6 +82,7 @@ class ScheduledFlightSearchPanel extends Component {
 const mapDispatchToProps = {
     onOriginSubmit: setScheduledOrigin,
     onPagesSubmit: setPages,
+    setAttributeElements
 }
 
 

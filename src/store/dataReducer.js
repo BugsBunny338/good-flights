@@ -5,6 +5,12 @@ import actions from './actionTypes';
  */
 export default function dataReducer(state = { }, action) {
     switch (action.type) {
+        case actions.SET_ROUTE:
+            return {
+                ...state,
+                origin: action.origin,
+                destination: action.destination
+            }
         case actions.SET_ORIGIN:
             return {
                 ...state,

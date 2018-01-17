@@ -10,6 +10,11 @@ export const setDestination = (destination) => ({
     ...destination
 })
 
+export const setRoute = (origin, destination) => ({
+    type: t.SET_ROUTE,
+    origin, destination
+})
+
 export const setScheduledOrigin = (scheduledOrigin) => ({
     type: t.SET_SCHEDULED_ORIGIN,
     ...scheduledOrigin
@@ -37,4 +42,10 @@ export const setDestinations = (destinations) => ({
 
 export const resetData = () => ({
     type: t.RESET_DATA
+})
+
+export const setAttributeElements = (displayForm, attributeElements) => ({
+    type: t.SET_ATTRIBUTE_ELEMENTS,
+    displayForm,
+    attributeElements
 })
