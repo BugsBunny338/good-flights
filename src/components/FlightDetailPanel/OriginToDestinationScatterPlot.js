@@ -144,8 +144,8 @@ const OriginToDestinationScatterPlot = ({ originId, destinationId, onPointClick 
             <ScatterChart
               margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey={ON_TIME} name="Flights On Time" type="number" />
-              <YAxis dataKey={DELAYED} name="Delayed Flights" type="number" />
+              <XAxis dataKey={ON_TIME} name="Flights On Time" type="number" label="Flights On Time" />
+              <YAxis dataKey={DELAYED} name="Delayed Flights" type="number" label="Delayed Flights" />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} content={renderTooltip} isAnimationActive={false} />
               <Legend />
               {

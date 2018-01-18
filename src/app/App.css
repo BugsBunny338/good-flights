@@ -128,7 +128,7 @@ a {
       padding-left: 0;
       padding-right: 0;
       font-family: BrandonGrotesque-Medium;
-      font-size: 10px;
+      font-size: 12px;
       color: #7E859A; }
       .main-panel .search-panel .search-results .selected-results .ReactTable {
         border: 0; }
@@ -214,9 +214,39 @@ a {
     padding-bottom: 60px;
 }
 
-.selected-results-plot {
+.selected-results-plot-row {
     padding: 0px;
-    font-size: 10px;
+    font-size: 12px;
     font-family: BrandonGrotesque-Medium;
+    
 
+
+}
+
+.selected-results-plot {
+    padding: 5px 10px 10px 5px;
+    background-color: #ffffff;
+    border: 1px solid #E0E3E8;
+}
+
+
+
+.pagination-bottom {
+    padding-top: 10px;
+}
+
+.-previous, .-next {
+    height: 30px;
+}
+
+.-pageJump {
+    padding: 0px 5px;
+}
+
+.ReactTable .-pagination .-pageJump input {
+    width: 40px;
+}
+
+.ReactTable .-pagination .-pageInfo {
+    margin: 0px 10px;
 }
