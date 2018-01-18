@@ -65,6 +65,14 @@ class FlightSearchResults extends Component {
                             id: C.metric('% Cancelled Flights')
                         }
                     }
+                },
+                {
+                    id: 'diverted_pct',
+                    definition: {
+                        baseObject: {
+                            id: C.metric('Diverted Flights (%)')
+                        }
+                    }
                 }
             ],
             filters: [
@@ -116,6 +124,7 @@ class FlightSearchResults extends Component {
                                     ontime: row[3] ? `${Math.round(parseInt(row[3]*100, 10))}%` : '-',
                                     delayed: row[4] ? `${Math.round(parseInt(row[4]*100, 10))}%` : '-',
                                     cancelled: row[5] ? `${Math.round(parseInt(row[5]*100, 10))}%` : '-',
+                                    diverted: row[6] ? `${Math.round(parseInt(row[6]*100, 10))}%` : '-',
                                 }
                             });
                             return (
@@ -144,6 +153,10 @@ class FlightSearchResults extends Component {
                                                 {
                                                     Header: "Cancelled",
                                                     accessor: "cancelled"
+                                                },
+                                                {
+                                                    Header: "Diverted",
+                                                    accessor: "diverted"
                                                 }
                                             ]}
                                             defaultPageSize={10}

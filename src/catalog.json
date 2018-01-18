@@ -116,6 +116,14 @@
       "identifier": "acctYC5xbZvZ",
       "tags": ""
     },
+    "Diverted Flights": {
+      "identifier": "acTgoCo0cdsd",
+      "tags": ""
+    },
+    "Diverted Flights (%)": {
+      "identifier": "acPgpPRKeZxq",
+      "tags": ""
+    },
     "Diverts Carriers": {
       "identifier": "fact.dataset_name.divertcarriers",
       "tags": ""
@@ -222,6 +230,14 @@
     },
     "Security Delay (minutes)": {
       "identifier": "fact.dataset_name.securitydelayminutes",
+      "tags": ""
+    },
+    "Significantly Delayed Flights": {
+      "identifier": "abSfEhOFchDC",
+      "tags": ""
+    },
+    "Significantly Delayed Flights (%)": {
+      "identifier": "abkfE0QNecuZ",
       "tags": ""
     },
     "Taxi In Time (minutes)": {
