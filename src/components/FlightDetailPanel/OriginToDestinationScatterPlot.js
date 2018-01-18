@@ -17,7 +17,7 @@ const afmMetric = (id) => ({
 })
 
 const PLANE_ICON_PATH = "M416.4,90.2l-96.6,61.1L114.2,63.7L63.9,99.1l156.3,115.3l-89.2,56.5l-72.3-24.7L27,267.2l91.8,52.2l7.9,105.3  l32.4-19.5l8.7-75.9l89.2-56.5l37.3,190.6l53.6-30.3l8.9-223.4l102.3-64.8c17.5-11.1,33.8-35.3,21.7-54.5  C468.7,71.1,433.9,79.1,416.4,90.2z"
-const PLANE_ICON_SCALE = "scale(0.03)"
+const PLANE_ICON_SCALE = "scale(0.02)"
 
 const ON_TIME   = C.metric('On Time Flights')
 const DELAYED   = C.metric('Delayed Flights')
@@ -120,11 +120,9 @@ const onPointClickDefault = (pointData, event) => {
 }
 
 const renderPoint = (pointData) => {
-    console.log('renderPoint', pointData)
     if (!pointData.x || !pointData.y) {
         return null
     }
-    console.log("transform:", "translate(" + pointData.cx + " " + pointData.cy + ") " + PLANE_ICON_SCALE)
     return <path fill={pointData.fill}
         transform={"translate(" + pointData.cx + " " + pointData.cy + ") " + PLANE_ICON_SCALE}
         d={PLANE_ICON_PATH} />
@@ -140,12 +138,14 @@ const OriginToDestinationScatterPlot = ({ originId, destinationId, onPointClick 
         const { headers, transformed } = transformResult(result)
         console.log('result / headers / transformed', result, headers, transformed)
         return (
-          <ResponsiveContainer width="100%" aspect={2.5}>
+          <ResponsiveContainer width="100%" aspect={1.4}>
             <ScatterChart
-              margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
+              margin={{ top: 20, right: 10 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey={ON_TIME} name="Flights On Time" type="number" label="Flights On Time" />
-              <YAxis dataKey={DELAYED} name="Delayed Flights" type="number" label="Delayed Flights" />
+              <XAxis dataKey={ON_TIME} name="Flights On Time" type="number" tick={false}
+                  label={{ value: "Flights On Time", position: "insideBottomRight" }} />
+              <YAxis dataKey={DELAYED} name="Delayed Flights" type="number" orientation="left" tick={false}
+                  label={{value: "Delayed Flights", angle: -90 }} />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} content={renderTooltip} isAnimationActive={false} />
               <Legend />
               {
