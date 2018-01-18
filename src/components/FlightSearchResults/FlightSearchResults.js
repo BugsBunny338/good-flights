@@ -13,6 +13,9 @@ import catalogJson from '../../catalog.json';
 import cfg from '../../config';
 import { setFlight, setPages } from "../../store/actions";
 
+import OriginToDestinationScatterPlot from '../FlightDetailPanel/OriginToDestinationScatterPlot'
+
+
 const C = new CatalogHelper(catalogJson);
 
 
@@ -91,6 +94,8 @@ class FlightSearchResults extends Component {
 
     render() {
         let _c = this;
+        const {origin, destination} = this.props.data
+
         return (
             <div>
                 <Execute afm={this.getResultsAfm(this.props.data.origin.value, this.props.data.destination.value)} projectId={cfg.projectId}
@@ -119,6 +124,7 @@ class FlightSearchResults extends Component {
                                 }
                             });
                             return (
+                                <div>
                                 <Row className="selected-results">
                                     <Col xs={12} className="select-title">RESULT</Col>
                                     <Col xs={12}>
@@ -146,12 +152,19 @@ class FlightSearchResults extends Component {
                                                     accessor: "cancelled"
                                                 }
                                             ]}
-                                            defaultPageSize={10}
+                                            defaultPageSize={5}
                                             showPageSizeOptions={false}
                                             className="-striped -highlight"
                                         />
                                     </Col>
                                 </Row>
+                                <Row className="selected-results-plot">
+                                        <Col xs={12}>
+                                            <OriginToDestinationScatterPlot originId={origin && origin.value}
+                                                                            destinationId={destination && destination.value}/>
+                                        </Col>
+                                </Row>
+                                </div>
                             );
                         }
                     }

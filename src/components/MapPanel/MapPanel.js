@@ -3,7 +3,6 @@ import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 import {Execute} from '@gooddata/react-components';
 
-import OriginToDestinationScatterPlot from '../FlightDetailPanel/OriginToDestinationScatterPlot'
 import Map from '../Map/Map';
 import {CatalogHelper} from '@gooddata/react-components';
 import catalogJson from '../../catalog.json';
@@ -139,12 +138,6 @@ class MapPanel extends Component {
                                                 }}/>}
                                                 mapElement={<div className="MapElement"/>}
                                             />
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={12}>
-                                            <OriginToDestinationScatterPlot originId={origin && origin.value}
-                                                                            destinationId={destination && destination.value}/>
                                         </Col>
                                     </Row>
                                 </Container>

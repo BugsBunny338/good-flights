@@ -17,7 +17,7 @@ const afmMetric = (id) => ({
 })
 
 const PLANE_ICON_PATH = "M416.4,90.2l-96.6,61.1L114.2,63.7L63.9,99.1l156.3,115.3l-89.2,56.5l-72.3-24.7L27,267.2l91.8,52.2l7.9,105.3  l32.4-19.5l8.7-75.9l89.2-56.5l37.3,190.6l53.6-30.3l8.9-223.4l102.3-64.8c17.5-11.1,33.8-35.3,21.7-54.5  C468.7,71.1,433.9,79.1,416.4,90.2z"
-const PLANE_ICON_SCALE = "scale(0.02)"
+const PLANE_ICON_SCALE = "scale(0.03)"
 
 const ON_TIME   = C.metric('On Time Flights')
 const DELAYED   = C.metric('Delayed Flights')
@@ -113,7 +113,7 @@ const COLOR_PALETTE = [
     '#ffff33',
     '#a65628',
     '#f781bf'
-]
+] 
 
 const onPointClickDefault = (pointData, event) => {
     console.log('point clicked', event, pointData)
