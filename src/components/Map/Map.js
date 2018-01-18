@@ -42,7 +42,7 @@ import {Container, Row, Col} from 'reactstrap';
                 <Container fluid={true}>
                     <Row>
                         <Col xs={12}><GoogleMap style={{ margin: '20px'}}
-                                                defaultZoom={3}
+                                                defaultZoom={5}
                                                 defaultCenter={{lat: this.props.flights[0].originLat, lng: this.props.flights[0].originLng}}
                                                 defaultOptions={{
                                                     mapTypeControl: false,

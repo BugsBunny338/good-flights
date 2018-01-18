@@ -62,7 +62,7 @@ class FlightSearchResults extends Component {
     render() {
         let _c = this;
         return (
-            <Container fluid={true}>
+            <div>
                 <Execute afm={this.getResultsAfm(this.props.data.origin.value, this.props.data.destination.value)} projectId={cfg.projectId}
                          onLoadingChanged={
                              e => {
@@ -104,10 +104,10 @@ class FlightSearchResults extends Component {
                     }
                 </Execute>
                 <Row>
-                    <Col xs={12}>&nbsp;</Col>
-                    <Col xs={12}><h3>{false ? "No flights found ..." : ''}</h3></Col>
+                        <Col xs={12}>&nbsp;</Col>
+                        <Col xs={12}><h3>{false ? "No flights found ..." : ''}</h3></Col>
                 </Row>
-            </Container>
+            </div>
 
         );
     }

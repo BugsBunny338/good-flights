@@ -51,8 +51,8 @@ class FlightSearchPanel extends Component {
     render() {
         let _c= this;
         return (
-            <Container fluid={true}>
-                <Execute afm={this.getLookupAfm()} projectId={cfg.projectId}
+            <div>
+            <Execute afm={this.getLookupAfm()} projectId={cfg.projectId}
                          onLoadingChanged={e=>{}} onError={e=>{}}>
                     {
                         (executionResult) => {
@@ -87,7 +87,7 @@ class FlightSearchPanel extends Component {
                     </Col>
                 </Row>
 
-            </Container>
+            </div>
 
         );
     }
