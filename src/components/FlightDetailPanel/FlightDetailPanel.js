@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 
+import { Kpi } from '@gooddata/react-components';
+
+import cfg from '../../config';
+import catalogJson from '../../catalog';
 import PixelPerfectChart from '../PixelPerfectChart/PixelPerfectChart';
+import {CatalogHelper} from "@gooddata/react-components/dist/index";
+
+const C = new CatalogHelper(catalogJson);
 
 class FlightDetailPanel extends Component {
 
@@ -13,12 +20,31 @@ class FlightDetailPanel extends Component {
     }
 
     render() {
-        const {origin, destination} = this.props.data;
+        const {origin, destination, flight, carrier} = this.props.data;
         return (
             <div className="FlightDetailPanel">
                 <Row>
-                    <Col>
-                        <h1 className="FlightDetailPanel-h1">Airlines Quality</h1>
+                    <Col xs={3}>
+                        <h1 className="FlightDetailPanel-h1">
+                            <Kpi filters={[
+                                {
+                                    id: C.attributeDisplayForm('Carrier'),
+                                    type: 'attribute',
+                                    in: [carrier]
+                                },
+                                {
+                                    id: C.attributeDisplayForm('Flight Number'),
+                                    type: 'attribute',
+                                    in: [flight]
+                                }
+                            ]} measure={C.metric('On Time Flights (%)')} projectId={cfg.projectId}/>
+                        </h1>
+                        <h1>TEST</h1>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <h1 className="FlightDetailPanel-h1">{origin.label} => {destination.label} Airlines Benchmark</h1>
                     </Col>
                 </Row>
                 <Row>
@@ -27,8 +53,8 @@ class FlightDetailPanel extends Component {
                             "https://secure.gooddata.com/reportWidget.html" +
                             `?label.origins.originiatacode=${origin.label}` +
                             `&label.destinations.destinationiatacode=${destination.label}` +
-                            "#project=/gdc/projects/ljh2d3as9i2uw2jqrgcdgu3sl69j5wf0" +
-                            "&report=/gdc/md/ljh2d3as9i2uw2jqrgcdgu3sl69j5wf0/obj/1749" +
+                            `#project=/gdc/projects/${cfg.projectId}` +
+                            `&report=/gdc/md/${cfg.projectId}/obj/1749` +
                             "&transparentBackground=yes"}/>
                     </Col>
                 </Row>

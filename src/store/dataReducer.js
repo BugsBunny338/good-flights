@@ -34,6 +34,7 @@ export default function dataReducer(state = { }, action) {
         case actions.SET_FLIGHT:
             return {
                 ...state,
+                carrier: action.carrier,
                 flight: action.flight
             };
         case actions.SET_SCHEDULE:

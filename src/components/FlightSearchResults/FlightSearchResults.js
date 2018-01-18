@@ -8,13 +8,10 @@ import {connect} from 'react-redux';
 
 
 import FlightDetailPanel from '../FlightDetailPanel/FlightDetailPanel';
-
-import catalogJson from '../../catalog.json';
+import catalogJson from '../../catalog';
 import cfg from '../../config';
 import { setFlight, setPages } from "../../store/actions";
-
 import OriginToDestinationScatterPlot from '../FlightDetailPanel/OriginToDestinationScatterPlot'
-
 
 const C = new CatalogHelper(catalogJson);
 
@@ -93,10 +90,10 @@ class FlightSearchResults extends Component {
         });
     }
 
-    flightSelected(e, flight) {
+    flightSelected(e, carrier, flight) {
         this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], this.props.navigation.pages[1],
                 {page: <FlightDetailPanel/>, breadcrumb: 'Detail'}]});
-        this.props.onFlightSubmit({ flight: flight });
+        this.props.onFlightSubmit({ carrier }, { flight });
         if (e) { 
             e.preventDefault();
         }
@@ -104,8 +101,8 @@ class FlightSearchResults extends Component {
 
     scatterOnPointClick(point) {
         const displayForms = [ C.attributeDisplayForm('Carrier'), C.attributeDisplayForm('Flight Number'), C.attributeDisplayForm('Carrier Name') ]
-        const flight = displayForms.map(df => point[df])
-        return this.flightSelected(null, flight)
+        const f = displayForms.map(df => point[df]);
+        return this.flightSelected(null, f[0], f[1])
     }
 
     render() {
@@ -132,7 +129,7 @@ class FlightSearchResults extends Component {
                         (executionResult) => {
                             let data = executionResult.result.rawData.map((row) => {
                                 return {
-                                    flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[1])}>{row[0].name}{row[1].name}</a>,
+                                    flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[0], row[1])}>{row[0].name}{row[1].name}</a>,
                                     carrier: row[2].name,
                                     ontime: row[3] ? `${Math.round(parseInt(row[3]*100, 10))}%` : '-',
                                     delayed: row[4] ? `${Math.round(parseInt(row[4]*100, 10))}%` : '-',
