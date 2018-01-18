@@ -44,7 +44,8 @@ class ScheduledFlightSearchPanel extends Component {
     render() {
         let _c= this;
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="search-column">
+            <div className="search-menu">
                 <Execute afm={this.getLookupAfm()} projectId={cfg.projectId}
                          onLoadingChanged={e=>{}} onError={e=>{}}>
                     {
@@ -54,24 +55,28 @@ class ScheduledFlightSearchPanel extends Component {
                             this.props.setAttributeElements(C.attributeDisplayForm(ORIGIN_IATA_CODE), options)
                             return (
                                 <Row>
-                                    <Col xs={12}>
-                                        <Label>From:</Label>
+                                    <Col xs={12} className="select-title">SELECT DESTINATION</Col>
+                                    <Col xs={6} className="select-drop">
                                         <Select id="origin" style={{margin: '5px'}}
                                                 value={_c.props.data.scheduledOrigin}
                                                 options={options}
+                                                placeholder="FROM"
                                                 onChange={(selectedValue) => _c.setOrigin(selectedValue)}/>
                                     </Col>
+                                    <Col xs={6}></Col>
                                 </Row>
                             );
                         }
                     }
                 </Execute>
-                <Row>
-                    <Col xs={12}>
-                        {_c.props.data.scheduledOrigin && <ScheduledFlightSearchResults />}
-                    </Col>
-                </Row>
-
+                </div>
+                <div className="search-results">
+                    <Row>
+                        <Col xs={12}>
+                            {_c.props.data.scheduledOrigin && <ScheduledFlightSearchResults />}
+                        </Col>
+                    </Row>
+                </div>
             </Container>
 
         );

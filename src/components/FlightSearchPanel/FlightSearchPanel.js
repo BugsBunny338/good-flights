@@ -51,7 +51,8 @@ class FlightSearchPanel extends Component {
     render() {
         let _c= this;
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="search-column">
+            <div className="search-menu">
                 <Execute afm={this.getLookupAfm()} projectId={cfg.projectId}
                          onLoadingChanged={e=>{}} onError={e=>{}}>
                     {
@@ -62,18 +63,19 @@ class FlightSearchPanel extends Component {
                             this.props.setAttributeElements(C.attributeDisplayForm('Origin IATA Code'), options)
                             return (
                                 <Row>
-                                    <Col xs={6}>
-                                        <Label>From:</Label>
+                                    <Col xs={12} className="select-title">SELECT DESTINATIONS</Col>
+                                    <Col xs={6} className="select-drop">
                                         <Select id="origin" style={{margin: '5px'}}
                                                 value={_c.props.data.origin}
                                                 options={options}
+                                                placeholder="FROM"
                                                 onChange={(selectedValue) => _c.setOrigin(selectedValue)}/>
                                     </Col>
-                                    <Col xs={6}>
-                                        <Label>To:</Label>
+                                    <Col xs={6} className="select-drop">
                                         <Select id="dest" style={{margin: '5px'}}
                                                 value={_c.props.data.destination}
                                                 options={options}
+                                                placeholder="TO"
                                                 onChange={(selectedValue) => _c.setDestination(selectedValue)}/>
                                     </Col>
                                 </Row>
@@ -81,14 +83,16 @@ class FlightSearchPanel extends Component {
                         }
                     }
                 </Execute>
-                <Row>
-                    <Col xs={12}>
-                        {this.props.data.destination && this.props.data.origin && <FlightSearchResults />}
-                    </Col>
-                </Row>
-
+                </div>
+                <div className="search-results">
+                    <Row>
+                        <Col xs={12}>
+                            {this.props.data.destination && this.props.data.origin && <FlightSearchResults />}
+                        </Col>
+                    </Row>
+                </div>
             </Container>
-
+        
         );
     }
 

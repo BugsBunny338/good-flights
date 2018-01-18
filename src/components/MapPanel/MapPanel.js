@@ -79,9 +79,7 @@ class MapPanel extends Component {
 
     render() {
         return (
-            <Container fluid={true}>
-                <Row>
-                    <Col xs={12}>
+            <div>
                         {this.props.data.origin && <Execute afm={this.generateMapAfm()} projectId={cfg.projectId} onLoadingChanged={e=>{}} onError={e=>{}}>
                             {
 
@@ -100,7 +98,7 @@ class MapPanel extends Component {
                                     });
 
                                     return (
-                                        <Container fluid={true}>
+                                        <Container fluid={true} className="map-result">
                                             <Row>
                                                 <Col xs={12}>
                                                     <Map
@@ -127,9 +125,7 @@ class MapPanel extends Component {
                                 }
                             }
                         </Execute>}
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
         );
     }
 

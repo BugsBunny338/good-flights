@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
 
 import { setPages, resetData } from "../../store/actions";
+import arrowRight from'../../img/arrow-right.png';
 
 class NavBreadCrumb extends Component {
 
@@ -29,14 +30,14 @@ class NavBreadCrumb extends Component {
             breadcrumbs = this.props.navigation.pages.reduce( (a,b) => {
                 let index = a.length / 2;
                 a.push(<a href="" key={b.breadcrumb} onClick={(e) => this.setPages(e, index)}>{b.breadcrumb}</a>);
-                a.push(<div style={{display:'inline-block'}} key={Math.random()}>&nbsp;&gt;&nbsp;</div>);
+                a.push(<div style={{display:'inline-block'}} key={Math.random()}>&nbsp;<img src={arrowRight} className='bread-arrow' />&nbsp;</div>);
                 return a;
             }, []);
         }
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="breadcrumbs-menu">
                 <Row>
-                    <Col xs={12}>
+                    <Col xs={12} className='bread-links'>
                         {breadcrumbs}
                     </Col>
                 </Row>

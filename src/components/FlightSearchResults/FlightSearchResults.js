@@ -62,7 +62,7 @@ class FlightSearchResults extends Component {
     render() {
         let _c = this;
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="selected-results">
                 <Execute afm={this.getResultsAfm(this.props.data.origin.value, this.props.data.destination.value)} projectId={cfg.projectId}
                          onLoadingChanged={
                              e => {
@@ -84,6 +84,7 @@ class FlightSearchResults extends Component {
                             });
                             return (
                                 <Row>
+                                    <Col xs={12} className="select-title">RESULT</Col>
                                     <Col xs={12}>
                                         <ReactTable
                                             data={data}
