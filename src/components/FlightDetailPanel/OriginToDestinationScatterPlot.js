@@ -130,7 +130,11 @@ const renderPoint = (pointData) => {
 }
 
 const OriginToDestinationScatterPlot = ({ originId, destinationId, onPointClick }) => (
-    <Execute afm={afm(originId, destinationId)} onError={()=>{}} onLoadingChanged={()=>{}} {...cfg}>{
+    <Execute afm={afm(originId, destinationId)} onError={(e)=>{
+        console.error(e);
+    }} onLoadingChanged={(e)=>{
+        console.error(e);
+    }} {...cfg}>{
       (result) => {
         const { headers, transformed } = transformResult(result)
         console.log('result / headers / transformed', result, headers, transformed)
