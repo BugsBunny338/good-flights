@@ -15,10 +15,10 @@ class FlightDetailPanel extends Component {
     render() {
         const {origin, destination} = this.props.data;
         return (
-            <Container fluid={true}>
+            <div className="FlightDetailPanel">
                 <Row>
                     <Col>
-                        <h1>Airlines Quality</h1>
+                        <h1 className="FlightDetailPanel-h1">Airlines Quality</h1>
                     </Col>
                 </Row>
                 <Row>
@@ -32,7 +32,7 @@ class FlightDetailPanel extends Component {
                             "&transparentBackground=yes"}/>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         );
     }
 }

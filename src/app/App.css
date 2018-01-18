@@ -197,3 +197,15 @@ a {
 .MapLoadingElement, .MapContainerElement, .MapElement {
   height: calc(100vh - 60px);
   border: 0; }
+
+.FlightDetailPanel {
+    padding: 20px 40px;
+}
+
+.FlightDetailPanel-h1 {
+    padding: 10px 0px 20px 10px;
+    font-family: BrandonGrotesque-Bold;
+    font-size: 26px;
+    color: #313541;
+    text-transform: uppercase;
+}
