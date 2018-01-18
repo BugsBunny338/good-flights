@@ -34,13 +34,11 @@ class NavBreadCrumb extends Component {
             }, []);
         }
         return (
-            <Container fluid={true}>
                 <Row>
                     <Col xs={12}>
                         {breadcrumbs}
                     </Col>
                 </Row>
-            </Container>
 
         );
     }
