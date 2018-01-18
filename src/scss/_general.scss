@@ -1,0 +1,206 @@
+//
+// GENERAL
+// --------------------------------------------------
+
+.App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: #222;
+    padding: 0px;
+    color: white;
+    height: 60px;
+  }
+  
+  .App-header h1 {
+    display: inline-block;
+  }
+  
+  .App-title {
+    font-size: 1.4em;
+    font-family: Avenir,"Helvetica Neue",arial,sans-serif;
+    font-weight: 100;
+  }
+  
+  .Airport-picker {
+      float: right;
+      font-size: 20px;
+      margin: 14px 8px;
+        font-family: Avenir,"Helvetica Neue",arial,sans-serif;
+  
+  }
+  
+  /* Google Maps */
+  .MapLoadingElement, .MapContainerElement, .MapElement {
+      height: calc(100vh - 140px);
+      border: 1px solid lightgray;
+  }
+  
+  /* Header */
+  .Navbar {
+      height: 60px;
+  }
+  
+  .nopadding {
+     padding: 0 !important;
+     margin: 0 !important;
+  }
+  
+  /* Logo section styling */
+  .LogoImage {
+      width: 26px;
+      height: 25px;
+      margin: 2px 20px 2px 15px;
+  }
+  
+  .Logo {
+      color: white;
+      vertical-align: middle;
+      font-family: Lato, sans-serif;
+      margin-bottom: 0px;
+  }
+  
+  .LogoThin {
+      font-weight: 300;
+  }
+  
+  .LogoThick {
+      font-weight: 700;
+  }
+  
+  .NavItem {
+      font-size: 15px;
+      font-family: Cabin, sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+  }
+  
+  .UserPanel {  
+  }
+  
+  .UserPanelImage {
+      width: 30px;
+      height: 31px;
+      margin: 2px 15px;
+  }
+  
+  .UserName {
+      color: white;
+      font-family: Lato, sans-serif;
+  }
+  
+  .UserPanelLogout {
+      width: 11px;
+      height: 7px;
+      margin: 2px 15px;
+  }
+
+  a {
+      color: #4EB2FA !important;
+      
+      &:hover, &:focus {
+          color: rgb(115, 195, 252) !important;
+          text-decoration: none !important;
+      }
+  }
+
+
+  // Containers and padding fixes
+  .main-panel {
+    &.col-12 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .search-panel,
+    .map-panel {
+        &.col-12,
+        &.col-md-4,
+        &.col-md-8 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .search-column {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .search-panel {
+        background: #F8F8F8;
+        box-shadow: 2px 0 10px 0 rgba(0,0,0,0.21);
+        height: calc(100vh - 60px);
+        z-index: 10;
+
+        .search-menu {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-bottom: 1px solid #E0E3E8;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
+        }
+
+        .search-results {
+            padding: 20px 30px;
+
+            .selected-results {
+                padding-left: 0;
+                padding-right: 0;
+                font-family: BrandonGrotesque-Medium;
+                font-size: 10px;
+                color: #7E859A;
+
+                .ReactTable {
+                    border: 0;
+
+                    .rt-thead {
+                        padding: 0 15px
+                        ;
+                        .rt-th {
+                            text-align: left;
+                            font-size: 12px;
+                        }
+                    }
+
+                    .rt-tbody {
+                        padding: 15px;
+                        background-color: #ffffff;
+                        border: 1px solid #E0E3E8;
+                        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
+
+                        .rt-td {
+                            background-color: #ffffff;
+                        }
+                    }
+
+                    .-pagination {
+                        box-shadow: none;
+                        background-color: none;
+                        font-size: 12px;
+                        border-top: 0;
+                    }
+
+                    .rt-resizer {
+                        opacity: 0;
+                    }
+
+                }
+            }
+        }
+
+        .select-title {
+            font-family: BrandonGrotesque-Bold;
+            font-size: 12px;
+            color: #313541;
+            margin-bottom: 5px;
+        }
+    }
+
+    .map-result {
+        .col-12 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

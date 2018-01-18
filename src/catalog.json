@@ -48,6 +48,10 @@
       "identifier": "aazrlLTmfs9F",
       "tags": ""
     },
+    "Delayed Flights (%)": {
+      "identifier": "adufBn0cdNH7",
+      "tags": ""
+    },
     "Delayed Flights (15min+)": {
       "identifier": "aaktYmiYefHX",
       "tags": ""
@@ -166,6 +170,10 @@
     },
     "On Time Flights": {
       "identifier": "aanrnmcQfT6C",
+      "tags": ""
+    },
+    "On Time Flights (%)": {
+      "identifier": "ab8fCjNaaRFQ",
       "tags": ""
     },
     "Origin Air Pressure": {

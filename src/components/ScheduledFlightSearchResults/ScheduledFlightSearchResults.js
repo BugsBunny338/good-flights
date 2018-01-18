@@ -80,8 +80,9 @@ class ScheduledFlightSearchResults extends Component {
 
     render() {
         let _c = this;
-        return (<Container fluid={true}>
+        return (<Container fluid={true} className="selected-results">
             <Row>
+            <Col xs={12} className="select-title">RESULT</Col>
                 <Col xs={12}>
                     {this.props.data.scheduledOrigin && <ReactTable
                         data={_c.state.data}

@@ -5,7 +5,7 @@ import {Execute} from '@gooddata/react-components';
 
 import OriginToDestinationScatterPlot from '../FlightDetailPanel/OriginToDestinationScatterPlot'
 import Map from '../Map/Map';
-import { CatalogHelper } from '@gooddata/react-components';
+import {CatalogHelper} from '@gooddata/react-components';
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
 
@@ -56,7 +56,7 @@ class MapPanel extends Component {
             filters: this.getFilters(),
             measures: [
                 {
-                    id: 'flight_quality_score', 
+                    id: 'flight_quality_score',
                     definition: {
                         baseObject: {
                             id: C.metric('Flight Quality Score')
@@ -72,7 +72,7 @@ class MapPanel extends Component {
     // show all flights from origin, if destination is also provided, show all flights between origin
     // and destination
     getFilters() {
-        if(this.props.data.origin) {
+        if (this.props.data.origin) {
             let filters = [
                 {
                     id: C.attributeDisplayForm('Origin IATA Code'),
@@ -80,7 +80,7 @@ class MapPanel extends Component {
                     in: [this.props.data.origin.value]
                 }
             ];
-            if(this.props.data.destination) {
+            if (this.props.data.destination) {
                 filters.push({
                     id: C.attributeDisplayForm('Destination IATA Code'),
                     type: 'attribute',
@@ -93,65 +93,67 @@ class MapPanel extends Component {
     }
 
     render() {
-        const { origin, destination } = this.props.data
+        const {origin, destination} = this.props.data
         return (
-            <Container fluid={true}>
-                <Row>
-                    <Col xs={12}>
-                        {origin && <Execute afm={this.generateMapAfm()} projectId={cfg.projectId} onLoadingChanged={e=>{}} onError={e=>{}}>
-                            {
+            <div>
+                {this.props.data.origin &&
+                <Execute afm={this.generateMapAfm()} projectId={cfg.projectId} onLoadingChanged={e => {
+                }} onError={e => {
+                }}>
+                    {
 
-                                (executionResult) => {                                    
-                                    let routes = executionResult.result.rawData.map(function(flight, index) {                             
-                                        return  {
-                                            flightId: flight[0].name+flight[3].name+Math.random(),
-                                            originIata: flight[0].name,
-                                            originLat: parseFloat(flight[1].name),
-                                            originLng: parseFloat(flight[2].name),
-                                            destIata: flight[3].name,
-                                            destLat: parseFloat(flight[4].name),
-                                            destLng: parseFloat(flight[5].name),
-                                            carrier: flight[6].name,
-                                            flightQuality: parseFloat(flight[7])
-                                        }
-                                    });
-
-                                    return (
-                                        <Container fluid={true}>
-                                            <Row>
-                                                <Col xs={12}>
-                                                    <Map
-                                                        flights={routes}
-
-                                                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Vo7Rv1C80cQ05W2w8qjMAlA5IBpiufE&v=3.exp&libraries=geometry,drawing,places"
-                                                        loadingElement={<div className="MapLoadingElement" style={{ height: 350,
-                                                            width: '100%',
-                                                            display: 'flex',
-                                                            flexFlow: 'row nowrap',
-                                                            justifyContent: 'center',
-                                                            padding: 0 }}/>}
-                                                        containerElement={<div className="MapContainerElement" style={{
-                                                            width: "100%",
-                                                            marginLeft: 0
-                                                        }}/>}
-                                                        mapElement={<div className="MapElement" />}
-                                                    />
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col xs={12}>
-                                                    <OriginToDestinationScatterPlot originId={origin && origin.value} destinationId={destination && destination.value} />
-                                                </Col>
-                                            </Row>
-                                        </Container>
-
-                                    );
+                        (executionResult) => {
+                            let routes = executionResult.result.rawData.map(function (flight, index) {
+                                return {
+                                    flightId: flight[0].name + flight[3].name + Math.random(),
+                                    originIata: flight[0].name,
+                                    originLat: parseFloat(flight[1].name),
+                                    originLng: parseFloat(flight[2].name),
+                                    destIata: flight[3].name,
+                                    destLat: parseFloat(flight[4].name),
+                                    destLng: parseFloat(flight[5].name),
+                                    carrier: flight[6].name,
+                                    flightQuality: parseFloat(flight[7])
                                 }
-                            }
-                        </Execute>}
-                    </Col>
-                </Row>
-            </Container>
+                            });
+
+                            return (
+                                <Container fluid={true} className="map-result">
+                                    <Row>
+                                        <Col xs={12}>
+                                            <Map
+                                                flights={routes}
+
+                                                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Vo7Rv1C80cQ05W2w8qjMAlA5IBpiufE&v=3.exp&libraries=geometry,drawing,places"
+                                                loadingElement={<div className="MapLoadingElement" style={{
+                                                    height: 350,
+                                                    width: '100%',
+                                                    display: 'flex',
+                                                    flexFlow: 'row nowrap',
+                                                    justifyContent: 'center',
+                                                    padding: 0
+                                                }}/>}
+                                                containerElement={<div className="MapContainerElement" style={{
+                                                    width: "100%",
+                                                    marginLeft: 0
+                                                }}/>}
+                                                mapElement={<div className="MapElement"/>}
+                                            />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col xs={12}>
+                                            <OriginToDestinationScatterPlot originId={origin && origin.value}
+                                                                            destinationId={destination && destination.value}/>
+                                        </Col>
+                                    </Row>
+                                </Container>
+
+                            );
+                        }
+                    }
+                </Execute>}
+            </div>
         );
     }
 
