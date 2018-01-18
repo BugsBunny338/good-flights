@@ -36,7 +36,7 @@ class NavMainMenu extends Component {
         return (
                 <Row>
                     <Col xs={12} className="nopadding">
-                        <Navbar className="navbar-dark bg-dark .navbar-expand-sm Navbar">
+                        <Navbar className="navbar-dark bg-dark .navbar-expand-md Navbar">
                             <NavbarBrand href="/">
                                 <h5 className="Logo">
                                     <img className=".navbar-brand LogoImage" src={logo} alt="GoodData"/>

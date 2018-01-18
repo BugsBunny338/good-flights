@@ -131,8 +131,11 @@
     .search-panel {
         background: #F8F8F8;
         box-shadow: 2px 0 10px 0 rgba(0,0,0,0.21);
-        height: calc(100vh - 60px);
         z-index: 10;
+
+        @media (min-width: 576px) {
+            height: calc(100vh - 60px);
+        }
 
         .search-menu {
             background-color: #ffffff;
@@ -160,6 +163,7 @@
                         .rt-th {
                             text-align: left;
                             font-size: 12px;
+                            border-right: 0;
                         }
                     }
 
@@ -171,6 +175,7 @@
 
                         .rt-td {
                             background-color: #ffffff;
+                            border-right: 0;
                         }
                     }
 
@@ -179,10 +184,6 @@
                         background-color: none;
                         font-size: 12px;
                         border-top: 0;
-                    }
-
-                    .rt-resizer {
-                        opacity: 0;
                     }
 
                 }

@@ -112,8 +112,10 @@ a {
   background: #F8F8F8;
   -webkit-box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.21);
           box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.21);
-  height: calc(100vh - 60px);
   z-index: 10; }
+  @media (min-width: 576px) {
+    .main-panel .search-panel {
+      height: calc(100vh - 60px); } }
   .main-panel .search-panel .search-menu {
     background-color: #ffffff;
     padding: 40px 30px;
@@ -134,7 +136,8 @@ a {
           padding: 0 15px; }
           .main-panel .search-panel .search-results .selected-results .ReactTable .rt-thead .rt-th {
             text-align: left;
-            font-size: 12px; }
+            font-size: 12px;
+            border-right: 0; }
         .main-panel .search-panel .search-results .selected-results .ReactTable .rt-tbody {
           padding: 15px;
           background-color: #ffffff;
@@ -142,15 +145,14 @@ a {
           -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
                   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05); }
           .main-panel .search-panel .search-results .selected-results .ReactTable .rt-tbody .rt-td {
-            background-color: #ffffff; }
+            background-color: #ffffff;
+            border-right: 0; }
         .main-panel .search-panel .search-results .selected-results .ReactTable .-pagination {
           -webkit-box-shadow: none;
                   box-shadow: none;
           background-color: none;
           font-size: 12px;
           border-top: 0; }
-        .main-panel .search-panel .search-results .selected-results .ReactTable .rt-resizer {
-          opacity: 0; }
   .main-panel .search-panel .select-title {
     font-family: BrandonGrotesque-Bold;
     font-size: 12px;
