@@ -97,7 +97,15 @@ class FlightSearchResults extends Component {
         this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], this.props.navigation.pages[1],
                 {page: <FlightDetailPanel/>, breadcrumb: 'Detail'}]});
         this.props.onFlightSubmit({ flight: flight });
-        e.preventDefault();
+        if (e) { 
+            e.preventDefault();
+        }
+    }
+
+    scatterOnPointClick(point) {
+        const displayForms = [ C.attributeDisplayForm('Carrier'), C.attributeDisplayForm('Flight Number'), C.attributeDisplayForm('Carrier Name') ]
+        const flight = displayForms.map(df => point[df])
+        return this.flightSelected(null, flight)
     }
 
     render() {
@@ -135,26 +143,30 @@ class FlightSearchResults extends Component {
                             return (
                                 <div>
                                 <Row className="selected-results">
-                                    <Col xs={12} className="select-title">RESULT</Col>
+                                    {/*<Col xs={12} className="select-title">RESULT</Col>*/}
                                     <Col xs={12}>
                                         <ReactTable
                                             data={data}
                                             columns={[
                                                 {
                                                     Header: "Flight #",
-                                                    accessor: "flightNum"
+                                                    accessor: "flightNum",
+                                                    minWidth: 80
                                                 },
                                                 {
                                                     Header: "Carrier",
                                                     accessor: "carrier",
+                                                    minWidth: 150
                                                 },
                                                 {
                                                     Header: "On Time",
-                                                    accessor: "ontime"
+                                                    accessor: "ontime",
+                                                    minWidth: 80
                                                 },
                                                 {
                                                     Header: "Delayed",
-                                                    accessor: "delayed"
+                                                    accessor: "delayed",
+                                                    minWidth: 80
                                                 },
                                                 {
                                                     Header: "Cancelled",
@@ -167,14 +179,16 @@ class FlightSearchResults extends Component {
                                             ]}
                                             defaultPageSize={5}
                                             showPageSizeOptions={false}
-                                            className="-striped -highlight"
                                         />
                                     </Col>
                                 </Row>
-                                <Row className="selected-results-plot">
+                                <Row className="selected-results-plot-row">
                                         <Col xs={12}>
+                                            <div className="selected-results-plot">
                                             <OriginToDestinationScatterPlot originId={origin && origin.value}
-                                                                            destinationId={destination && destination.value}/>
+                                                                            destinationId={destination && destination.value}
+                                                                            onPointClick={_c.scatterOnPointClick.bind(_c)} />
+                                            </div>
                                         </Col>
                                 </Row>
                                 </div>
