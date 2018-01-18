@@ -8,10 +8,6 @@
       "identifier": "actOmNkjfAAM",
       "tags": ""
     },
-    "% Diverted Flights": {
-      "identifier": "afga0Cs3aIx3",
-      "tags": ""
-    },
     "Actual Elapsed Time (minutes)": {
       "identifier": "fact.dataset_name.actualelapsedtimeminutes",
       "tags": ""
@@ -42,14 +38,6 @@
     },
     "Carrier Delay Variability": {
       "identifier": "abIa7bAWeZRb",
-      "tags": ""
-    },
-    "Carrier Delayed Flights": {
-      "identifier": "afqa3rXuhCIh",
-      "tags": ""
-    },
-    "Carrier Delayed Flights (15min+)": {
-      "identifier": "abaa7Mwshbv9",
       "tags": ""
     },
     "CRS Elapsed Time (minutes)": {
