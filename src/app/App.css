@@ -209,3 +209,14 @@ a {
     color: #313541;
     text-transform: uppercase;
 }
+
+.selected-results {
+    padding-bottom: 60px;
+}
+
+.selected-results-plot {
+    padding: 0px;
+    font-size: 10px;
+    font-family: BrandonGrotesque-Medium;
+
+}
