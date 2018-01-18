@@ -35,6 +35,36 @@ class FlightSearchResults extends Component {
                 {
                     id: C.attributeDisplayForm('Flight Number'),
                     type: 'attribute'
+                },
+                {
+                    id: C.attributeDisplayForm('Carrier Name'),
+                    type: 'attribute'
+                }
+            ],
+            measures: [
+                {
+                    id: 'ontime_pct',
+                    definition: {
+                        baseObject: {
+                            id: C.metric('On Time Flights (%)')
+                        }
+                    }
+                },
+                {
+                    id: 'delayed_pct',
+                    definition: {
+                        baseObject: {
+                            id: C.metric('Delayed Flights (%)')
+                        }
+                    }
+                },
+                {
+                    id: 'cancelled_pct',
+                    definition: {
+                        baseObject: {
+                            id: C.metric('% Cancelled Flights')
+                        }
+                    }
                 }
             ],
             filters: [
@@ -80,10 +110,17 @@ class FlightSearchResults extends Component {
                     {
                         (executionResult) => {
                             let data = executionResult.result.rawData.map((row) => {
-                                return {flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[1])}>{row[0].name}{row[1].name}</a>}
+                                return {
+                                    flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[1])}>{row[0].name}{row[1].name}</a>,
+                                    carrier: row[2].name,
+                                    ontime: row[3] ? `${Math.round(parseInt(row[3]*100, 10))}%` : '-',
+                                    delayed: row[4] ? `${Math.round(parseInt(row[4]*100, 10))}%` : '-',
+                                    cancelled: row[5] ? `${Math.round(parseInt(row[5]*100, 10))}%` : '-',
+                                }
                             });
                             return (
-                                <Row>
+                                <Row className="selected-results">
+                                    <Col xs={12} className="select-title">RESULT</Col>
                                     <Col xs={12}>
                                         <ReactTable
                                             data={data}
@@ -91,6 +128,22 @@ class FlightSearchResults extends Component {
                                                 {
                                                     Header: "Flight #",
                                                     accessor: "flightNum"
+                                                },
+                                                {
+                                                    Header: "Carrier",
+                                                    accessor: "carrier",
+                                                },
+                                                {
+                                                    Header: "On Time",
+                                                    accessor: "ontime"
+                                                },
+                                                {
+                                                    Header: "Delayed",
+                                                    accessor: "delayed"
+                                                },
+                                                {
+                                                    Header: "Cancelled",
+                                                    accessor: "cancelled"
                                                 }
                                             ]}
                                             defaultPageSize={10}

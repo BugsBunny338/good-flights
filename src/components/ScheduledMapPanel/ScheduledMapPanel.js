@@ -31,7 +31,7 @@ class MapPanel extends Component {
         }
 
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="map-result">
                 {this.props.data && this.props.data.scheduledOrigin && this.props.data.destinations && <Row>
                     <Col xs={12}>
                         <Map

@@ -1,0 +1,56 @@
+//
+// COMPONENTS
+// --------------------------------------------------
+
+// Search page
+.blue-top {
+    background-image: linear-gradient(-42deg, #4EB2FA 0%, #3399E4 100%);
+    box-shadow: 2px 0 10px 0 rgba(0,0,0,0.21);
+    width: 100%;
+    height: 6px;
+}
+
+// Breadcrumbs
+.nav-bread {
+    border-bottom: 1px solid #E0E3E8;
+    background-color: #ffffff;
+    padding: 5px 15px;
+
+    .breadcrumbs-menu {
+        a {
+            font-family: Avenir-Roman;
+            font-size: 10px;
+            color: #7E859A !important;
+            text-transform: uppercase;
+
+            &:hover, &:focus {
+                color: #999999 !important;
+            }
+        }
+    }
+
+    .bread-arrow {
+        margin-top: 3px;
+    }
+
+    .bread-links > div:last-child .bread-arrow {
+        display: none;
+    }
+}
+
+.select-drop {
+    font-family: BrandonGrotesque-Bold;
+    font-size: 10px;
+    color: #7E859A;
+    background-color: #ffffff;
+
+    svg {
+        color: #7E859A;
+    }
+}
+
+// Map
+.MapLoadingElement, .MapContainerElement, .MapElement {
+    height: calc(100vh - 60px);
+    border: 0;
+}

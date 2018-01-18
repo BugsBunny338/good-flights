@@ -3,7 +3,6 @@ import {Container, Row, Col} from 'reactstrap';
 import {connect} from 'react-redux';
 
 import NavMainMenu from '../components/NavMainMenu/NavMainMenu';
-import NavBreadcrumb from '../components/NavMainMenu/NavBreadcrumb';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -16,17 +15,14 @@ class App extends React.Component {
 
     render() {
         return (
-            <Container fluid={true}>
-                <Row>
+            <Container fluid={true} className="main-container">
+                <Row className="main-nav">
                     <Col xs={12}>
                         <NavMainMenu/>
                     </Col>
                 </Row>
-                <Row>
-                    <Col xs={12}><NavBreadcrumb/></Col>
-                </Row>
-                <Row>
-                    <Col xs={12}>{this.props.navigation.pages[0].page}</Col>
+                <Row className="main-content">
+                    <Col xs={12} className="main-panel">{this.props.navigation.pages[0].page}</Col>
                 </Row>
             </Container>
         );

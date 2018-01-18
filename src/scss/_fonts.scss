@@ -1,0 +1,29 @@
+//
+// FONTS
+// --------------------------------------------------
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Cabin:600|Lato:300,400,700');
+
+// Source Fonts
+// @include font-face('Brandon-Grotesque-Bold', '../fonts/brandongrotesque-bold');
+
+@font-face {
+    font-family: 'BrandonGrotesque-Bold';
+    src: url('../fonts/brandongrotesque-bold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/brandongrotesque-bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('../fonts/brandongrotesque-bold.woff2') format('woff2'), /* Super Modern Browsers */
+            url('../fonts/brandongrotesque-bold.woff') format('woff'), /* Pretty Modern Browsers */
+            url('../fonts/brandongrotesque-bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+            url('../fonts/brandongrotesque-bold.svg#BrandonGrotesque-Bold') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'BrandonGrotesque-Medium';
+    src: url('../fonts/brandongrotesque-medium.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/brandongrotesque-medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/brandongrotesque-medium.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/brandongrotesque-medium.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../fonts/brandongrotesque-medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/brandongrotesque-medium.svg#BrandonGrotesque-Medium') format('svg'); /* Legacy iOS */
+}
