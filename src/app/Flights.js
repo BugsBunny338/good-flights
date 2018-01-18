@@ -8,7 +8,7 @@ import OriginToDestinationScatterPlot from '../components/FlightDetailPanel/Orig
 const Flights = ({ originId, destinationId }) => {
   return <div>
       <b>Flights</b>
-      <OriginToDestinationScatterPlot originId={originId} destinationId={destinationId} />
+      <OriginToDestinationScatterPlot originId={originId} destinationId={destinationId} onPointClick={alert} />
   </div>
 }
 
