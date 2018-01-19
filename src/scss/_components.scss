@@ -54,3 +54,90 @@
     height: calc(100vh - 60px);
     border: 0;
 }
+
+// Squared box
+.squared-container {
+    background: #FFFFFF;
+    border: 1px solid #E0E3E8;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    min-height: 200px;
+
+    .squared-container-title {
+        font-family: BrandonGrotesque-Bold;
+        font-size: 10px;
+        color: #313541;
+        display: block;
+    }
+
+    .destination-panel {
+        min-height: 160px;
+
+        + .destination-panel {
+            border-left: 1px solid #E0E3E8;
+        }
+
+        .destination-panel-top {
+            span {
+                font-family: BrandonGrotesque-Bold;
+                font-size: 10px;
+                color: #7E859A;
+            }
+            img {
+                margin-right: 5px;
+            }
+        }
+        
+    }
+}
+
+// Added by team
+.FlightDetailPanel {
+    padding: 20px 40px;
+}
+
+.FlightDetailPanel-h1 {
+    padding: 10px 0px 20px 10px;
+    font-family: BrandonGrotesque-Bold;
+    font-size: 26px;
+    color: #313541;
+    text-transform: uppercase;
+}
+
+.selected-results {
+    padding-bottom: 60px;
+}
+
+.selected-results-plot-row {
+    padding: 0px;
+    font-size: 12px;
+    font-family: BrandonGrotesque-Medium;
+}
+
+.selected-results-plot {
+    padding: 5px 10px 10px 5px;
+    background-color: #ffffff;
+    border: 1px solid #E0E3E8;
+}
+
+.pagination-bottom {
+    padding-top: 10px;
+}
+
+.-previous, .-next {
+    height: 30px;
+}
+
+.-pageJump {
+    padding: 0px 5px;
+}
+
+.ReactTable .-pagination .-pageJump input {
+    width: 40px;
+}
+
+.ReactTable .-pagination .-pageInfo {
+    margin: 0px 10px;
+}

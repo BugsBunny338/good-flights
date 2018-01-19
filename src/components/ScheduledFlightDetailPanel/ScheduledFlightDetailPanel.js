@@ -4,6 +4,9 @@ import {connect} from "react-redux";
 import OpenWeather from "../../weather/OpenWeather";
 import passwd from "../../passwd";
 import airports from "../../flightapi/airports";
+import planeImg from'../../img/plane.png';
+import pinImg from'../../img/pin.png';
+import clockImg from'../../img/clock.png';
 
 
 class ScheduledFlightDetailPanel extends Component {
@@ -71,8 +74,65 @@ class ScheduledFlightDetailPanel extends Component {
 
     render() {
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="scheduled-flight">
                 <Row>
+                    <Col xs={12} sm={6} md={2} className="sch-flight-top-info">
+                        <span>FLIGHT</span>
+                        <span>Variable</span>
+                    </Col>
+                    <Col xs={12} sm={6} md={3} className="sch-flight-top-info">
+                        <img src={planeImg} />
+                        <span>CARRIER</span>
+                        <span>Variable</span>
+                    </Col>
+                    <Col xs={12} sm={6} md={3} className="sch-flight-top-info">
+                        <img src={clockImg} />
+                        <span>DURATION</span>
+                        <span>Variable</span>
+                    </Col>
+                    <Col xs={12} sm={6} md={4} className="sch-flight-top-info">
+                        <img src={clockImg} />
+                        <span>LIKELINESS OF DELAY</span>
+                        <span>Variable</span>
+                    </Col>
+                    <Col xs={12} md={4}>
+                        <div className="squared-container">
+                            <span className="squared-container-title">LIKELINESS OF DELAY</span>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={8}>
+                        <div className="squared-container">
+                            <Row>
+                                <Col xs={12} md={6} className="destination-panel">
+                                    <div className="destination-panel-top">
+                                        <img src={pinImg} />
+                                        <span>FROM</span>
+                                    </div>
+                                </Col>
+                                <Col xs={12} md={6} className="destination-panel">
+                                    <div className="destination-panel-top">
+                                        <img src={pinImg} />
+                                        <span>TO</span>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <div className="squared-container">
+                            <span className="squared-container-title">FLIGHT STATUS</span>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <div className="squared-container">
+                            <span className="squared-container-title">DELAY BY CARRIERS</span>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <div className="squared-container">
+                            <span className="squared-container-title">CARRIERS</span>
+                        </div>
+                    </Col>
                     <Col xs={12}>
                         <p>Flight detail: {JSON.stringify(this.props.data.schedule,null,2)}</p>
                         <p>{this.props.data.schedule.origin} Weather: {JSON.stringify(this.state.originWeather,null,2)}</p>
