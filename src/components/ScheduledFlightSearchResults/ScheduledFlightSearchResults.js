@@ -10,8 +10,11 @@ import ScheduledFlightDetailPanel from '../ScheduledFlightDetailPanel/ScheduledF
 
 import FlightAware from '../../flightapi/FlightAware';
 import passwd from '../../passwd';
+import predict from '../../ai/model';
 import {setOrigin, setDestinations, setPages, setSchedule} from "../../store/actions";
 import airports from "../../flightapi/airports";
+
+import getFlightWeather from '../../weather/FlightWeather';
 
 class ScheduledFlightSearchResults extends Component {
 
@@ -50,12 +53,46 @@ class ScheduledFlightSearchResults extends Component {
                             link: <a href="" onClick={(e) => _c.scheduleSelected(e, d)}>{d.ident}</a>,
                             departuretime: moment.unix(d.filed_departuretime).format('HH:mm'),
                             arrivaltime: moment.unix(d.estimatedarrivaltime).format('HH:mm')
-                        }
+                        };
                     }).map(d => { // second map is needed as the origin and destination aren't modified (stripped K)
-                        return {
+
+                        let n = {
                             ...d,
                             link: <a href="" onClick={(e) => _c.scheduleSelected(e, d)}>{d.ident}</a>,
-                        }
+                        };
+                        getFlightWeather(n.origin, n.destination, n.filed_departuretime, n.estimatedarrivaltime, (w) => {
+                            n.originWeather = w.originWeather;
+                            n.destinationWeather =   w.destinationWeather;
+                            let inputData = {
+                                "crs_dep_time_bucket": "M",
+                                "dest_precipitation_3h": 1,
+                                "duration_bucket": "L",
+                                "crs_arr_time_bucket": "e",
+                                "dest_pressure": n.destinationWeather.main.sea_level,
+                                "dest_air_temp": n.destinationWeather.main.temp,
+                                "dest_wind_speed": n.destinationWeather.wind.speed,
+                                "dest_wind_dir": n.destinationWeather.wind.deg,
+                                "origin_precipitation_3h": 1,
+                                "origin_wind_dir": n.originWeather.wind.deg,
+                                "origin_wind_speed": n.originWeather.wind.speed,
+                                "origin_air_temp": n.originWeather.main.temp,
+                                "origin_pressure": n.originWeather.main.sea_level,
+                                "dest_size": "XXL",
+                                "dest_state": "CA",
+                                "dep_date_holidays": "C",
+                                "dest": n.destination,
+                                "origin_state": "CA",
+                                "carrier": n.ident.substring(0,3),
+                                "origin": n.origin,
+                                "dep_month": "AUG",
+                                "dep_day_of_week": "THU",
+                                "arr_date_holidays": "C",
+                                "origin_size": "XXL"
+                            };
+                            n.predictedDelay = `${Math.round(predict(inputData))}m`;
+                            _c.setState({delayPredicted: Math.random()});
+                        });
+                        return n;
                     });
                     _c.setState({data: filtered});
                     this.props.onDestinationsSubmit({destinations: filtered});
@@ -103,6 +140,10 @@ class ScheduledFlightSearchResults extends Component {
                                 Header: "Arrival",
                                 accessor: "arrivaltime"
                             },
+                            {
+                                Header: "Est. Delay",
+                                accessor: "predictedDelay"
+                            }
 
                         ]}
                         defaultPageSize={10}
@@ -120,7 +161,7 @@ const mapDispatchToProps = {
     onDestinationsSubmit: setDestinations,
     onScheduleSubmit: setSchedule,
     onPagesSubmit: setPages
-}
+};
 
 
 function mapStateToProps(state) {
@@ -128,6 +169,6 @@ function mapStateToProps(state) {
         data: state.data,
         navigation: state.navigation
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScheduledFlightSearchResults);

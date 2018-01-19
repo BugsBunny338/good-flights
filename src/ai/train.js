@@ -1,38 +1,33 @@
-import bigml from 'bigml';
-import fs from 'fs';
-import csv from 'csv';
-import passwd from "../passwd";
+import predict from './model';
 
+let inputData = {
+    "crs_dep_time_bucket": "M",
+    "dest_precipitation_3h": 1,
+    "duration_bucket": "L",
+    "crs_arr_time_bucket": "e",
+    "dest_pressure": 1,
+    "dest_air_temp": 1,
+    "dest_wind_speed": 1,
+    "dest_wind_dir": 1,
+    "origin_precipitation_3h": 1,
+    "origin_wind_dir": 1,
+    "origin_wind_speed": 1,
+    "origin_air_temp": 1,
+    "origin_pressure": 1,
+    "dest_size": "XXL",
+    "dest_state": "CA",
+    "dep_date_holidays": "C",
+    "dest": "LAX",
+    "origin_state": "CA",
+    "carrier": "UAL",
+    "origin": "LAX",
+    "dep_month": "AUG",
+    "dep_day_of_week": "THY",
+    "arr_date_holidays": "C",
+    "origin_size": "XXL"
+};
 
-fs.readFile('./data/eval.csv', function (err, headerData) {
-    let headers = [];
-    csv.parse(headerData, {from: 1, to: 1}, (err, rows) => {
-        rows.forEach(c => {
-            headers = [...c];
-        });
-        fs.readFile('./data/eval.csv', function (err, rowData) {
-            csv.parse(rowData, {from: 2}, (err, rows) => {
-                let evalData = [];
-                rows.forEach((row) => {
-                    let obj = {};
-                    row.forEach((c, index) => obj[headers[index]] = c);
-                    let newRow = {vars: obj, value: obj['ARR_DELAY']};
-                    delete newRow.vars['ARR_DELAY'];
-                    evalData.push(newRow);
-                });
-
-                let connection = new bigml.BigML(passwd.bigmlUsername, passwd.bigmlApiKey);
-                let deepnet = new bigml.LocalDeepnet('deepnet/5a5df83feba31d2ec3001473', connection);
-                evalData.forEach(r => {
-                    deepnet.predict(r.vars, 0, function (error, data) {
-                        console.log(`Predicted value: ${Math.ceil(data)} . Real value: ${r.value}. Difference; ${Math.ceil(data)-r.value}`);
-                    });
-                });
-
-            });
-        });
-    });
-});
+console.log(predict(inputData));
 
 
 
