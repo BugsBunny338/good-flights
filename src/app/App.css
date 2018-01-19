@@ -163,6 +163,23 @@ a {
   padding-left: 0;
   padding-right: 0; }
 
+.scheduled-flight {
+  padding: 30px; }
+  .scheduled-flight.container-fluid {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .scheduled-flight .sch-flight-top-info {
+    margin-bottom: 10px; }
+    .scheduled-flight .sch-flight-top-info > span {
+      font-family: BrandonGrotesque-Bold;
+      font-size: 14px;
+      color: #7E859A;
+      margin-right: 10px; }
+      .scheduled-flight .sch-flight-top-info > span + span {
+        color: #313541; }
+    .scheduled-flight .sch-flight-top-info > img {
+      margin-right: 5px; }
+
 .blue-top {
   background-image: linear-gradient(-42deg, #4EB2FA 0%, #3399E4 100%);
   -webkit-box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.21);
@@ -198,55 +215,65 @@ a {
   height: calc(100vh - 60px);
   border: 0; }
 
+.squared-container {
+  background: #FFFFFF;
+  border: 1px solid #E0E3E8;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  min-height: 200px; }
+  .squared-container .squared-container-title {
+    font-family: BrandonGrotesque-Bold;
+    font-size: 10px;
+    color: #313541;
+    display: block; }
+  .squared-container .destination-panel {
+    min-height: 160px; }
+    .squared-container .destination-panel + .destination-panel {
+      border-left: 1px solid #E0E3E8; }
+    .squared-container .destination-panel .destination-panel-top span {
+      font-family: BrandonGrotesque-Bold;
+      font-size: 10px;
+      color: #7E859A; }
+    .squared-container .destination-panel .destination-panel-top img {
+      margin-right: 5px; }
+
 .FlightDetailPanel {
-    padding: 20px 40px;
-}
+  padding: 20px 40px; }
 
 .FlightDetailPanel-h1 {
-    padding: 10px 0px 20px 10px;
-    font-family: BrandonGrotesque-Bold;
-    font-size: 26px;
-    color: #313541;
-    text-transform: uppercase;
-}
+  padding: 10px 0px 20px 10px;
+  font-family: BrandonGrotesque-Bold;
+  font-size: 26px;
+  color: #313541;
+  text-transform: uppercase; }
 
 .selected-results {
-    padding-bottom: 60px;
-}
+  padding-bottom: 60px; }
 
 .selected-results-plot-row {
-    padding: 0px;
-    font-size: 12px;
-    font-family: BrandonGrotesque-Medium;
-    
-
-
-}
+  padding: 0px;
+  font-size: 12px;
+  font-family: BrandonGrotesque-Medium; }
 
 .selected-results-plot {
-    padding: 5px 10px 10px 5px;
-    background-color: #ffffff;
-    border: 1px solid #E0E3E8;
-}
-
-
+  padding: 5px 10px 10px 5px;
+  background-color: #ffffff;
+  border: 1px solid #E0E3E8; }
 
 .pagination-bottom {
-    padding-top: 10px;
-}
+  padding-top: 10px; }
 
 .-previous, .-next {
-    height: 30px;
-}
+  height: 30px; }
 
 .-pageJump {
-    padding: 0px 5px;
-}
+  padding: 0px 5px; }
 
 .ReactTable .-pagination .-pageJump input {
-    width: 40px;
-}
+  width: 40px; }
 
 .ReactTable .-pagination .-pageInfo {
-    margin: 0px 10px;
-}
+  margin: 0px 10px; }
