@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import {CatalogHelper} from '@gooddata/react-components';

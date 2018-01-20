@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Row, Col, Label} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 import Select from 'react-select';
 import {CatalogHelper} from '@gooddata/react-components';
 import {Execute} from '@gooddata/react-components';

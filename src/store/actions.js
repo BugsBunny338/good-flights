@@ -28,6 +28,13 @@ export const setFlight = (carrier, flight) => {
     }
 };
 
+export const setReport = (report) => {
+    return {
+        type: t.SET_REPORT,
+        ...report
+    }
+};
+
 export const setSchedule = (schedule) => ({
     type: t.SET_SCHEDULE,
     ...schedule

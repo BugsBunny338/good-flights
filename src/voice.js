@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Mumble from 'mumble-js'
-import { setRoute, setOrigin, setPages } from './store/actions'
+import { setRoute, setPages } from './store/actions'
 import {CatalogHelper} from '@gooddata/react-components';
 import MapPanel from './components/MapPanel/MapPanel';
 
@@ -16,7 +16,7 @@ export default function setupVoice(store) {
         const code = codeInput.toUpperCase()
         const elementId = store.getState().elements[displayForm][code]
         if (!elementId) {
-            throw "Invalid airport code " + code
+            throw new Error("Invalid airport code " + code);
         }
         return {
             label: code,

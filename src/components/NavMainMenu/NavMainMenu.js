@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Row, Col, Navbar, NavbarBrand, Nav, NavItem, NavLink,} from 'reactstrap';
+import {Row, Col, Navbar, NavbarBrand, Nav, NavItem, NavLink,} from 'reactstrap';
 import {connect} from "react-redux";
 
 import FlightSearchPage from '../../pages/FlightSearchPage';
@@ -58,9 +58,9 @@ class NavMainMenu extends Component {
                                 </NavItem>
                             </Nav>
                             <div className="UserPanel">
-                                <img className="UserPanelImage" src={user_photo} />
+                                <img className="UserPanelImage" alt="user" src={user_photo} />
                                 <span className="UserName">Alan Smith</span>
-                                <img className="UserPanelLogout" src={user_logout} />
+                                <img className="UserPanelLogout" alt="user logout" src={user_logout} />
                             </div> 
                         </Navbar>
                     </Col>

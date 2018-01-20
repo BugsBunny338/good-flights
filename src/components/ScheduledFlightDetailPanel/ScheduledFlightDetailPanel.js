@@ -81,17 +81,17 @@ class ScheduledFlightDetailPanel extends Component {
                         <span>Variable</span>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="sch-flight-top-info">
-                        <img src={planeImg} />
+                        <img src={planeImg} alt="plane"/>
                         <span>CARRIER</span>
                         <span>Variable</span>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="sch-flight-top-info">
-                        <img src={clockImg} />
+                        <img src={clockImg} alt="clock"/>
                         <span>DURATION</span>
                         <span>Variable</span>
                     </Col>
                     <Col xs={12} sm={6} md={4} className="sch-flight-top-info">
-                        <img src={clockImg} />
+                        <img src={clockImg} alt="clock"/>
                         <span>LIKELINESS OF DELAY</span>
                         <span>Variable</span>
                     </Col>
@@ -105,13 +105,13 @@ class ScheduledFlightDetailPanel extends Component {
                             <Row>
                                 <Col xs={12} md={6} className="destination-panel">
                                     <div className="destination-panel-top">
-                                        <img src={pinImg} />
+                                        <img src={pinImg} alt="pin"/>
                                         <span>FROM</span>
                                     </div>
                                 </Col>
                                 <Col xs={12} md={6} className="destination-panel">
                                     <div className="destination-panel-top">
-                                        <img src={pinImg} />
+                                        <img src={pinImg} alt="pin" />
                                         <span>TO</span>
                                     </div>
                                 </Col>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { CatalogHelper, Execute } from '@gooddata/react-components';
 import { ResponsiveContainer, ScatterChart, Scatter,
-        XAxis, YAxis, ZAxis, CartesianGrid,
-        Tooltip, Legend, Symbols } from 'recharts';
+        XAxis, YAxis, CartesianGrid,
+        Tooltip, Legend } from 'recharts';
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
 const C = new CatalogHelper(catalogJson);
@@ -65,24 +65,18 @@ const transformResult = (executionResult) => {
   executionResult.result.headers.forEach((header, index) => {
       headers[header.id] = {
           index,
-          ... header
+          ...header
       }
   })
-  const indices = {
-      ontime: headers[ON_TIME].index,
-      delayed: headers[DELAYED].index,
-      carrier: headers[CARRIER].index,
-      carrier_code: headers[CAR_CODE].index,
-      month: headers[FLIGHT_NO].index
-  }
+
   const value = (row, column) => row[headers[column].index]
   const transformed = {}
   executionResult.result.rawData.forEach(row => {
       const carrier = value(row, CARRIER).name
       transformed[carrier] = transformed[carrier] || []
       transformed[carrier].push({
-          [ON_TIME]: parseInt(value(row, ON_TIME)),
-          [DELAYED]: parseInt(value(row, DELAYED)),
+          [ON_TIME]: parseInt(value(row, ON_TIME),10),
+          [DELAYED]: parseInt(value(row, DELAYED),10),
           [CARRIER]: value(row, CARRIER),
           [CAR_CODE]: value(row, CAR_CODE),
           [FLIGHT_NO]: value(row, FLIGHT_NO)

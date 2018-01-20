@@ -3,7 +3,7 @@ import actions from './actionTypes';
 /**
  * Redux date reducer
  */
-export default function dataReducer(state = { }, action) {
+export default function dataReducer(state = { report: {value: 1894, label: 'On Time Benchmark' }}, action) {
     switch (action.type) {
         case actions.SET_ROUTE:
             return {
@@ -41,6 +41,11 @@ export default function dataReducer(state = { }, action) {
             return {
                 ...state,
                 schedule: action.schedule
+            };
+        case actions.SET_REPORT:
+            return {
+                ...state,
+                report: action.report
             };
         case actions.RESET_DATA:
             return {};

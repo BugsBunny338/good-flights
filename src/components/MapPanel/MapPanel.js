@@ -92,7 +92,6 @@ class MapPanel extends Component {
     }
 
     render() {
-        const {origin, destination} = this.props.data
         return (
             <div>
                 {this.props.data.origin &&

@@ -3,7 +3,7 @@
  *  Predictor for ARR_DELAY from model/5a61e04692fb567c53000a97
  *  Predictive model by BigML - Machine Learning Made Easy
  */
-const predict = function (data) {
+const predictDelay = function (data) {
     if (data.crs_arr_time_bucket === null) {
         return 7.27033;
     }
@@ -732,6 +732,11 @@ const predict = function (data) {
         }
     }
     return null;
+};
+
+const predict = function (data) {
+    //return predictDelay(data) - ((data.dest_wind_dir % 2 )? 1 : -1 ) * (data.dest_wind_dir ) / 13;
+    return predictDelay(data);
 };
 
 export default predict;
