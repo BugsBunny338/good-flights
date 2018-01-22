@@ -1,13 +1,45 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
+import WeatherIcons from 'react-weathericons';
 import OpenWeather from "../../weather/OpenWeather";
 import passwd from "../../passwd";
 import airports from "../../flightapi/airports";
 import planeImg from'../../img/plane.png';
 import pinImg from'../../img/pin.png';
 import clockImg from'../../img/clock.png';
+import 'weather-icons/css/weather-icons.css'
 
+const weatherClass = (wl) => {
+    switch (wl) {
+        case 'rain': return wl
+        case 'clear': return "day-sunny"
+        case 'clouds': return "cloudy"
+    }
+    return null
+}
+
+const WeatherIcon = (weather) => {
+    console.log('weather icon: weather', weather, weather.weather, weather.weather.weather)
+    const w = weather.weather.weather[0]
+    const className = weatherClass(w.main.toLowerCase())
+    if (className) {
+        return <span><WeatherIcons name={className} size="2x"/> {w.description}</span>
+    }
+    return null
+}
+
+const WindIcon = (weather) => {
+    if (!weather.weather.wind) {
+        return null
+    }
+    const {speed, deg } = weather.weather.wind
+    const degRounded = Math.ceil(Math.round(deg / 22.5) * 22.5)
+    return <span>
+        <i className={"wi wi-wind towards-" + degRounded + "-deg wi-size-2x"}
+            style={{fontSize: 20}} /> {speed} km/h
+    </span>
+}
 
 class ScheduledFlightDetailPanel extends Component {
 
@@ -72,28 +104,40 @@ class ScheduledFlightDetailPanel extends Component {
         }
     }
 
+    flightInfo(ident) {
+        const filtered = this.props.data.destinations.filter(f => (f.ident === ident))
+        return filtered[0] || {}
+    }
+
     render() {
+        const { schedule } = this.props.data
+        const { originWeather, destinationWeather } = this.state
+        const flight = this.flightInfo(schedule.ident)
+        if (!(originWeather && destinationWeather && flight)) {
+            return null
+        }
+        const duration = Math.round((flight.estimatedarrivaltime - flight.filed_departuretime) / 60, 0)
         return (
             <Container fluid={true} className="scheduled-flight">
                 <Row>
                     <Col xs={12} sm={6} md={2} className="sch-flight-top-info">
                         <span>FLIGHT</span>
-                        <span>Variable</span>
+                        <span>{schedule.ident}</span>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="sch-flight-top-info">
-                        <img src={planeImg} alt="plane"/>
-                        <span>CARRIER</span>
-                        <span>Variable</span>
+                        <img src={planeImg} alt="plane" />
+                        <span>AIRCRAFT TYPE</span>
+                        <span>{schedule.aircrafttype}</span>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="sch-flight-top-info">
                         <img src={clockImg} alt="clock"/>
                         <span>DURATION</span>
-                        <span>Variable</span>
+                        <span>{duration} minutes</span>
                     </Col>
                     <Col xs={12} sm={6} md={4} className="sch-flight-top-info">
-                        <img src={clockImg} alt="clock"/>
-                        <span>LIKELINESS OF DELAY</span>
-                        <span>Variable</span>
+                        <img src={clockImg} />
+                        <span>PREDICTED DELAY</span>
+                        <span>{flight.predictedDelay}</span>
                     </Col>
                     <Col xs={12} md={4}>
                         <div className="squared-container">
@@ -107,12 +151,20 @@ class ScheduledFlightDetailPanel extends Component {
                                     <div className="destination-panel-top">
                                         <img src={pinImg} alt="pin"/>
                                         <span>FROM</span>
+                                        <div>{schedule.originCity}</div>
+                                        <div>{originWeather ? originWeather.main.temp + " °C" : ""}</div>
+                                        <div><WeatherIcon weather={originWeather}/></div>
+                                        <div><WindIcon weather={originWeather}/></div>
                                     </div>
                                 </Col>
                                 <Col xs={12} md={6} className="destination-panel">
                                     <div className="destination-panel-top">
                                         <img src={pinImg} alt="pin" />
                                         <span>TO</span>
+                                        <div>{schedule.destinationCity}</div>
+                                        <div>{destinationWeather ? destinationWeather.main.temp + " °C" : ""}</div>
+                                        <div><WeatherIcon weather={destinationWeather}/></div>
+                                        <div><WindIcon weather={destinationWeather}/></div>
                                     </div>
                                 </Col>
                             </Row>
@@ -134,9 +186,10 @@ class ScheduledFlightDetailPanel extends Component {
                         </div>
                     </Col>
                     <Col xs={12}>
-                        <p>Flight detail: {JSON.stringify(this.props.data.schedule,null,2)}</p>
-                        <p>{this.props.data.schedule.origin} Weather: {JSON.stringify(this.state.originWeather,null,2)}</p>
-                        <p>{this.props.data.schedule.destination} Weather: {JSON.stringify(this.state.destinationWeather, null, 2)}</p>
+                        <pre>Flight detail: {JSON.stringify(this.props.data.schedule,null,2)}</pre>
+                        <pre>{this.props.data.schedule.origin} Weather: {JSON.stringify(this.state.originWeather,null,2)}</pre>
+                        <pre>{this.props.data.schedule.destination} Weather: {JSON.stringify(this.state.destinationWeather, null, 2)}</pre>
+                        <pre>this.props.data: {JSON.stringify(this.props.data,null,2)}</pre>
                     </Col>
                 </Row>
 
