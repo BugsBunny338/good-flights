@@ -73,74 +73,76 @@ class ScheduledFlightSearchResults extends Component {
                         getFlightWeather(n.origin, n.destination, n.filed_departuretime, n.estimatedarrivaltime, (w) => {
                             n.originWeather = w.originWeather;
                             n.destinationWeather =   w.destinationWeather;
-                            let inputData = {
-                                crs_dep_time_bucket: _c.bucket(parseInt(n.departuretime.match(/(\d.*?):/), 10),
-                                    [
-                                        {threshold: 6, value: 'N'},
-                                        {threshold: 12, value: 'M'},
-                                        {threshold: 18, value: 'A'},
-                                        {threshold: 24, value: 'E'}
-                                    ]),
-                                dest_precipitation_3h: (n.destinationWeather.rain ?
-                                    n.destinationWeather.rain['rain.3h'] || 0 : 0) + (n.destinationWeather.snow ?
-                                        n.destinationWeather.snow['snow.3h'] || 0 : 0),
-                                duration_bucket: _c.bucket(n.estimatedarrivaltime - n.filed_departuretime,
-                                    [
-                                        {threshold: 1*60*60, value: 'XS'},
-                                        {threshold: 2*60*60, value: 'S'},
-                                        {threshold: 5*60*60, value: 'M'},
-                                        {threshold: 8*60*60, value: 'L'},
-                                        {threshold: 10*60*60, value: 'XL'},
-                                        {threshold: 40*60*60, value: 'XXL'}
+                            if(n.originWeather && n.destinationWeather) {
+                                let inputData = {
+                                    crs_dep_time_bucket: _c.bucket(parseInt(n.departuretime.match(/(\d.*?):/), 10),
+                                        [
+                                            {threshold: 6, value: 'N'},
+                                            {threshold: 12, value: 'M'},
+                                            {threshold: 18, value: 'A'},
+                                            {threshold: 24, value: 'E'}
                                         ]),
-                                crs_arr_time_bucket: _c.bucket(parseInt(n.arrivaltime.match(/(\d.*?):/), 10),
-                                    [
-                                        {threshold: 6, value: 'N'},
-                                        {threshold: 12, value: 'M'},
-                                        {threshold: 18, value: 'A'},
-                                        {threshold: 24, value: 'E'}
-                                    ]),
-                                dest_pressure: n.destinationWeather.main.sea_level,
-                                dest_air_temp: n.destinationWeather.main.temp,
-                                dest_wind_speed: n.destinationWeather.wind.speed,
-                                dest_wind_dir: n.destinationWeather.wind.deg,
-                                origin_precipitation_3h: (n.originWeather.rain ?
-                                    n.originWeather.rain['rain.3h'] || 0 : 0) + (n.originWeather.snow ?
-                                    n.originWeather.snow['snow.3h'] || 0 : 0),
-                                origin_wind_dir: n.originWeather.wind.deg,
-                                origin_wind_speed: n.originWeather.wind.speed,
-                                origin_air_temp: n.originWeather.main.temp,
-                                origin_pressure: n.originWeather.main.sea_level,
-                                dest_size: _c.bucket(airports[n.destination],
-                                    [
-                                        {threshold: 50, value: 'XS'},
-                                        {threshold: 100, value: 'S'},
-                                        {threshold: 150, value: 'L'},
-                                        {threshold: 200, value: 'XL'},
-                                        {threshold: 1000, value: 'XXL'}
-                                    ]),
-                                dest_state: airports[n.destination].state,
-                                dep_date_holidays: holidays[moment.unix(d.filed_departuretime).format('YYYY-MM-DD')] ?
-                                    holidays[moment.unix(d.filed_departuretime).format('YYYY-MM-DD')]: '-',
-                                dest: n.destination,
-                                origin_state: airports[n.origin].state,
-                                carrier: n.ident.substring(0,3),
-                                origin: n.origin,
-                                dep_month: moment.unix(d.filed_departuretime).format('MMM').toUpperCase(),
-                                dep_day_of_week: moment.unix(d.filed_departuretime).format('ddd').toUpperCase(),
-                                arr_date_holidays: holidays[moment.unix(d.estimatedarrivaltime).format('YYYY-MM-DD')] ?
-                                    holidays[moment.unix(d.estimatedarrivaltime).format('YYYY-MM-DD')]: '-',
-                                origin_size: _c.bucket(airports[n.origin],
-                                    [
-                                        {threshold: 50, value: 'XS'},
-                                        {threshold: 100, value: 'S'},
-                                        {threshold: 150, value: 'L'},
-                                        {threshold: 200, value: 'XL'},
-                                        {threshold: 1000, value: 'XXL'}
-                                    ])
-                            };
-                            n.predictedDelay = `${Math.round(predict(inputData))}m`;
-                            _c.setState({delayPredicted: Math.random()});
+                                    dest_precipitation_3h: (n.destinationWeather.rain ?
+                                        n.destinationWeather.rain['rain.3h'] || 0 : 0) + (n.destinationWeather.snow ?
+                                        n.destinationWeather.snow['snow.3h'] || 0 : 0),
+                                    duration_bucket: _c.bucket(n.estimatedarrivaltime - n.filed_departuretime,
+                                        [
+                                            {threshold: 1*60*60, value: 'XS'},
+                                            {threshold: 2*60*60, value: 'S'},
+                                            {threshold: 5*60*60, value: 'M'},
+                                            {threshold: 8*60*60, value: 'L'},
+                                            {threshold: 10*60*60, value: 'XL'},
+                                            {threshold: 40*60*60, value: 'XXL'}
+                                        ]),
+                                    crs_arr_time_bucket: _c.bucket(parseInt(n.arrivaltime.match(/(\d.*?):/), 10),
+                                        [
+                                            {threshold: 6, value: 'N'},
+                                            {threshold: 12, value: 'M'},
+                                            {threshold: 18, value: 'A'},
+                                            {threshold: 24, value: 'E'}
+                                        ]),
+                                    dest_pressure: n.destinationWeather.main.sea_level,
+                                    dest_air_temp: n.destinationWeather.main.temp,
+                                    dest_wind_speed: n.destinationWeather.wind.speed,
+                                    dest_wind_dir: n.destinationWeather.wind.deg,
+                                    origin_precipitation_3h: (n.originWeather.rain ?
+                                        n.originWeather.rain['rain.3h'] || 0 : 0) + (n.originWeather.snow ?
+                                        n.originWeather.snow['snow.3h'] || 0 : 0),
+                                    origin_wind_dir: n.originWeather.wind.deg,
+                                    origin_wind_speed: n.originWeather.wind.speed,
+                                    origin_air_temp: n.originWeather.main.temp,
+                                    origin_pressure: n.originWeather.main.sea_level,
+                                    dest_size: _c.bucket(airports[n.destination],
+                                        [
+                                            {threshold: 50, value: 'XS'},
+                                            {threshold: 100, value: 'S'},
+                                            {threshold: 150, value: 'L'},
+                                            {threshold: 200, value: 'XL'},
+                                            {threshold: 1000, value: 'XXL'}
+                                        ]),
+                                    dest_state: airports[n.destination].state,
+                                    dep_date_holidays: holidays[moment.unix(d.filed_departuretime).format('YYYY-MM-DD')] ?
+                                        holidays[moment.unix(d.filed_departuretime).format('YYYY-MM-DD')]: '-',
+                                    dest: n.destination,
+                                    origin_state: airports[n.origin].state,
+                                    carrier: n.ident.substring(0,3),
+                                    origin: n.origin,
+                                    dep_month: moment.unix(d.filed_departuretime).format('MMM').toUpperCase(),
+                                    dep_day_of_week: moment.unix(d.filed_departuretime).format('ddd').toUpperCase(),
+                                    arr_date_holidays: holidays[moment.unix(d.estimatedarrivaltime).format('YYYY-MM-DD')] ?
+                                        holidays[moment.unix(d.estimatedarrivaltime).format('YYYY-MM-DD')]: '-',
+                                    origin_size: _c.bucket(airports[n.origin],
+                                        [
+                                            {threshold: 50, value: 'XS'},
+                                            {threshold: 100, value: 'S'},
+                                            {threshold: 150, value: 'L'},
+                                            {threshold: 200, value: 'XL'},
+                                            {threshold: 1000, value: 'XXL'}
+                                        ])
+                                };
+                                n.predictedDelay = `${Math.round(predict(inputData))}m`;
+                                _c.setState({delayPredicted: Math.random()});
+                            }
                         });
                         return n;
                     });
