@@ -50,7 +50,7 @@ class ScheduledFlightSearchResults extends Component {
         if (props.data && props.data.scheduledOrigin) {
             let f = new FlightAware();
             f.setCredentials(passwd.flightAwareApiUser, passwd.flightAwareApiKey);
-            f.Scheduled({airport: props.data.scheduledOrigin.label, filter: 'airline'}, (err, r) => {
+            f.AllScheduled({airport: props.data.scheduledOrigin.label, filter: 'airline'}, (err, r) => {
                 if (err) {
                     console.log(`ScheduledFlightSearchResults: FLight API ERROR: '${JSON.stringify(err, null, 2)}'`);
                 }

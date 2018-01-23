@@ -1235,6 +1235,38 @@ FlightAware.prototype.Scheduled = function(query, callback) {
 };
 
 /*
+ * Retrieve multiple pages returned by the Scheduled call
+ */
+FlightAware.prototype.AllScheduled = function(query, callback, maxPages = 5) {
+    console.log('AllScheduled', query)
+    let counter = 0
+    const result = { scheduled: [] }
+    const dedup = {}
+    const processPage = (err, r) => {
+        console.log('processPage', err, r, counter, result)
+        if (err) {
+            return callback(err, result)
+        }
+        r.scheduled.forEach((row) => {
+            if (!dedup[row.ident]) {
+                result.scheduled.push(row)
+                dedup[row.ident] = true
+            }
+        })
+        counter++
+        if (!r.next_offset || counter >= maxPages) {
+            return callback(null, result)
+        }
+        const nextQuery = {
+            ...query,
+            offset: r.next_offset
+        }
+        this._request("Scheduled", nextQuery, (err, r) => processPage(err, r))
+    }
+    this._request("Scheduled", query, (err, r) => processPage(err, r))
+};
+
+/*
  * Search performs a query for data on all airborne aircraft to find ones matching the
  * search query. Query parameters include a latitude/longitude box, aircraft ident with
  * wildcards, type with wildcards, prefix, suffix, origin airport, destination airport,
