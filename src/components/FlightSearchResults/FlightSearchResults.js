@@ -46,7 +46,7 @@ class FlightSearchResults extends Component {
                     id: 'ontime_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('On Time Flights (%)')
+                            id: C.metric('% On Time Flights')
                         }
                     }
                 },
@@ -54,7 +54,7 @@ class FlightSearchResults extends Component {
                     id: 'delayed_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('Delayed Flights (%)')
+                            id: C.metric('% Delayed Flights')
                         }
                     }
                 },
@@ -70,7 +70,7 @@ class FlightSearchResults extends Component {
                     id: 'diverted_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('Diverted Flights (%)')
+                            id: C.metric('% Diverted Flights')
                         }
                     }
                 }

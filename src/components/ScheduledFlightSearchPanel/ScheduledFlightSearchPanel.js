@@ -55,7 +55,7 @@ class ScheduledFlightSearchPanel extends Component {
                             this.props.setAttributeElements(C.attributeDisplayForm(ORIGIN_IATA_CODE), options)
                             return (
                                 <Row>
-                                    <Col xs={12} className="select-title">SELECT DESTINATION</Col>
+                                    <Col xs={12} className="select-title">SELECT ORIGIN</Col>
                                     <Col xs={6} className="select-drop">
                                         <Select id="origin" style={{margin: '5px'}}
                                                 value={_c.props.data.scheduledOrigin}
