@@ -101,7 +101,7 @@ class FlightDetailPanel extends Component {
             <div className="FlightDetailPanel">
                 <Row>
                     <Col xs={12}>
-                        <h1 className="FlightDetailPanel-h1">Flight {carrier.name}{flight.name} from {origin.label} to {destination.label} Benchmark</h1>
+                        <h1 className="FlightDetailPanel-h1">Flight <span className="FlightDetailPanel-highlight">{carrier.name}{flight.name}</span> from {origin.label} to {destination.label} Benchmark</h1>
                     </Col>
                 </Row>
                 <Execute afm={this.afm(carrier, flight)} projectId={cfg.projectId}
@@ -130,23 +130,31 @@ class FlightDetailPanel extends Component {
                                 }
                             });
                             return (
-                                <div>
+                                <div className="FlightDetailPanel-KpiRow">
                                     <Row>
                                         <Col xs={3}>
-                                            <h1 className="FlightDetailPanel-h1">{data[0].ontime}</h1>
-                                            <p>On Time</p>
+                                            <div className="FlightDetailPanel-KpiBox">
+                                                <h1 className="FlightDetailPanel-Kpi">{data[0].ontime}</h1>
+                                                <p>On Time</p>
+                                            </div>
                                         </Col>
                                         <Col xs={3}>
-                                            <h1 className="FlightDetailPanel-h1">{data[0].delayed}</h1>
-                                            <p>Delayed</p>
+                                            <div className="FlightDetailPanel-KpiBox">
+                                                <h1 className="FlightDetailPanel-Kpi">{data[0].delayed}</h1>
+                                                <p>Delayed</p>
+                                            </div>
                                         </Col>
                                         <Col xs={3}>
-                                            <h1 className="FlightDetailPanel-h1">{data[0].cancelled}</h1>
-                                            <p>Cancelled</p>
+                                            <div className="FlightDetailPanel-KpiBox">
+                                                <h1 className="FlightDetailPanel-Kpi">{data[0].cancelled}</h1>
+                                                <p>Cancelled</p>
+                                            </div>
                                         </Col>
                                         <Col xs={3}>
-                                            <h1 className="FlightDetailPanel-h1">{data[0].diverted}</h1>
-                                            <p>Diverted</p>
+                                            <div className="FlightDetailPanel-KpiBox">
+                                                <h1 className="FlightDetailPanel-Kpi">{data[0].diverted}</h1>
+                                                <p>Diverted</p>
+                                            </div>
                                         </Col>
                                     </Row>
                                 </div>
@@ -156,12 +164,13 @@ class FlightDetailPanel extends Component {
                 </Execute>
                 <Row className="search-column">
                     <Col xs={8}/>
-                    <Col className="search-menu" xs={4}>
+                    <Col className="select-drop FlightDetailPanel-Search" xs={4}>
                         <Select id="origin" style={{margin: '5px'}}
                                 value={report}
                                 options={options}
                                 placeholder="Report"
-                                onChange={this.changeReport}/>
+                                onChange={this.changeReport}
+                                clearable="False" />
                     </Col>
                 </Row>
                 <Row>
