@@ -124,7 +124,7 @@ a {
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05); }
   .main-panel .search-panel .search-results {
     padding: 20px 30px; }
-    .main-panel .search-panel .search-results .selected-results {
+    .main-panel .search-panel .search-results .selected-results, .recharts-wrapper {
       padding-left: 0;
       padding-right: 0;
       font-family: BrandonGrotesque-Medium;

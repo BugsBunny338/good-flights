@@ -3,11 +3,13 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 
 import OriginToDestinationScatterPlot from '../components/FlightDetailPanel/OriginToDestinationScatterPlot'
+import QualityRadarChart from '../components/QualityRadarChart'
 
 const Flights = ({ originId, destinationId }) => {
   return <div>
       <b>Flights</b>
       <OriginToDestinationScatterPlot originId={originId} destinationId={destinationId} onPointClick={alert} />
+      <QualityRadarChart originId={originId} destinationId={destinationId} onPointClick={alert} />
   </div>
 }
 
