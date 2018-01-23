@@ -1,31 +1,19 @@
 {
   "metrics": {
-    "% Cancelled Benchmark": {
-      "identifier": "abaqOiKTghiU",
-      "tags": ""
-    },
     "% Cancelled Flights": {
       "identifier": "acsOmOxzc49Q",
-      "tags": ""
-    },
-    "% Delayed (15+) Benchmark": {
-      "identifier": "adpqB781bFbM",
-      "tags": ""
-    },
-    "% Delayed Benchmark": {
-      "identifier": "acGqAdZxels5",
       "tags": ""
     },
     "% Delayed Flights": {
       "identifier": "actOmNkjfAAM",
       "tags": ""
     },
-    "% Diverted Benchmark": {
-      "identifier": "abwqIascc6Rj",
+    "% Diverted Flights": {
+      "identifier": "aaPFtZZtdWyh",
       "tags": ""
     },
-    "% On Time Benchmark": {
-      "identifier": "ab1qM1oiaPzq",
+    "% On Time Flights": {
+      "identifier": "abSOmjO7gA1G",
       "tags": ""
     },
     "Actual Elapsed Time (minutes)": {
@@ -66,10 +54,6 @@
     },
     "Delayed Flights": {
       "identifier": "aazrlLTmfs9F",
-      "tags": ""
-    },
-    "Delayed Flights (%)": {
-      "identifier": "adufBn0cdNH7",
       "tags": ""
     },
     "Delayed Flights (15min+)": {
@@ -136,14 +120,6 @@
       "identifier": "acctYC5xbZvZ",
       "tags": ""
     },
-    "Diverted Flights": {
-      "identifier": "acTgoCo0cdsd",
-      "tags": ""
-    },
-    "Diverted Flights (%)": {
-      "identifier": "acPgpPRKeZxq",
-      "tags": ""
-    },
     "Diverts Carriers": {
       "identifier": "fact.dataset_name.divertcarriers",
       "tags": ""
@@ -200,10 +176,6 @@
       "identifier": "aanrnmcQfT6C",
       "tags": ""
     },
-    "On Time Flights (%)": {
-      "identifier": "ab8fCjNaaRFQ",
-      "tags": ""
-    },
     "Origin Air Pressure": {
       "identifier": "attr.dataset_name.originpressure",
       "tags": ""
@@ -250,14 +222,6 @@
     },
     "Security Delay (minutes)": {
       "identifier": "fact.dataset_name.securitydelayminutes",
-      "tags": ""
-    },
-    "Significantly Delayed Flights": {
-      "identifier": "abSfEhOFchDC",
-      "tags": ""
-    },
-    "Significantly Delayed Flights (%)": {
-      "identifier": "abkfE0QNecuZ",
       "tags": ""
     },
     "Taxi In Time (minutes)": {

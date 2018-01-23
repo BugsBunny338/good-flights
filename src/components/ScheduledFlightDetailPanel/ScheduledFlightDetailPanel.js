@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
+import { destinationElementsCache } from '../../ldm'
 import WeatherIcons from 'react-weathericons';
+import QualityRadarChart from '../QualityRadarChart'
 import OpenWeather from "../../weather/OpenWeather";
 import passwd from "../../passwd";
 import airports from "../../flightapi/airports";
@@ -170,14 +172,19 @@ class ScheduledFlightDetailPanel extends Component {
                             </Row>
                         </div>
                     </Col>
-                    <Col xs={12} md={6}>
+                    <Col xs={12}>
                         <div className="squared-container">
-                            <span className="squared-container-title">FLIGHT STATUS</span>
+                            <span className="squared-container-title">
+                                FLIGHTS STATS BY CARRIER ({schedule.origin} TO {schedule.destination} ONLY)
+                            </span>
+                            <QualityRadarChart
+                                originId={destinationElementsCache[schedule.origin]}
+                                destinationId={destinationElementsCache[schedule.destination]} />
                         </div>
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="squared-container">
-                            <span className="squared-container-title">DELAY BY CARRIERS</span>
+                            <span className="squared-container-title">FLIGHT STATUS</span>
                         </div>
                     </Col>
                     <Col xs={12} md={6}>

@@ -31,7 +31,7 @@ class FlightDetailPanel extends Component {
                     id: 'ontime_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('On Time Flights (%)')
+                            id: C.metric('% On Time Flights')
                         }
                     }
                 },
@@ -39,7 +39,7 @@ class FlightDetailPanel extends Component {
                     id: 'delayed_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('Delayed Flights (%)')
+                            id: C.metric('% Delayed Flights')
                         }
                     }
                 },
@@ -47,7 +47,7 @@ class FlightDetailPanel extends Component {
                     id: 'sig_delayed_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('Significantly Delayed Flights (%)')
+                            id: C.metric('Delayed Flights (15min+)')
                         }
                     }
                 },
@@ -63,7 +63,7 @@ class FlightDetailPanel extends Component {
                     id: 'diverted_pct',
                     definition: {
                         baseObject: {
-                            id: C.metric('Diverted Flights (%)')
+                            id: C.metric('% Diverted Flights')
                         }
                     }
                 }
