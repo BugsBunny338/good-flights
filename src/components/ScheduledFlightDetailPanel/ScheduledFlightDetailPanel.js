@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import {connect} from "react-redux";
+import GaugeWrapper from '../GaugeWrapper'
 import { destinationElementsCache } from '../../ldm'
 import WeatherIcons from 'react-weathericons';
 import QualityRadarChart from '../QualityRadarChart'
@@ -11,6 +12,25 @@ import planeImg from'../../img/plane.png';
 import pinImg from'../../img/pin.png';
 import clockImg from'../../img/clock.png';
 import 'weather-icons/css/weather-icons.css'
+
+const gaugeOptions = {
+  angle: 0.25,
+  lineWidth: 0.2,
+  pointer: {
+    length: 0.6,
+    strokeWidth: 0.05,
+    color: '#000000'
+  },
+  staticZones: [
+     {strokeStyle: "#30B32D", min: 0, max: 15},
+     {strokeStyle: "#FFDD00", min: 15, max: 60},
+     {strokeStyle: "#F03E3E", min: 60, max: 120}
+  ],
+  limitMax: false,
+  limitMin: false,
+  strokeColor: '#E0E0E0',
+  highDpiSupport: true
+};
 
 const weatherClass = (wl) => {
     switch (wl) {
@@ -115,6 +135,10 @@ class ScheduledFlightDetailPanel extends Component {
         const { schedule } = this.props.data
         const { originWeather, destinationWeather } = this.state
         const flight = this.flightInfo(schedule.ident)
+        let predictedDelay = 'No delay'
+        if (flight && !flight.predictedDelay.startsWith('-')) {
+            predictedDelay = flight.predictedDelay.replace(/m$/, ' minutes')
+        }
         if (!(originWeather && destinationWeather && flight)) {
             return null
         }
@@ -143,7 +167,9 @@ class ScheduledFlightDetailPanel extends Component {
                     </Col>
                     <Col xs={12} md={4}>
                         <div className="squared-container">
-                            <span className="squared-container-title">LIKELINESS OF DELAY</span>
+                            <span className="squared-container-title">PREDICTED DELAY</span>
+                            <GaugeWrapper width="200" height="100" max={120} value={flight.predictedDelay} options={gaugeOptions} />
+                            <div style={{fontSize: 24, marginLeft: 30}}>{predictedDelay}</div>
                         </div>
                     </Col>
                     <Col xs={12} md={8}>
