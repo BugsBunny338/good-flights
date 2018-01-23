@@ -175,7 +175,7 @@ class FlightDetailPanel extends Component {
                 </Row>
                 <Row>
                     <Col xs={12}>
-                        <PixelPerfectChart height="600px" src={
+                        <PixelPerfectChart height="520px" src={
                             "https://secure.gooddata.com/reportWidget.html" +
                             `?label.origins.originiatacode=${origin.label}` +
                             `&label.destinations.destinationiatacode=${destination.label}` +
