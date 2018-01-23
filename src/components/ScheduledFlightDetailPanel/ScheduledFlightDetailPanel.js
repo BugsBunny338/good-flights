@@ -208,6 +208,7 @@ class ScheduledFlightDetailPanel extends Component {
                                 destinationId={destinationElementsCache[schedule.destination]} />
                         </div>
                     </Col>
+                    {/*
                     <Col xs={12} md={6}>
                         <div className="squared-container">
                             <span className="squared-container-title">FLIGHT STATUS</span>
@@ -224,6 +225,7 @@ class ScheduledFlightDetailPanel extends Component {
                         <pre>{this.props.data.schedule.destination} Weather: {JSON.stringify(this.state.destinationWeather, null, 2)}</pre>
                         <pre>this.props.data: {JSON.stringify(this.props.data,null,2)}</pre>
                     </Col>
+                  */}
                 </Row>
 
             </Container>
