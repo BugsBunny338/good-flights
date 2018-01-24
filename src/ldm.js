@@ -4,6 +4,7 @@ import destinationCodeElements from './destinationCodeElements.json'
 const C = new CatalogHelper(catalogJson);
 
 export const nameCache = {}
+export const reverseNameCache = {}
 export const destinationElementsCache = {}
 
 destinationCodeElements.attributeElements.elements.forEach(el => {
@@ -18,12 +19,14 @@ const defaults = {
 const metric = (name) => {
     const result = C.metric(name)
     nameCache[result] = defaults[name] || name
+    reverseNameCache[nameCache[result]] = result
     return result
 }
 
 const attributeDisplayForm = (name) => {
     const result = C.attributeDisplayForm(name)
     nameCache[result] = name
+    reverseNameCache[nameCache[result]] = result
     return result
 }
 
