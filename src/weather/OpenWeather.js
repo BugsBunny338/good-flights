@@ -1,11 +1,12 @@
 import request from 'request';
+import cfg from '../config';
 
 
 function OpenWeather(apiKey) {
     this.apiKey = apiKey;
 }
 
-OpenWeather.host = "localhost:3000";//"flightxml.flightaware.com";
+OpenWeather.host = `${cfg.hostname}:${cfg.port}`;//"flightxml.flightaware.com";
 OpenWeather.baseURI = "/data/2.5/";
 OpenWeather.URL = "https://" + OpenWeather.host + OpenWeather.baseURI;
 

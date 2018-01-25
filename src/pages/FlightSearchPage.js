@@ -14,12 +14,12 @@ class FlightSearchPage extends Component {
         return (
             <Container fluid={true}>
                 <Row>
-                    <Col xs={12} md={4} className="search-panel">
+                    <Col xs={12} md={5} className="search-panel">
                         <div className="blue-top"></div>
                         <div className="nav-bread"><NavBreadcrumb/></div>
                         <div><FlightSearchPanel/></div>
                     </Col>
-                    <Col xs={12} md={8} className="map-panel">
+                    <Col xs={12} md={7} className="map-panel">
                         {this.props.navigation.pages && Array.isArray(this.props.navigation.pages) &&
                         this.props.navigation.pages.length > 1 &&
                         this.props.navigation.pages[this.props.navigation.pages.length - 1] &&

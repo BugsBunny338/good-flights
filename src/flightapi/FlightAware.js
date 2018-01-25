@@ -1,11 +1,12 @@
 import request from 'request';
+import cfg from "../config";
 
 function FlightAware(username,apiKey) {
     this.username = username;
     this.apiKey = apiKey;
 }
 
-FlightAware.host = "localhost:3000";//"flightxml.flightaware.com";
+FlightAware.host = `${cfg.hostname}:${cfg.port}`;//"flightxml.flightaware.com";
 FlightAware.baseURI = "/json/FlightXML2/";
 FlightAware.URL = "https://" + FlightAware.host + FlightAware.baseURI;
 FlightAware.maxRecords = 15;

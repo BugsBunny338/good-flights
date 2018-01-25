@@ -74,7 +74,7 @@ const OriginToDestinationScatterPlot = ({ originId, destinationId, onPointClick 
         )
         console.log('result / headers / transformed', result, headers, transformed)
         return (
-          <ResponsiveContainer width="100%" aspect={1.4}>
+          <ResponsiveContainer width="100%" aspect={1.8}>
             <ScatterChart
               margin={{ top: 20, right: 10 }}>
               <CartesianGrid strokeDasharray="3 3" />
