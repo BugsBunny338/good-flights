@@ -9,7 +9,8 @@ const actions = {
     RESET_DATA: 'RESET_DATA',
     SET_ATTRIBUTE_ELEMENTS: 'SET_ATTRIBUTE_ELEMENTS',
     SET_ROUTE: 'SET_ROUTE',
-    SET_REPORT: 'SET_REPORT'
+    SET_REPORT: 'SET_REPORT',
+    SET_USER: 'SET_USER'
 };
 
 export default actions;

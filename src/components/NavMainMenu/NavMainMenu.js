@@ -10,8 +10,6 @@ import CustomViewPage from '../../pages/CustomViewPage';
 import { setPages, resetData } from "../../store/actions";
 
 import logo from './logo.png';
-import user1_photo from './user1_photo.png';
-import user2_photo from './user2_photo.png';
 import user_logout from './user_logout.png';
 
 
@@ -52,24 +50,9 @@ class NavMainMenu extends Component {
     }
 
     render() {
-        let user_name, user_photo = null;
-        
-        // TODO: REMOVE hard-coded manager and replace with actual role from log in screen
-        let user = 'manager'
-        
-        if(user == 'qa') {
-        // QA user logged in
-            user_name = 'Alan Smith';
-            user_photo = user1_photo;
-            
-        } else if(user == 'manager') {
-            // Manager user logged in
-            user_name = 'Stanley Davis';
-            user_photo = user2_photo;
-            
-        } else {
-            // No user logged in
-        }
+        const userrole = this.props.user.userrole;
+        const user_name = this.props.user.username;
+        const user_photo = this.props.user.photo;
         
         let tab_routes = this.generateNavItem('Routes', <FlightSearchPage/>);
         let tab_flights = this.generateNavItem('Flights', <ScheduledFlightSearchPage/>);
@@ -83,11 +66,11 @@ class NavMainMenu extends Component {
                          </div>;
         
         
-        if(user == 'qa') {
+        if(userrole == 'qa') {
         // QA user logged in, not seeing Designer and CustomView
             tab_designer = tab_customview = null;
 
-        } else if(user == 'manager') {
+        } else if(userrole == 'manager') {
             // Manager logged in, seeing everything
 
         } else {
@@ -129,7 +112,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
     return {
         data: state.data,
-        navigation: state.navigation
+        navigation: state.navigation,
+        user: state.user
     }
 }
 

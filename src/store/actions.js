@@ -59,3 +59,8 @@ export const setAttributeElements = (displayForm, attributeElements) => ({
     displayForm,
     attributeElements
 });
+
+export const setUser = (user) => ({
+    type: t.SET_USER,
+    user
+});
