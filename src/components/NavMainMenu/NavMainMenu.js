@@ -36,14 +36,25 @@ class NavMainMenu extends Component {
         e.preventDefault();
     }
     
-    isDisabled(name) {
+    isNavItemDisabled(name) {
         return (this.props.navigation.pages[0].breadcrumb == name ? true : false);
+    }
+    
+    generateNavItem(pageTitle, pageComponent) {
+        let navItem = <NavItem className="NavItem">
+                        <NavLink href="" onClick={(e) => this.setPages(e,[{ page: pageComponent, breadcrumb: pageTitle}])}
+                            disabled={this.isNavItemDisabled(pageTitle)}>
+                            {pageTitle}
+                        </NavLink>
+                      </NavItem>;
+        
+        return navItem;
     }
 
     render() {
         let user_name, user_photo = null;
         
-        // TODO: REMOVE and replace with actual role from log in screen
+        // TODO: REMOVE hard-coded manager and replace with actual role from log in screen
         let user = 'manager'
         
         if(user == 'qa') {
@@ -60,43 +71,16 @@ class NavMainMenu extends Component {
             // No user logged in
         }
         
-       let tab_routes = <NavItem className="NavItem">
-                                <NavLink href=""
-                                         onClick={(e) => this.setPages(e,[{ page:<FlightSearchPage/>, breadcrumb:'Routes'}])}
-                                         disabled={this.isDisabled('Routes')}>
-                                    Routes
-                                </NavLink>
-                            </NavItem>;
-
-        let tab_flights = <NavItem className="NavItem">
-                                <NavLink href=""
-                                         onClick={(e) => this.setPages(e, [{page: <ScheduledFlightSearchPage/>, breadcrumb:'Flights' }])}
-                                         disabled={this.isDisabled('Flights')}>
-                                    Flights
-                                </NavLink>
-                            </NavItem>;
-
-        let tab_designer = <NavItem className="NavItem">
-                                <NavLink href=""
-                                         onClick={(e) => this.setPages(e, [{page: <DesignerPage/>, breadcrumb:'Designer' }])}
-                                         disabled={this.isDisabled('Designer')}>
-                                    Designer
-                                </NavLink>
-                            </NavItem>;
-
-        let tab_customview = <NavItem className="NavItem">
-                                <NavLink href=""
-                                         onClick={(e) => this.setPages(e, [{page: <CustomViewPage/>, breadcrumb:'Custom View' }])}
-                                         disabled={this.isDisabled('Custom View')}>
-                                    Custom View
-                                </NavLink>
-                            </NavItem>;
+        let tab_routes = this.generateNavItem('Routes', <FlightSearchPage/>);
+        let tab_flights = this.generateNavItem('Flights', <ScheduledFlightSearchPage/>);
+        let tab_designer = this.generateNavItem('Designer', <DesignerPage/>);
+        let tab_customview = this.generateNavItem('Custom View', <CustomViewPage/>);
 
         let user_panel = <div className="UserPanel">
                             <img className="UserPanelImage" alt="user" src={user_photo} />
                             <span className="UserName">{user_name}</span>
                             <img className="UserPanelLogout" alt="user logout" src={user_logout} onClick={(e) => this.setPages(e, [{page: <LoginPage/>, breadcrumb:'Login' }])} />
-                        </div>;
+                         </div>;
         
         
         if(user == 'qa') {
