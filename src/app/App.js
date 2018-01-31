@@ -35,7 +35,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        navigation: state.navigation
+        navigation: state.navigation,
+        userrole: state.userrole
     }
 }
 
