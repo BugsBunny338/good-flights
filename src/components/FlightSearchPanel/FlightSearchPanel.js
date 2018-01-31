@@ -11,6 +11,8 @@ import {setOrigin, setDestination, setPages, setAttributeElements} from '../../s
 
 import FlightSearchResults from '../FlightSearchResults/FlightSearchResults';
 import MapPanel from '../MapPanel/MapPanel';
+import airplane from '../../img/airplane.png';
+
 
 const C = new CatalogHelper(catalogJson);
 
@@ -50,6 +52,14 @@ class FlightSearchPanel extends Component {
 
     render() {
         let _c = this;
+        let search_results = null;
+        
+        if(this.props.data.destination && this.props.data.origin) {
+            search_results = <FlightSearchResults/>;
+        } else {
+            search_results = <div className="search-results-placeholder"><img src={airplane} /><div className="search-results-placeholder-text">Select your route</div></div>;
+        }
+        
         return (
             <div className="search-column">
                 <div className="search-menu">
@@ -66,7 +76,7 @@ class FlightSearchPanel extends Component {
                                 this.props.setAttributeElements(C.attributeDisplayForm('Origin IATA Code'), options)
                                 return (
                                     <Row>
-                                        <Col xs={12} className="select-title">SELECT DESTINATIONS</Col>
+                                        <Col xs={12} className="select-title">SELECT ROUTE</Col>
                                         <Col xs={6} className="select-drop">
                                             <Select id="origin" style={{margin: '5px'}}
                                                     value={_c.props.data.origin}
@@ -89,7 +99,7 @@ class FlightSearchPanel extends Component {
                 </div>
                 <Row className="search-results">
                     <Col xs={12}>
-                        {this.props.data.destination && this.props.data.origin && <FlightSearchResults/>}
+                        {search_results}
                     </Col>
                 </Row>
 

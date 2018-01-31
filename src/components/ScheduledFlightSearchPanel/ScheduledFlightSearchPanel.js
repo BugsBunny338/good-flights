@@ -11,6 +11,8 @@ import { setScheduledOrigin, setPages, setAttributeElements } from '../../store/
 
 import ScheduledFlightSearchResults from '../ScheduledFlightSearchResults/ScheduledFlightSearchResults';
 import ScheduledMapPanel from '../ScheduledMapPanel/ScheduledMapPanel';
+import airplane from '../../img/airplane.png';
+
 
 const C = new CatalogHelper(catalogJson);
 
@@ -43,6 +45,14 @@ class ScheduledFlightSearchPanel extends Component {
 
     render() {
         let _c= this;
+        let search_results = null;
+        
+        if(_c.props.data.scheduledOrigin) {
+            search_results = <ScheduledFlightSearchResults />;
+        } else {
+            search_results = <div className="search-results-placeholder"><img src={airplane} /><div className="search-results-placeholder-text">Select airport of origin</div></div>;
+        }
+        
         return (
             <Container fluid={true} className="search-column">
             <div className="search-menu">
@@ -73,7 +83,7 @@ class ScheduledFlightSearchPanel extends Component {
                 <div className="search-results">
                     <Row>
                         <Col xs={12}>
-                            {_c.props.data.scheduledOrigin && <ScheduledFlightSearchResults />}
+                            {search_results}
                         </Col>
                     </Row>
                 </div>
