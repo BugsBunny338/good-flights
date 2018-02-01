@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Container, Row, Col, Form, FormGroup, Input, Label, Button} from 'reactstrap';
 
+import FlightSearchPage from './FlightSearchPage';
+import { setPages, resetData, setUser } from "../store/actions";
+
+import user1_photo from '../img/user1_photo.png';
+import user2_photo from '../img/user2_photo.png';
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -16,14 +22,26 @@ class LoginPage extends Component {
         }
     }
     
+    setPages(e, pages) {
+        this.props.onResetData();
+        this.props.onPagesSubmit({pages});
+        e.preventDefault();
+    }
+    
+    
+    
     handleSubmit(event) {
         event.preventDefault();
 
         //TODO: Matching the right names and roles
         if(this.state.email.includes('qa')) {
-            this.setState({userrole: 'qa'});
+            this.props.setUser({userrole: 'qa', username: 'Alan Smith', photo: user1_photo});
+            this.setPages(event, [{breadcrumb: 'Routes', page: <FlightSearchPage/>}])
+
         } else if(this.state.email.includes('manager')) {
-            this.setState({userrole: 'manager'});
+            this.props.setUser({userrole: 'manager', username: 'Stanley Davis', photo: user2_photo});
+            this.setPages(event, [{breadcrumb: 'Routes', page: <FlightSearchPage/>}])
+
         } else {
             this.setState({userrole: null});
         }
@@ -70,8 +88,10 @@ class LoginPage extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {};
+const mapDispatchToProps = {
+    onPagesSubmit: setPages,
+    onResetData: resetData,
+    setUser
 }
 
 

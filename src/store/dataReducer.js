@@ -1,9 +1,11 @@
 import actions from './actionTypes';
 
+const DEFAULT_STATE = { report: {value: 1894, label: 'On Time Benchmark' }};
+
 /**
  * Redux date reducer
  */
-export default function dataReducer(state = { report: {value: 1894, label: 'On Time Benchmark' }}, action) {
+export default function dataReducer(state = DEFAULT_STATE, action) {
     switch (action.type) {
         case actions.SET_ROUTE:
             return {
@@ -48,7 +50,9 @@ export default function dataReducer(state = { report: {value: 1894, label: 'On T
                 report: action.report
             };
         case actions.RESET_DATA:
-            return {};
+            return {
+                ...DEFAULT_STATE
+            };
         default:
             return state;
     }
