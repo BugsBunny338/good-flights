@@ -101,7 +101,7 @@ class FlightDetailPanel extends Component {
             <div className="FlightDetailPanel">
                 <Row>
                     <Col xs={12}>
-                        <h1 className="FlightDetailPanel-h1">Flight <span className="FlightDetailPanel-highlight">{carrier.name}{flight.name}</span> from {origin.label} to {destination.label} Benchmark</h1>
+                        <h1 className="FlightDetailPanel-h1">Flight <span className="FlightDetailPanel-highlight">{flight.name}</span> from {origin.label} to {destination.label} Benchmark</h1>
                     </Col>
                 </Row>
                 <Execute afm={this.afm(carrier, flight)} projectId={cfg.projectId}

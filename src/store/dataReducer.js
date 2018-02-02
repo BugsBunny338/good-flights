@@ -28,6 +28,11 @@ export default function dataReducer(state = DEFAULT_STATE, action) {
                 ...state,
                 destination: action.destination
             };
+        case actions.SET_CARRIER:
+            return {
+                ...state,
+                carrier: action.carrier
+            };
         case actions.SET_DESTINATIONS:
             return {
                 ...state,

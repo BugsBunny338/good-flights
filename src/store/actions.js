@@ -10,6 +10,11 @@ export const setDestination = (destination) => ({
     ...destination
 });
 
+export const setCarrier = (carrier) => ({
+    type: t.SET_CARRIER,
+    ...carrier
+});
+
 export const setRoute = (origin, destination) => ({
     type: t.SET_ROUTE,
     origin, destination

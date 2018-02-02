@@ -25,8 +25,8 @@ class FlightSearchResults extends Component {
         this.flightSelected = this.flightSelected.bind(this);
     }
 
-    getResultsAfm(origin, destination) {
-        return ({
+    getResultsAfm(origin, destination, carrier = null) {
+        let afm = {
             attributes: [
                 {
                     id: C.attributeDisplayForm('Carrier'),
@@ -87,7 +87,21 @@ class FlightSearchResults extends Component {
                     in: [destination]
                 }
             ]
-        });
+        }
+        
+        if(carrier) {
+            const carrierFilter = {
+                    id: C.attributeDisplayForm('Carrier Name'),
+                    type: 'attribute',
+                    in: [carrier]
+            }
+            
+            afm.filters.push(carrierFilter);
+        }
+        
+        console.log(afm);
+        console.log(carrier);
+        return (afm);
     }
 
     flightSelected(e, carrier, flight) {
@@ -107,11 +121,12 @@ class FlightSearchResults extends Component {
 
     render() {
         let _c = this;
-        const {origin, destination} = this.props.data
+        const {origin, destination, carrier} = this.props.data
+        const optionalCarrier = (!this.props.data.carrier) ? null : this.props.data.carrier.value;
 
         return (
             <div>
-                <Execute afm={this.getResultsAfm(this.props.data.origin.value, this.props.data.destination.value)} projectId={cfg.projectId}
+                <Execute afm={this.getResultsAfm(this.props.data.origin.value, this.props.data.destination.value, optionalCarrier)} projectId={cfg.projectId}
                          onLoadingChanged={
                              e => {
                                  //TODO HOW TO SHOW A "NO FLIGHTS" MESSAGE?
@@ -129,7 +144,7 @@ class FlightSearchResults extends Component {
                         (executionResult) => {
                             let data = executionResult.result.rawData.map((row) => {
                                 return {
-                                    flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[0], row[1])}>{row[0].name}{row[1].name}</a>,
+                                    flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[0], row[1])}>{row[1].name}</a>,
                                     carrier: row[2].name,
                                     ontime: row[3] ? `${Math.round(parseInt(row[3]*100, 10))}%` : '-',
                                     delayed: row[4] ? `${Math.round(parseInt(row[4]*100, 10))}%` : '-',

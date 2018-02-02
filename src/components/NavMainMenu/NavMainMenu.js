@@ -7,6 +7,7 @@ import ScheduledFlightSearchPage from '../../pages/ScheduledFlightSearchPage';
 import LoginPage from '../../pages/LoginPage';
 import DesignerPage from '../../pages/DesignerPage';
 import CustomViewPage from '../../pages/CustomViewPage';
+import RoutesToMonitorPage from '../../pages/RoutesToMonitorPage';
 import { setPages, resetData } from "../../store/actions";
 
 import logo from './logo.png';
@@ -55,6 +56,7 @@ class NavMainMenu extends Component {
         const user_photo = this.props.user.photo;
         
         let tab_routes = this.generateNavItem('Routes', <FlightSearchPage/>);
+        let tab_routes_to_monitor = this.generateNavItem('Routes to Monitor', <RoutesToMonitorPage/>);
         let tab_flights = this.generateNavItem('Flights', <ScheduledFlightSearchPage/>);
         let tab_designer = this.generateNavItem('Designer', <DesignerPage/>);
         let tab_customview = this.generateNavItem('Custom View', <CustomViewPage/>);
@@ -72,10 +74,10 @@ class NavMainMenu extends Component {
 
         } else if(userrole == 'manager') {
             // Manager logged in, seeing everything
-
+            tab_routes_to_monitor = null;
         } else {
             // No user logged in, menu and user_panel are empty
-            tab_routes = tab_flights = tab_designer = tab_customview = user_panel = null;
+            tab_routes = tab_flights = tab_routes_to_monitor = tab_designer = tab_customview = user_panel = null;
         }
         
         return (
@@ -90,6 +92,7 @@ class NavMainMenu extends Component {
                             </NavbarBrand>
                             <Nav>
                                 {tab_routes}
+                                {tab_routes_to_monitor}
                                 {tab_flights}
                                 {tab_designer}
                                 {tab_customview}

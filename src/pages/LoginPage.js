@@ -39,7 +39,7 @@ class LoginPage extends Component {
             this.setPages(event, [{breadcrumb: 'Routes', page: <FlightSearchPage/>}])
 
         } else if(this.state.email.includes('manager')) {
-            this.props.setUser({userrole: 'manager', username: 'Stanley Davis', photo: user2_photo});
+            this.props.setUser({userrole: 'manager', username: 'Victoria Brown', photo: user2_photo});
             this.setPages(event, [{breadcrumb: 'Routes', page: <FlightSearchPage/>}])
 
         } else {

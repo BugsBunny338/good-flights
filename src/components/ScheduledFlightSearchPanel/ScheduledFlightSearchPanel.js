@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
-import { setScheduledOrigin, setPages, setAttributeElements } from '../../store/actions';
+import { setScheduledOrigin, setPages, setAttributeElements, setCarrier } from '../../store/actions';
 
 import ScheduledFlightSearchResults from '../ScheduledFlightSearchResults/ScheduledFlightSearchResults';
 import ScheduledMapPanel from '../ScheduledMapPanel/ScheduledMapPanel';
@@ -24,11 +24,17 @@ class ScheduledFlightSearchPanel extends Component {
         super(props);
         this.state = {};
         this.setOrigin = this.setOrigin.bind(this);
+        this.setCarrier = this.setCarrier.bind(this);
     }
 
     setOrigin(selection) {
         this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], {page: <ScheduledMapPanel/>, breadcrumb: 'Map'}]});
         this.props.onOriginSubmit({scheduledOrigin:selection});
+    }
+    
+    setCarrier(selection) {
+        this.props.onPagesSubmit({pages:[this.props.navigation.pages[0], {page: <ScheduledMapPanel/>, breadcrumb: 'Map'}]});
+        this.props.onCarrierSubmit({carrier:selection});
     }
 
     getLookupAfm(attribute = ORIGIN_IATA_CODE) {
@@ -79,6 +85,32 @@ class ScheduledFlightSearchPanel extends Component {
                         }
                     }
                 </Execute>
+                <Row className="search-results-carrier-row">
+                        <Col xs={3}>
+                            <div className="search-results-carrier-name">Select carrier:</div>
+                                                </Col>
+
+                            <Execute afm={this.getLookupAfm("Carrier Name")} projectId={cfg.projectId}
+                                 onLoadingChanged={e => {}} onError={e => {}}>
+                            {
+                                (executionResult) => {
+                                    let options = executionResult.result.rawData.map((row) => {
+                                        return {value: row[0].id, label: row[0].name}
+                                    });
+                                    this.props.setAttributeElements(C.attributeDisplayForm("Carrier Name"), options)
+                                    return (
+                                            <Col xs={6} className="search-results-carrier-select-drop">
+                                                <Select id="carrier" style={{margin: '5px'}}
+                                                        value={_c.props.data.carrier}
+                                                        options={options}
+                                                        placeholder="All carriers"
+                                                        onChange={(selectedValue) => _c.setCarrier(selectedValue)}/>
+                                             </Col>
+                                            );
+                                }
+                            }
+                            </Execute>
+                </Row>
                 </div>
                 <div className="search-results">
                     <Row>
@@ -96,6 +128,7 @@ class ScheduledFlightSearchPanel extends Component {
 
 const mapDispatchToProps = {
     onOriginSubmit: setScheduledOrigin,
+    onCarrierSubmit: setCarrier,
     onPagesSubmit: setPages,
     setAttributeElements
 }
