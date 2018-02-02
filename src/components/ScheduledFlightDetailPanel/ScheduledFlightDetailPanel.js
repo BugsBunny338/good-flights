@@ -22,9 +22,9 @@ const gaugeOptions = {
     color: '#000000'
   },
   staticZones: [
-     {strokeStyle: "#30B32D", min: 0, max: 15},
-     {strokeStyle: "#FFDD00", min: 15, max: 60},
-     {strokeStyle: "#F03E3E", min: 60, max: 120}
+     {strokeStyle: "#30B32D", min: 0, max: 10},
+     {strokeStyle: "#FFDD00", min: 10, max: 30},
+     {strokeStyle: "#F03E3E", min: 30, max: 60}
   ],
   limitMax: false,
   limitMin: false,
@@ -171,7 +171,7 @@ class ScheduledFlightDetailPanel extends Component {
                     <Col xs={12} md={4}>
                         <div className="squared-container">
                             <span className="squared-container-title">PREDICTED DELAY</span>
-                            <GaugeWrapper width="200" height="100" max={120} value={flight.predictedDelay} options={gaugeOptions} />
+                            <GaugeWrapper width="200" height="100" max={60} value={flight.predictedDelay} options={gaugeOptions} />
                             <div style={{fontSize: 24, marginLeft: 30}}>{predictedDelay}</div>
                         </div>
                     </Col>
