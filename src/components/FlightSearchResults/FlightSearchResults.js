@@ -142,6 +142,7 @@ class FlightSearchResults extends Component {
                          }>
                     {
                         (executionResult) => {
+                            console.log('flights from A to B - executionResult', executionResult)
                             let data = executionResult.result.rawData.map((row) => {
                                 return {
                                     flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[0], row[1])}>{row[1].name}</a>,

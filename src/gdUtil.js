@@ -17,13 +17,19 @@ const attributeFilter = (labelIdentifier, elementId) => ({
     in: [ elementId ]
 })
 
-export const filteredAfm = (_afm, originId, destinationId) => ({
-    ..._afm,
-    filters: [
-        attributeFilter('attr.dataset_name.originiatacode', originId),
-        attributeFilter('attr.dataset_name.destinationiatacode', destinationId) 
-    ]
-})
+export const filteredAfm = (_afm, originId, destinationId) => {
+    const filters = []
+    if (originId) {
+      filters.push(attributeFilter('attr.dataset_name.originiatacode', originId))
+    }
+    if (destinationId) {
+      filters.push(attributeFilter('attr.dataset_name.destinationiatacode', destinationId))
+    }
+    return {
+        ..._afm,
+        filters
+    }
+}
 
 export const afmMetric = (id) => ({
     id,

@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 
 import catalogJson from '../../catalog.json';
 import cfg from '../../config';
+import {afmMetric, filteredAfm} from '../../gdUtil'
+import {TOTAL_FLIGHTS} from '../../ldm'
 import {setOrigin, setDestination, setCarrier, setPages, setAttributeElements} from '../../store/actions';
 
 import FlightSearchResults from '../FlightSearchResults/FlightSearchResults';
@@ -43,18 +45,29 @@ class FlightSearchPanel extends Component {
         this.props.onCarrierSubmit({carrier: selection});
     }
 
-
-    getLookupAfm(attribute = 'Origin IATA Code') {
-        return ({
+    getLookupAfm(attribute = 'Origin IATA Code', metric = null, originId = null, destinationId = null) {
+        const afm = {
             attributes: [
                 {
                     id: C.attributeDisplayForm(attribute),
                     type: 'attribute'
                 }
-            ]
-        });
+            ],
+            filters: []
+        };
+        if (metric) {
+            afm['measures'] = [ metric ]
+        }
+        return filteredAfm(afm, originId, destinationId)
     }
 
+    getCarriersAfm() {
+        const { origin, destination } = this.props.data
+        const originId = origin ? origin.value : null
+        const destinationId = destination ? destination.value : null
+        const metric = (originId || destinationId) ? afmMetric(TOTAL_FLIGHTS) : null
+        return this.getLookupAfm('Carrier Name', metric, originId, destinationId)
+    }
 
     render() {
         let _c = this;
@@ -107,7 +120,7 @@ class FlightSearchPanel extends Component {
                             <div className="search-results-carrier-name">Select carrier:</div>
                         </Col>
                           
-                            <Execute afm={this.getLookupAfm("Carrier Name")} projectId={cfg.projectId}
+                            <Execute afm={this.getCarriersAfm()} projectId={cfg.projectId}
                                  onLoadingChanged={e => {}} onError={e => {}}>
                             {
                                 (executionResult) => {
