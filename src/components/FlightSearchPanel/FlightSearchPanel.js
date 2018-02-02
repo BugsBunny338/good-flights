@@ -131,7 +131,7 @@ class FlightSearchPanel extends Component {
                                     return (
                                             <Col xs={6} className="search-results-carrier-select-drop">
                                                 <Select id="carrier" style={{margin: '5px'}}
-                                                        value={_c.props.data.carrier}
+                                                        value={_c.props.data.carrierSearch}
                                                         options={options}
                                                         placeholder="All carriers"
                                                         onChange={(selectedValue) => _c.setCarrier(selectedValue)}/>

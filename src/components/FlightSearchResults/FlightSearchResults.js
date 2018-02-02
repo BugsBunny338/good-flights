@@ -121,8 +121,8 @@ class FlightSearchResults extends Component {
 
     render() {
         let _c = this;
-        const {origin, destination, carrier} = this.props.data
-        const optionalCarrier = (!this.props.data.carrier) ? null : this.props.data.carrier.value;
+        const {origin, destination, carrierSearch} = this.props.data
+        const optionalCarrier = (!this.props.data.carrierSearch) ? null : this.props.data.carrierSearch.value;
 
         return (
             <div>

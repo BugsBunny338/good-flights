@@ -31,7 +31,7 @@ export default function dataReducer(state = DEFAULT_STATE, action) {
         case actions.SET_CARRIER:
             return {
                 ...state,
-                carrier: action.carrier
+                carrierSearch: action.carrier
             };
         case actions.SET_DESTINATIONS:
             return {
