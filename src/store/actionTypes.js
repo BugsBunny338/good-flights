@@ -10,7 +10,8 @@ const actions = {
     SET_ATTRIBUTE_ELEMENTS: 'SET_ATTRIBUTE_ELEMENTS',
     SET_ROUTE: 'SET_ROUTE',
     SET_REPORT: 'SET_REPORT',
-    SET_USER: 'SET_USER'
+    SET_USER: 'SET_USER',
+    SET_CARRIER: 'SET_CARRIER'
 };
 
 export default actions;

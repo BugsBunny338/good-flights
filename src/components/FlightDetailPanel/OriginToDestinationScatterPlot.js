@@ -43,7 +43,7 @@ const renderTooltip = (point) => {
         <div>{point.payload[0].name}: {point.payload[0].value}</div>
         <div>{point.payload[1].name}: {point.payload[1].value}</div>
         <div>Carrier: {payload[CARRIER].name}</div>
-        <div>Flight: {payload[CAR_CODE].name}{payload[FLIGHT_NO].name}</div>
+        <div>Flight: {payload[FLIGHT_NO].name}</div>
     </div>
 }
 

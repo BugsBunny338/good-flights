@@ -4,14 +4,14 @@ import {Container, Row, Col} from 'reactstrap';
 
 import cfg from '../config';
 
-class CustomViewPage extends Component {
+class RoutesToMonitorPage extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
 
     render() {
-        let iframeUrl = 'https://secure.gooddata.com/dashboards/embedded/#/project/' + cfg.projectId + '/dashboard/ad2A0DIEalQa?showNavigation=true';
+        let iframeUrl = 'https://secure.gooddata.com/dashboards/embedded/#/project/' + cfg.projectId + '/dashboard/ad2A0DIEalQa';
 
         return (
                 <Row>
@@ -35,4 +35,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomViewPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RoutesToMonitorPage);

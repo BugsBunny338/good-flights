@@ -140,7 +140,7 @@ class ScheduledFlightSearchResults extends Component {
                                             {threshold: 1000, value: 'XXL'}
                                         ])
                                 };
-                                n.predictedDelay = `${Math.round(predict(inputData))}m`;
+                                n.predictedDelay = Math.round(predict(inputData));
                                 _c.setState({delayPredicted: Math.random()});
                             }
                         });
@@ -194,9 +194,17 @@ class ScheduledFlightSearchResults extends Component {
                             },
                             {
                                 Header: "Est. Delay",
-                                accessor: "predictedDelay"
+                                accessor: "predictedDelay",
+                                Cell: row => (<span className="predictedDelay">{parseInt(row.value) || 0} m</span>),
+                                defaultSortDesc: true
                             }
 
+                        ]}
+                        defaultSorted={[
+                            {
+                              id: "predictedDelay",
+                              desc: true
+                            }
                         ]}
                         defaultPageSize={10}
                         showPageSizeOptions={false}

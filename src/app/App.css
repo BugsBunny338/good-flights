@@ -267,8 +267,34 @@ a {
     color: #E0E3E8;
     font-family: BrandonGrotesque-Bold;
     font-size: 18px;
-
 }
+
+.search-results-carrier-name {
+    font-family: Lato, sans-serif;
+    font-weight: 400; 
+    color: #7E859A;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.search-results-carrier-select-drop {
+    font-size: 14px;
+    font-family: Lato, sans-serif;
+    font-weight: 400; 
+}
+
+
+.search-results-carrier-select-drop * {
+     color: #4EB2FA !important;
+    border-style: hidden !important;
+    background-color: #FFFFFF !important;  
+    box-shadow: none !important;
+}
+
+.search-results-carrier-row {
+    margin-top: 20px;
+}
+
 
 
 /* FlightDetailPanel */
