@@ -136,7 +136,10 @@ class ScheduledFlightDetailPanel extends Component {
         const { originWeather, destinationWeather } = this.state
         const flight = this.flightInfo(schedule.ident)
         let predictedDelay = 'No delay'
-        if (flight && flight.predictedDelay && !flight.predictedDelay.startsWith('-')) {
+        console.log('flight', flight)
+        if (flight && (typeof(flight.predictedDelay) === 'number')) {
+            predictedDelay = `${flight.predictedDelay} minutes`
+        } else if (flight && flight.predictedDelay && !flight.predictedDelay.startsWith('-')) {
             predictedDelay = flight.predictedDelay.replace(/m$/, ' minutes')
         }
         if (!(originWeather && destinationWeather && flight)) {
