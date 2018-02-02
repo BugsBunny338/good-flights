@@ -20,6 +20,11 @@ import setupVoice from './voice'
 
 import registerServiceWorker from './registerServiceWorker';
 
+import { config } from 'gooddata';
+import configuration from './config'
+ 
+config.setCustomDomain(configuration.gdCustomDomain);
+
 const history = createHistory()
 const middleware = routerMiddleware(history)
 

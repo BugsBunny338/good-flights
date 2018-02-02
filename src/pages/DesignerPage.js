@@ -11,7 +11,7 @@ class DesignerPage extends Component {
     }
 
     render() {
-        let iframeUrl = 'https://secure.gooddata.com/analyze/embedded/#/' + cfg.projectId + '/reportId/edit';
+        let iframeUrl = `${cfg.gdCustomDomain}/analyze/embedded/#/${cfg.projectId}/reportId/edit`;
         
         return (
             <Row>

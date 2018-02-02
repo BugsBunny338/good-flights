@@ -1,7 +1,6 @@
 let config = {
-    projectId: 'ljh2d3as9i2uw2jqrgcdgu3sl69j5wf0',
-    hostname: 'localhost',
-    port: 3000
+    projectId: 'xucai9ur2k3c8psk77ne3h535sd63bmr',
+    gdCustomDomain: 'https://salesengineering.na.gooddata.com'
 };
 
 export default config;
