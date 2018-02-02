@@ -200,6 +200,7 @@ class FlightSearchResults extends Component {
                                             <div className="selected-results-plot">
                                             <OriginToDestinationScatterPlot originId={origin && origin.value}
                                                                             destinationId={destination && destination.value}
+                                                                            carrierNameId={optionalCarrier}
                                                                             onPointClick={_c.scatterOnPointClick.bind(_c)} />
                                             </div>
                                         </Col>

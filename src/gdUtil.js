@@ -17,13 +17,16 @@ const attributeFilter = (labelIdentifier, elementId) => ({
     in: [ elementId ]
 })
 
-export const filteredAfm = (_afm, originId, destinationId) => {
+export const filteredAfm = (_afm, originId, destinationId, carrierNameId) => {
     const filters = []
     if (originId) {
       filters.push(attributeFilter('attr.dataset_name.originiatacode', originId))
     }
     if (destinationId) {
       filters.push(attributeFilter('attr.dataset_name.destinationiatacode', destinationId))
+    }
+    if (carrierNameId) {
+      filters.push(attributeFilter('attr.dataset_name.carriername', carrierNameId))
     }
     return {
         ..._afm,

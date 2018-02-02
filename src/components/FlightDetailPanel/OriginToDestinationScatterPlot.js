@@ -61,8 +61,8 @@ const renderPoint = (pointData) => {
         d={PLANE_ICON_PATH} />
 }
 
-const OriginToDestinationScatterPlot = ({ originId, destinationId, onPointClick }) => (
-    <Execute afm={filteredAfm(_afm, originId, destinationId)} onError={(e)=>{
+const OriginToDestinationScatterPlot = ({ originId, destinationId, carrierNameId, onPointClick }) => (
+    <Execute afm={filteredAfm(_afm, originId, destinationId, carrierNameId)} onError={(e)=>{
         console.error(e);
     }} onLoadingChanged={(e)=>{
         console.log(e);
