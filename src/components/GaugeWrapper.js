@@ -10,22 +10,20 @@ var GaugeWrapper = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
-    this.update(nextProps)
-  },
-
-  shouldComponentUpdate() {
-    return false
+    if (nextProps.value !== this.props.value) {
+      this.update(nextProps)
+    }
   },
 
   update(props) {
-    this.gauge.setOptions(this.props.options)
-    this.gauge.maxValue = this.props.max;
-    let value = -1
-    if (this.props.value > 0) {
-      if (this.props.value > this.props.max) {
-        value = this.props.max + 1
+    this.gauge.setOptions(props.options)
+    this.gauge.maxValue = props.max;
+    let value = 0
+    if (props.value > 0) {
+      if (props.value > props.max) {
+        value = props.max
       } else {
-        value = this.props.value
+        value = props.value
       }
     }
     this.gauge.set(value);
