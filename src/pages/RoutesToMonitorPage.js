@@ -11,7 +11,7 @@ class RoutesToMonitorPage extends Component {
     }
 
     render() {
-        let iframeUrl = `${cfg.gdCustomDomain}/dashboards/embedded/#/project${cfg.projectId}/dashboard/ad2A0DIEalQa`;
+        let iframeUrl = `${cfg.gdCustomDomain}/dashboards/embedded/#/project/${cfg.projectId}/dashboard/ad2A0DIEalQa`;
 
         return (
                 <Row>
