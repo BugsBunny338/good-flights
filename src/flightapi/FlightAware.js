@@ -6,7 +6,7 @@ function FlightAware(username,apiKey) {
     this.apiKey = apiKey;
 }
 
-FlightAware.host = `${cfg.hostname}:${cfg.port}`;//"flightxml.flightaware.com";
+FlightAware.host = `${window.location.hostname}:${window.location.port}`;//"flightxml.flightaware.com";
 FlightAware.baseURI = "/json/FlightXML2/";
 FlightAware.URL = "https://" + FlightAware.host + FlightAware.baseURI;
 FlightAware.maxRecords = 15;

@@ -6,7 +6,7 @@ function OpenWeather(apiKey) {
     this.apiKey = apiKey;
 }
 
-OpenWeather.host = `${cfg.hostname}:${cfg.port}`;//"flightxml.flightaware.com";
+OpenWeather.host = `${window.location.hostname}:${window.location.port}`;//"flightxml.flightaware.com";
 OpenWeather.baseURI = "/data/2.5/";
 OpenWeather.URL = "https://" + OpenWeather.host + OpenWeather.baseURI;
 

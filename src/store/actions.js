@@ -69,3 +69,8 @@ export const setUser = (user) => ({
     type: t.SET_USER,
     user
 });
+
+export const setCarrierCodesInSearchResult = (carrierCodesInSearchResult) => ({
+    type: t.SET_CARRIER_CODES_IN_SEARCH_RESULT,
+    carrierCodesInSearchResult
+})

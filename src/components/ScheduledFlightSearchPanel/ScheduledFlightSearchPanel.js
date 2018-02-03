@@ -38,13 +38,14 @@ class ScheduledFlightSearchPanel extends Component {
     }
 
     getLookupAfm(attribute = ORIGIN_IATA_CODE) {
+        if (!Array.isArray(attribute)) {
+            attribute = [ attribute ]
+        }
         return ({
-            attributes: [
-                {
-                    id: C.attributeDisplayForm(attribute),
-                    type: 'attribute'
-                }
-            ]
+            attributes: attribute.map(a => ({
+                id: C.attributeDisplayForm(a),
+                type: 'attribute'
+            }))
         });
     }
 
@@ -90,18 +91,24 @@ class ScheduledFlightSearchPanel extends Component {
                             <div className="search-results-carrier-name">Select carrier:</div>
                                                 </Col>
 
-                            <Execute afm={this.getLookupAfm("Carrier Name")} projectId={cfg.projectId}
+                            <Execute afm={this.getLookupAfm([ "Carrier Name", "Carrier" ])} projectId={cfg.projectId}
                                  onLoadingChanged={e => {}} onError={e => {}}>
                             {
                                 (executionResult) => {
+                                    console.log('ScheduledFlightSearchPanel _c.props.data.carrierCodesInSearchResult', _c.props.data.carrierCodesInSearchResult)
                                     let options = executionResult.result.rawData.map((row) => {
-                                        return {value: row[0].id, label: row[0].name}
-                                    });
+                                        return {
+                                            value: row[0].id, label: row[0].name,
+                                            codeValue: row[1].id, codeLabel: row[1].name
+                                        }
+                                    }).filter(row => ( // show only airlines from the list of scheduled flights
+                                        !_c.props.data.carrierCodesInSearchResult || _c.props.data.carrierCodesInSearchResult[row.codeLabel]
+                                    ));
                                     this.props.setAttributeElements(C.attributeDisplayForm("Carrier Name"), options)
                                     return (
                                             <Col xs={6} className="search-results-carrier-select-drop">
                                                 <Select id="carrier" style={{margin: '5px'}}
-                                                        value={_c.props.data.carrier}
+                                                        value={_c.props.data.carrierSearch}
                                                         options={options}
                                                         placeholder="All carriers"
                                                         onChange={(selectedValue) => _c.setCarrier(selectedValue)}/>

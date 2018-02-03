@@ -121,8 +121,8 @@ class FlightSearchResults extends Component {
 
     render() {
         let _c = this;
-        const {origin, destination, carrier} = this.props.data
-        const optionalCarrier = (!this.props.data.carrier) ? null : this.props.data.carrier.value;
+        const {origin, destination, carrierSearch} = this.props.data
+        const optionalCarrier = (!this.props.data.carrierSearch) ? null : this.props.data.carrierSearch.value;
 
         return (
             <div>
@@ -142,6 +142,7 @@ class FlightSearchResults extends Component {
                          }>
                     {
                         (executionResult) => {
+                            console.log('flights from A to B - executionResult', executionResult)
                             let data = executionResult.result.rawData.map((row) => {
                                 return {
                                     flightNum: <a href="" onClick={(e) => _c.flightSelected(e, row[0], row[1])}>{row[1].name}</a>,
@@ -199,6 +200,7 @@ class FlightSearchResults extends Component {
                                             <div className="selected-results-plot">
                                             <OriginToDestinationScatterPlot originId={origin && origin.value}
                                                                             destinationId={destination && destination.value}
+                                                                            carrierNameId={optionalCarrier}
                                                                             onPointClick={_c.scatterOnPointClick.bind(_c)} />
                                             </div>
                                         </Col>

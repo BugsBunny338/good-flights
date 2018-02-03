@@ -28,11 +28,6 @@
     "weather-icons": "^1.3.2"
   },
   "proxy": {
-    "/gdc": {
-      "changeOrigin": true,
-      "cookieDomainRewrite": "localhost",
-      "target": "https://secure.gooddata.com/"
-    },
     "/json": {
       "changeOrigin": true,
       "cookieDomainRewrite": "localhost",
@@ -42,11 +37,6 @@
       "changeOrigin": true,
       "cookieDomainRewrite": "localhost",
       "target": "https://api.openweathermap.org/"
-    },
-    "/*.html": {
-      "changeOrigin": true,
-      "secure": false,
-      "target": "https://secure.gooddata.com/"
     }
   },
   "scripts": {
