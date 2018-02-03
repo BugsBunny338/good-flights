@@ -58,6 +58,11 @@ export default function dataReducer(state = DEFAULT_STATE, action) {
             return {
                 ...DEFAULT_STATE
             };
+        case actions.SET_CARRIER_CODES_IN_SEARCH_RESULT:
+            return {
+                ...state,
+                carrierCodesInSearchResult: action.carrierCodesInSearchResult
+            }
         default:
             return state;
     }

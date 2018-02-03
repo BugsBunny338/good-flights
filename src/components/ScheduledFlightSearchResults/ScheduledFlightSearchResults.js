@@ -11,7 +11,7 @@ import ScheduledFlightDetailPanel from '../ScheduledFlightDetailPanel/ScheduledF
 import FlightAware from '../../flightapi/FlightAware';
 import passwd from '../../passwd';
 import predict from '../../ai/model';
-import {setOrigin, setDestinations, setPages, setSchedule} from "../../store/actions";
+import {setOrigin, setDestinations, setPages, setSchedule, setCarrierCodesInSearchResult} from "../../store/actions";
 import airports from "../../flightapi/airports";
 import holidays from "../../flightapi/holidays";
 
@@ -22,7 +22,6 @@ class ScheduledFlightSearchResults extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-
         this.scheduleSelected = this.scheduleSelected.bind(this);
         this.getScheduledFlights = this.getScheduledFlights.bind(this);
         this.bucket = this.bucket.bind(this);
@@ -47,6 +46,7 @@ class ScheduledFlightSearchResults extends Component {
 
     getScheduledFlights(props) {
         let _c = this;
+        const carrierCodesInSearchResult = {}
         if (props.data && props.data.scheduledOrigin) {
             let f = new FlightAware();
             f.setCredentials(passwd.flightAwareApiUser, passwd.flightAwareApiKey);
@@ -56,6 +56,7 @@ class ScheduledFlightSearchResults extends Component {
                 }
                 else {
                     let filtered = r.scheduled.filter(d => airports[d.destination.substring(1)]).map(d => {
+                        carrierCodesInSearchResult[d.ident.replace(/\d+/, '')] = true
                         return {
                             ...d,
                             destination: d.destination.substring(1),
@@ -151,12 +152,14 @@ class ScheduledFlightSearchResults extends Component {
                 }
             });
         }
+        this.props.setCarrierCodesInSearchResult(carrierCodesInSearchResult)
     }
 
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.data.scheduledOrigin && (!this.props.data || !this.props.data.scheduledOrigin ||
                 nextProps.data.scheduledOrigin !== this.props.data.scheduledOrigin)) {
+            this.carrierCodesInSearchResult = {}
             this.getScheduledFlights(nextProps);
         }
     }
@@ -169,12 +172,25 @@ class ScheduledFlightSearchResults extends Component {
 
     render() {
         let _c = this;
+        const { carrierSearch } = this.props.data
+        console.log('getScheduledFlights cs', carrierSearch)
+        let data = null
+        if (_c.state.data) {
+            data = _c.state.data.filter(d => {
+                if (carrierSearch) {
+                    return d.ident.startsWith(carrierSearch.codeLabel)
+                }
+                return true
+            })
+        }
+        console.log('data', data)
+
         return (<Container fluid={true} className="selected-results">
             <Row>
             <Col xs={12} className="select-title">RESULT</Col>
                 <Col xs={12}>
-                    {this.props.data.scheduledOrigin && <ReactTable
-                        data={_c.state.data}
+                    {this.props.data.scheduledOrigin && data && <ReactTable
+                        data={data}
                         columns={[
                             {
                                 Header: "Flight #",
@@ -220,7 +236,8 @@ const mapDispatchToProps = {
     onOriginSubmit: setOrigin,
     onDestinationsSubmit: setDestinations,
     onScheduleSubmit: setSchedule,
-    onPagesSubmit: setPages
+    onPagesSubmit: setPages,
+    setCarrierCodesInSearchResult
 };
 
 

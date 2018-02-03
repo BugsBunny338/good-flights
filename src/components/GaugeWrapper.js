@@ -3,10 +3,23 @@ import ReactDOM from 'react-dom'
 import { Gauge } from 'gaugeJS'
 
 var GaugeWrapper = React.createClass({
-  componentDidMount(){
+  componentDidMount() {
     var target = ReactDOM.findDOMNode(this)
-    var gauge = new Gauge(target).setOptions(this.props.options);
-    gauge.maxValue = this.props.max;
+    this.gauge = new Gauge(target);
+    this.update(this.props)
+  },
+
+  componentWillReceiveProps(nextProps) {
+    this.update(nextProps)
+  },
+
+  shouldComponentUpdate() {
+    return false
+  },
+
+  update(props) {
+    this.gauge.setOptions(this.props.options)
+    this.gauge.maxValue = this.props.max;
     let value = -1
     if (this.props.value > 0) {
       if (this.props.value > this.props.max) {
@@ -15,8 +28,9 @@ var GaugeWrapper = React.createClass({
         value = this.props.value
       }
     }
-    gauge.set(value);
+    this.gauge.set(value);
   },
+
   render(){
     return <canvas width={this.props.width} height={this.props.height} />
   }
