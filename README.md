@@ -1,7 +1,7 @@
 # Overview
 
 This is GoodFlight demo. This code requires the 
-[GoodFlights Demo project](https://secure.gooddata.com/gdc/projects/ljh2d3as9i2uw2jqrgcdgu3sl69j5wf0)
+[GoodFlights Demo project](https://salesengineering.na.gooddata.com/#s=/gdc/projects/o5ejkq2q2pdn8zsgmftil43p4icij2lv|projectDashboardPage)
 
 # Installation
 
